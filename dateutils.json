@@ -4,11 +4,8 @@
   "description" : "Parse, format and calculate with dates. Can be used with both node and browsers",
   "keywords"    : [
     "tags",
-    "ui",
-    "input",
     "calendar",
     "date",
-    "dateinput",
     "dates",
     "i18n"
   ],
