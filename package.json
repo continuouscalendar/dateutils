@@ -7,8 +7,7 @@
     "url": "https://github.com/reaktor/jquery-continuous-calendar"
   },
   "scripts": {
-    "test": "mocha-phantomjs src/test/jquery.continuousCalendar.spec.html --reporter dot",
-    "prepublish": "r.js -o src/build/build.js && r.js -o site/playground-build.js"
+    "test": "mocha spec --reporter dot --require spec/helpers/testconfig.js"
   },
   "keywords": [
     "calendar",
@@ -34,13 +33,12 @@
     "package.json",
     "LICENSE-2.0.txt"
   ],
+  "devDependencies": {
+    "mocha": "~1.14.0",
+    "chai": "~1.8.1"
+  },
   "dependencies": {
     "requirejs": "~2.1.10",
-    "mocha": "~1.14.0",
-    "mocha-phantomjs": "~3.1.6",
-    "chai": "~1.8.1",
-    "chai-jquery": "~1.1.2",
-    "almond": "~0.2.6",
-    "phantomjs": "^1.9.7-1"
+    "almond": "~0.2.6"
   }
 }

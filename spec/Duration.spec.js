@@ -1,5 +1,4 @@
-define(function(require, exports, module) {
-  var Duration = require('../main/Duration')
+  var Duration = require('../src/Duration')
   with(Duration) {
     describe(module.id, function() {
       describe('creating durations with factory methods', function() {
@@ -22,4 +21,3 @@ define(function(require, exports, module) {
       })
     })
   }
-})
