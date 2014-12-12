@@ -1,5 +1,4 @@
 define(function(require) {
-  var $ = require('jquery')
   var DateTime = require('./DateTime')
   var DateFormat = require('./DateFormat')
   var DateParse = require('./DateParse')
@@ -23,7 +22,7 @@ define(function(require) {
       this.days = function() {
         return 0
       }
-      this.shiftDays = $.noop
+      this.shiftDays = function() {}
       this.hasDate = function() { return false }
       this.clone = function() { return DateRange.emptyRange() }
       this.expandDaysTo = function() { return this }

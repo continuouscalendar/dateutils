@@ -7,6 +7,8 @@
 *.swp
 .idea/workspace.xml
 out/
+.idea
 .sass-cache
 .idea/libraries/
 .idea/jsLibraryMappings.xml
+node_modules

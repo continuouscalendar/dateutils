@@ -1,7 +1,5 @@
 define(function(require) {
   var DateTime = require('./DateTime')
-  var $ = require('jquery')
-
   var DateParse = {}
   DateParse.parseRegexes = []
   DateParse.defaultFormat = 'n/j/Y'
@@ -30,7 +28,7 @@ define(function(require) {
     function matchesToObject(matchValues) {
       var day = {}
       var keys = format.replace(/[^djmnY]/g, '').split('')
-      $.map(keys, function(key, i) { day[key] = +matchValues[i+1] })
+      for(var i = 0; i < keys.length; i++) day[keys[i]] = +matchValues[i+1]
       return day
     }
 

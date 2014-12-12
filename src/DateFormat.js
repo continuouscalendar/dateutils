@@ -92,8 +92,8 @@ define(function(require) {
 
   function getGMTOffset(dateTime) {
     return (dateTime.date.getTimezoneOffset() > 0 ? '-' : '+') +
-      leftPad(Math.floor(dateTime.getTimezoneOffset() / 60), 2, '0') +
-      leftPad(dateTime.getTimezoneOffset() % 60, 2, '0')
+        leftPad(Math.floor(dateTime.getTimezoneOffset() / 60), 2, '0') +
+        leftPad(dateTime.getTimezoneOffset() % 60, 2, '0')
   }
 
   function leftPad(val, size, ch) {

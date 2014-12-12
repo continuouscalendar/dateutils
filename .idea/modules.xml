@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jquery-continuous-calendar.iml" filepath="$PROJECT_DIR$/jquery-continuous-calendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/dateutils.iml" filepath="$PROJECT_DIR$/.idea/dateutils.iml" />
     </modules>
   </component>
 </project>
-

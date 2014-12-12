@@ -1,8 +1,8 @@
 define(function(require, _exports, module) {
-  var DateTime = require('../main/DateTime')
-  var DateRange = require('../main/DateRange')
-  var DateFormat = require('../main/DateFormat')
-  var DateLocale = require('../main/DateLocale')
+  var DateTime = require('../src/DateTime')
+  var DateRange = require('../src/DateRange')
+  var DateFormat = require('../src/DateFormat')
+  var DateLocale = require('../src/DateLocale')
 
   describe(module.id, function() {
     var range

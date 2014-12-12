@@ -1,6 +1,4 @@
-define(function(require) {
-  var $ = require('jquery')
-
+define(function() {
   function DateTime(date) {
     if(arguments.length === 0) this.date = new Date()
     else if(date instanceof Date) this.date = new Date(date)
@@ -249,14 +247,14 @@ define(function(require) {
   DateTime.prototype.toISODateString = function() { return isoDate.call(this) }
 
   function isoDate() {
-    return $.map([this.getFullYear(), (this.getMonth()), this.getDate()], withTwoDigitsAtLeast).join('-')
+    return this.getFullYear() + '-' + twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate())
   }
 
   function isoTime() {
-    return $.map([this.getHours(), this.getMinutes(), this.getSeconds()], withTwoDigitsAtLeast).join(':')
+    return twoDigits(this.getHours()) + ':' + twoDigits(this.getMinutes()) + ':' + twoDigits(this.getSeconds())
   }
 
-  function withTwoDigitsAtLeast(value) { return value < 10 ? '0' + value : '' + value}
+  function twoDigits(value) { return value < 10 ? '0' + value : '' + value}
 
   function createSafeDate(year, month, date, hours, minutes, seconds) {
     hours = hours || 0
@@ -264,12 +262,12 @@ define(function(require) {
     seconds = seconds || 0
     var newDate = new Date(year, month - 1, date, hours, minutes, seconds, 0)
     if(newDate.toString() === 'Invalid Date' ||
-      month !== newDate.getMonth() + 1 ||
-      year !== newDate.getFullYear() ||
-      date !== newDate.getDate() ||
-      hours !== newDate.getHours() ||
-      minutes !== newDate.getMinutes() ||
-      seconds !== newDate.getSeconds()) throw Error('Invalid Date: ' + year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds)
+        month !== newDate.getMonth() + 1 ||
+        year !== newDate.getFullYear() ||
+        date !== newDate.getDate() ||
+        hours !== newDate.getHours() ||
+        minutes !== newDate.getMinutes() ||
+        seconds !== newDate.getSeconds()) throw Error('Invalid Date: ' + year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds)
     return  newDate
   }
 

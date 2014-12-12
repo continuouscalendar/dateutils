@@ -1,0 +1,37 @@
+{
+  "name"        : "dateutils",
+  "title"       : "Lightweight date library for javascript",
+  "description" : "Parse, format and calculate with dates. Can be used with both node and browsers",
+  "keywords"    : [
+    "tags",
+    "ui",
+    "input",
+    "calendar",
+    "date",
+    "dateinput",
+    "dates",
+    "i18n"
+  ],
+  "version"     : "0.1",
+  "author"      : {
+    "name": "Eero Anttila",
+    "url" : "http://eeroanttila.wordpress.com/about/"
+  },
+  "maintainers" : [
+    {
+      "name" : "Eero Anttila",
+      "email": "eea@iki.fi",
+      "url"  : "http://eeroanttila.wordpress.com/about/"
+    }
+  ],
+  "licenses"    : [
+    {
+      "type": "Apache License, Version 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "bugs"        : "https://github.com/reaktor/dateutils/issues",
+  "homepage"    : "http://reaktor.github.com/dateutils/",
+  "docs"        : "http://reaktor.github.com/dateutils/",
+  "download"    : "https://github.com/reaktor/dateutils/archive/0.1.zip",
+}
