@@ -7,7 +7,8 @@
     "url": "https://github.com/reaktor/dateutils"
   },
   "scripts": {
-    "test": "mocha spec --reporter dot --require spec/helpers/testconfig.js"
+    "test": "mocha spec --reporter dot --require spec/helpers/testconfig.js",
+    "prepublish": "doxx --source src --target docs"
   },
   "keywords": [
     "calendar",
@@ -22,7 +23,7 @@
     "url": "https://github.com/reaktor/dateutils/issues"
   },
   "main": "./src/index.js",
-  "homepage": "http://reaktor.github.com/dateutils/",
+  "homepage": "http://reaktor.github.com/dateutils/docs",
   "files": [
     "src",
     "package.json",
@@ -32,7 +33,8 @@
   "devDependencies": {
     "mocha": "~1.14.0",
     "chai": "~1.8.1",
-    "requirejs": "~2.1.10"
+    "requirejs": "~2.1.10",
+    "doxx": "^1.2.1"
   },
   "dependencies": {
   }
