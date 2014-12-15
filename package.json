@@ -30,10 +30,9 @@
   ],
   "devDependencies": {
     "mocha": "~1.14.0",
-    "chai": "~1.8.1"
+    "chai": "~1.8.1",
+    "requirejs": "~2.1.10"
   },
   "dependencies": {
-    "requirejs": "~2.1.10",
-    "almond": "~0.2.6"
   }
 }
