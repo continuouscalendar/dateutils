@@ -1,0 +1,116 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.0.2
+3 info using node@v0.10.32
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add spec="." args=[".",null]
+8 verbose parsed spec { raw: '.',
+8 verbose parsed spec   scope: null,
+8 verbose parsed spec   name: null,
+8 verbose parsed spec   rawSpec: '.',
+8 verbose parsed spec   spec: '/Users/eeroan/work/dateutils',
+8 verbose parsed spec   type: 'local' }
+9 verbose cache add local package /Users/eeroan/work/dateutils
+10 silly lockFile 3a52ce78- .
+11 verbose lock . /Users/eeroan/.npm/3a52ce78-.lock
+12 verbose tar pack [ '/Users/eeroan/.npm/dateutils/0.1.4/package.tgz', '.' ]
+13 verbose tarball /Users/eeroan/.npm/dateutils/0.1.4/package.tgz
+14 verbose folder .
+15 info prepublish dateutils@0.1.4
+16 verbose unsafe-perm in lifecycle true
+17 silly lockFile 1f1177db-tar tar://.
+18 verbose lock tar://. /Users/eeroan/.npm/1f1177db-tar.lock
+19 silly lockFile 332052c7--npm-dateutils-0-1-4-package-tgz tar:///Users/eeroan/.npm/dateutils/0.1.4/package.tgz
+20 verbose lock tar:///Users/eeroan/.npm/dateutils/0.1.4/package.tgz /Users/eeroan/.npm/332052c7--npm-dateutils-0-1-4-package-tgz.lock
+21 silly lockFile 1f1177db-tar tar://.
+22 silly lockFile 1f1177db-tar tar://.
+23 silly lockFile 332052c7--npm-dateutils-0-1-4-package-tgz tar:///Users/eeroan/.npm/dateutils/0.1.4/package.tgz
+24 silly lockFile 332052c7--npm-dateutils-0-1-4-package-tgz tar:///Users/eeroan/.npm/dateutils/0.1.4/package.tgz
+25 silly lockFile 70f24a2f-roan-npm-dateutils-0-1-4-package /Users/eeroan/.npm/dateutils/0.1.4/package
+26 verbose lock /Users/eeroan/.npm/dateutils/0.1.4/package /Users/eeroan/.npm/70f24a2f-roan-npm-dateutils-0-1-4-package.lock
+27 silly lockFile 70f24a2f-roan-npm-dateutils-0-1-4-package /Users/eeroan/.npm/dateutils/0.1.4/package
+28 silly lockFile 70f24a2f-roan-npm-dateutils-0-1-4-package /Users/eeroan/.npm/dateutils/0.1.4/package
+29 silly lockFile 3a52ce78- .
+30 silly lockFile 3a52ce78- .
+31 silly publish { name: 'dateutils',
+31 silly publish   version: '0.1.4',
+31 silly publish   description: 'Lightweight date library for javascript',
+31 silly publish   repository: { type: 'git', url: 'https://github.com/reaktor/dateutils' },
+31 silly publish   scripts:
+31 silly publish    { test: 'mocha spec --reporter dot --require spec/helpers/testconfig.js',
+31 silly publish      prepublish: 'doxx --source src --target docs' },
+31 silly publish   keywords: [ 'calendar', 'date', 'dates', 'i18n', 'ui' ],
+31 silly publish   author: { name: 'Eero Anttila' },
+31 silly publish   license: 'Apache-2.0',
+31 silly publish   bugs: { url: 'https://github.com/reaktor/dateutils/issues' },
+31 silly publish   main: './src/index.js',
+31 silly publish   homepage: 'http://reaktor.github.com/dateutils/docs',
+31 silly publish   files: [ 'src', 'package.json', 'LICENSE-2.0.txt', 'README.md' ],
+31 silly publish   devDependencies:
+31 silly publish    { mocha: '~1.14.0',
+31 silly publish      chai: '~1.8.1',
+31 silly publish      requirejs: '~2.1.10',
+31 silly publish      doxx: '^1.2.1' },
+31 silly publish   dependencies: {},
+31 silly publish   readme: 'Supported languages\n===================\n\n-   English\n-   Estonian\n-   Finnish\n-   Latvian\n-   Russian\n-   Swedish\n\n\nLicense\n=======\n\nLicensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.\n',
+31 silly publish   readmeFilename: 'README.md',
+31 silly publish   gitHead: 'd049a3f78b858f836cafd6a4760e6eac54f6f9c8',
+31 silly publish   _id: 'dateutils@0.1.4',
+31 silly publish   _shasum: 'ff0001f4ca46a94d277db318382f82843cf28777',
+31 silly publish   _from: '.' }
+32 verbose mapToRegistry name dateutils
+33 verbose mapToRegistry uri https://registry.npmjs.org/dateutils
+34 verbose publish registryBase https://registry.npmjs.org/
+35 verbose request on initialization, where is /dateutils
+36 verbose request after pass 1, where is /dateutils
+37 verbose request url raw /dateutils
+38 verbose request resolving registry [ 'https://registry.npmjs.org/', './dateutils' ]
+39 verbose request after pass 2, where is https://registry.npmjs.org/dateutils
+40 verbose request sending authorization for write operation
+41 info attempt registry request try #1 at 14:32:55
+42 verbose request id e5dd36c88f9e101e
+43 http request PUT https://registry.npmjs.org/dateutils
+44 http 403 https://registry.npmjs.org/dateutils
+45 verbose headers { date: 'Mon, 15 Dec 2014 12:32:57 GMT',
+45 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+45 verbose headers   'content-type': 'application/json',
+45 verbose headers   'cache-control': 'max-age=60',
+45 verbose headers   'content-length': '3472',
+45 verbose headers   'accept-ranges': 'bytes',
+45 verbose headers   via: '1.1 varnish',
+45 verbose headers   'x-served-by': 'cache-ams4121-AMS',
+45 verbose headers   'x-cache': 'MISS',
+45 verbose headers   'x-cache-hits': '0',
+45 verbose headers   'x-timer': 'S1418646776.772882,VS0,VE767',
+45 verbose headers   'keep-alive': 'timeout=10, max=50',
+45 verbose headers   connection: 'Keep-Alive' }
+46 error publish Failed PUT 403
+47 verbose stack Error: forbidden cannot modify pre-existing version: 0.1.4
+47 verbose stack old={"name":"dateutils","version":"0.1.4","description":"Lightweight date library for javascript","repository":{"type":"git","url":"https://github.com/reaktor/dateutils"},"scripts":{"test":"mocha spec --reporter dot --require spec/helpers/testconfig.js"},"keywords":["calendar","date","dates","i18n","ui"],"author":{"name":"Eero Anttila"},"license":"Apache-2.0","bugs":{"url":"https://github.com/reaktor/dateutils/issues"},"main":"./src/index.js","homepage":"http://reaktor.github.com/dateutils/","files":["src","package.json","LICENSE-2.0.txt","README.md"],"devDependencies":{"mocha":"~1.14.0","chai":"~1.8.1","requirejs":"~2.1.10"},"dependencies":{},"gitHead":"6776f96b77abcf11512190024afb8b4af367d602","_id":"dateutils@0.1.4","_shasum":"9aabb7e9493bbad01b695fb4207c0c5f6fd3e682","_from":".","_npmVersion":"2.0.2","_nodeVersion":"0.10.32","_npmUser":{"name":"eeroan","email":"eero.anttila@reaktor.fi"},"maintainers":[{"name":"eeroan","email":"eero.anttila@reaktor.fi"}],"dist":{"shasum":"9aabb7e9493bbad01b695fb4207c0c5f6fd3e682","tarball":"http://registry.npmjs.org/dateutils/-/dateutils-0.1.4.tgz"}}
+47 verbose stack new={"name":"dateutils","version":"0.1.4","description":"Lightweight date library for javascript","repository":{"type":"git","url":"https://github.com/reaktor/dateutils"},"scripts":{"test":"mocha spec --reporter dot --require spec/helpers/testconfig.js","prepublish":"doxx --source src --target docs"},"keywords":["calendar","date","dates","i18n","ui"],"author":{"name":"Eero Anttila"},"license":"Apache-2.0","bugs":{"url":"https://github.com/reaktor/dateutils/issues"},"main":"./src/index.js","homepage":"http://reaktor.github.com/dateutils/docs","files":["src","package.json","LICENSE-2.0.txt","README.md"],"devDependencies":{"mocha":"~1.14.0","chai":"~1.8.1","requirejs":"~2.1.10","doxx":"^1.2.1"},"dependencies":{},"readme":"Supported languages\u000a===================\u000a\u000a-   English\u000a-   Estonian\u000a-   Finnish\u000a-   Latvian\u000a-   Russian\u000a-   Swedish\u000a\u000a\u000aLicense\u000a=======\u000a\u000aLicensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License. You may obtain a copy of the License at\u000a\u000ahttp://www.apache.org/licenses/LICENSE-2.0\u000a\u000aUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.\u000a","readmeFilename":"README.md","gitHead":"d049a3f78b858f836cafd6a4760e6eac54f6f9c8","_id":"dateutils@0.1.4","_shasum":"ff0001f4ca46a94d277db318382f82843cf28777","_from":".","_npmVersion":"2.0.2","_nodeVersion":"0.10.32","_npmUser":{"name":"eeroan","email":"eero.anttila@reaktor.fi"},"maintainers":[{"name":"eeroan","email":"eero.anttila@reaktor.fi"}],"dist":{"shasum":"ff0001f4ca46a94d277db318382f82843cf28777","tarball":"http://registry.npmjs.org/dateutils/-/dateutils-0.1.4.tgz"}}: dateutils
+47 verbose stack     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:260:14)
+47 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:197:65)
+47 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:237:22)
+47 verbose stack     at Request.emit (events.js:98:17)
+47 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1146:14)
+47 verbose stack     at Request.emit (events.js:117:20)
+47 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1097:12)
+47 verbose stack     at IncomingMessage.emit (events.js:117:20)
+47 verbose stack     at _stream_readable.js:943:16
+47 verbose stack     at process._tickCallback (node.js:419:13)
+48 verbose statusCode 403
+49 verbose pkgid dateutils
+50 verbose cwd /Users/eeroan/work/dateutils
+51 error Darwin 13.4.0
+52 error argv "node" "/usr/local/bin/npm" "publish"
+53 error node v0.10.32
+54 error npm  v2.0.2
+55 error code E403
+56 error forbidden cannot modify pre-existing version: 0.1.4
+56 error old={"name":"dateutils","version":"0.1.4","description":"Lightweight date library for javascript","repository":{"type":"git","url":"https://github.com/reaktor/dateutils"},"scripts":{"test":"mocha spec --reporter dot --require spec/helpers/testconfig.js"},"keywords":["calendar","date","dates","i18n","ui"],"author":{"name":"Eero Anttila"},"license":"Apache-2.0","bugs":{"url":"https://github.com/reaktor/dateutils/issues"},"main":"./src/index.js","homepage":"http://reaktor.github.com/dateutils/","files":["src","package.json","LICENSE-2.0.txt","README.md"],"devDependencies":{"mocha":"~1.14.0","chai":"~1.8.1","requirejs":"~2.1.10"},"dependencies":{},"gitHead":"6776f96b77abcf11512190024afb8b4af367d602","_id":"dateutils@0.1.4","_shasum":"9aabb7e9493bbad01b695fb4207c0c5f6fd3e682","_from":".","_npmVersion":"2.0.2","_nodeVersion":"0.10.32","_npmUser":{"name":"eeroan","email":"eero.anttila@reaktor.fi"},"maintainers":[{"name":"eeroan","email":"eero.anttila@reaktor.fi"}],"dist":{"shasum":"9aabb7e9493bbad01b695fb4207c0c5f6fd3e682","tarball":"http://registry.npmjs.org/dateutils/-/dateutils-0.1.4.tgz"}}
+56 error new={"name":"dateutils","version":"0.1.4","description":"Lightweight date library for javascript","repository":{"type":"git","url":"https://github.com/reaktor/dateutils"},"scripts":{"test":"mocha spec --reporter dot --require spec/helpers/testconfig.js","prepublish":"doxx --source src --target docs"},"keywords":["calendar","date","dates","i18n","ui"],"author":{"name":"Eero Anttila"},"license":"Apache-2.0","bugs":{"url":"https://github.com/reaktor/dateutils/issues"},"main":"./src/index.js","homepage":"http://reaktor.github.com/dateutils/docs","files":["src","package.json","LICENSE-2.0.txt","README.md"],"devDependencies":{"mocha":"~1.14.0","chai":"~1.8.1","requirejs":"~2.1.10","doxx":"^1.2.1"},"dependencies":{},"readme":"Supported languages\u000a===================\u000a\u000a-   English\u000a-   Estonian\u000a-   Finnish\u000a-   Latvian\u000a-   Russian\u000a-   Swedish\u000a\u000a\u000aLicense\u000a=======\u000a\u000aLicensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License. You may obtain a copy of the License at\u000a\u000ahttp://www.apache.org/licenses/LICENSE-2.0\u000a\u000aUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.\u000a","readmeFilename":"README.md","gitHead":"d049a3f78b858f836cafd6a4760e6eac54f6f9c8","_id":"dateutils@0.1.4","_shasum":"ff0001f4ca46a94d277db318382f82843cf28777","_from":".","_npmVersion":"2.0.2","_nodeVersion":"0.10.32","_npmUser":{"name":"eeroan","email":"eero.anttila@reaktor.fi"},"maintainers":[{"name":"eeroan","email":"eero.anttila@reaktor.fi"}],"dist":{"shasum":"ff0001f4ca46a94d277db318382f82843cf28777","tarball":"http://registry.npmjs.org/dateutils/-/dateutils-0.1.4.tgz"}}: dateutils
+57 error If you need help, you may report this error at:
+57 error     <http://github.com/npm/npm/issues>
+58 verbose exit [ 1, true ]
