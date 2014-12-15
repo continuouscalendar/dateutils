@@ -21,8 +21,14 @@
   "bugs": {
     "url": "https://github.com/reaktor/dateutils/issues"
   },
-  "main": "./src",
+  "main": "./src/index.js",
   "homepage": "http://reaktor.github.com/dateutils/",
+  "files": [
+    "src",
+    "package.json",
+    "LICENSE-2.0.txt",
+    "README.md"
+  ],
   "devDependencies": {
     "mocha": "~1.14.0",
     "chai": "~1.8.1",
