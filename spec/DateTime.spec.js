@@ -198,6 +198,15 @@ describe(module.id, function () {
         })
       })
 
+      describe('plusMinutes', function () {
+        it('adds minutes to given date', function () {
+          var original = fromDateTime(2014, 1, 1, 10, 5)
+          expect(original.plusMinutes(10).toISOString()).to.equal('2014-01-01T10:15:00')
+          expect(original.plusMinutes(80).toISOString()).to.equal('2014-01-01T11:25:00')
+          expect(original.minusMinutes(20).toISOString()).to.equal('2014-01-01T09:45:00')
+        })
+      })
+
       describe('getWeekInYear', function () {
         expect(sequence(2000, 2010).map(firstWeekOfYear('ISO'))).to.eql([52, 1, 1, 1, 1, 53, 52, 1, 1, 1, 53])
         expect(sequence(2000, 2010).map(firstWeekOfYear('US'))).to.eql([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])

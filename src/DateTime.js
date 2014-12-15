@@ -150,6 +150,14 @@
     return newDateTime
   }
 
+  DateTime.prototype.plusMinutes = function (minutes) {
+    return DateTime.fromMillis(this.clone().getTime() + (minutes * DateTime.MINUTE))
+  }
+
+  DateTime.prototype.minusMinutes = function (minutes) {
+    return this.plusMinutes(-minutes)
+  }
+
   DateTime.prototype.minusDays = function(days) {
     return this.plusDays(-days)
   }
