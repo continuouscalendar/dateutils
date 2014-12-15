@@ -131,9 +131,8 @@
   DateTime.prototype.getDayInYear = function() { return DateTime.getDayInYear(this.getFullYear(), this.getMonth(), this.getDate()) }
 
   DateTime.prototype.plusDays = function(days) {
-    var newDateTime = this.clone()
+    var newDateTime = DateTime.fromMillis(this.getTime() + days * DateTime.DAY)
     var hours = this.getHours()
-    newDateTime.date.setTime(this.getTime() + days * DateTime.DAY)
 
     // Fix the DateTime offset caused by daylight saving time
     var delta = hours - newDateTime.getHours()
@@ -145,7 +144,7 @@
       if(delta < -12) {
         delta += 24
       }
-      newDateTime.date.setTime(newDateTime.getTime() + (delta * DateTime.HOUR))
+      return DateTime.fromMillis(newDateTime.getTime() + (delta * DateTime.HOUR))
     }
     return newDateTime
   }
