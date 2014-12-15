@@ -9,7 +9,7 @@
     "dates",
     "i18n"
   ],
-  "version"     : "0.1.0",
+  "version"     : "0.1.1",
   "author"      : {
     "name": "Eero Anttila",
     "url" : "http://eeroanttila.wordpress.com/about/"
@@ -30,5 +30,5 @@
   "bugs"        : "https://github.com/reaktor/dateutils/issues",
   "homepage"    : "http://reaktor.github.com/dateutils/",
   "docs"        : "http://reaktor.github.com/dateutils/",
-  "download"    : "https://github.com/reaktor/dateutils/archive/0.1.zip",
+  "download"    : "https://github.com/reaktor/dateutils/archive/0.1.1.zip"
 }
