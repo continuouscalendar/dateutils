@@ -9,6 +9,5 @@
 out/
 .idea
 .sass-cache
-.idea/libraries/
-.idea/jsLibraryMappings.xml
+.idea
 node_modules
