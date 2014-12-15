@@ -23,11 +23,6 @@
   },
   "main": "./src",
   "homepage": "http://reaktor.github.com/dateutils/",
-  "files": [
-    "src",
-    "package.json",
-    "LICENSE-2.0.txt"
-  ],
   "devDependencies": {
     "mocha": "~1.14.0",
     "chai": "~1.8.1",
