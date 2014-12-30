@@ -1,3 +1,12 @@
+Documentation
+=============
+
+```DateTime.fromDateTime(2010, 12, 15, 14, 35).plusDays(10).toISOString() ===  '2010-12-25T14:35:00'```
+```DateFormat.format(DateTime.fromDate(2010, 12, 15), 'Y-m-d') === '2010-12-15'```
+
+[Documentation](http://continuouscalendar.github.com/dateutils/")
+
+
 Supported languages
 ===================
 

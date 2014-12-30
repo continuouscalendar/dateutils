@@ -1,10 +1,10 @@
 {
   "name": "dateutils",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Lightweight date library for javascript",
   "repository": {
     "type": "git",
-    "url": "https://github.com/reaktor/dateutils"
+    "url": "https://github.com/continuouscalendar/dateutils"
   },
   "scripts": {
     "test": "mocha spec --reporter dot --require spec/helpers/testconfig.js",
@@ -20,10 +20,10 @@
   "author": "Eero Anttila",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/reaktor/dateutils/issues"
+    "url": "https://github.com/continuouscalendar/dateutils/issues"
   },
   "main": "./src/index.js",
-  "homepage": "http://reaktor.github.com/dateutils/docs",
+  "homepage": "http://continuouscalendar.github.com/dateutils/",
   "files": [
     "src",
     "package.json",
