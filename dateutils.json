@@ -27,8 +27,8 @@
       "url" : "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
-  "bugs"        : "https://github.com/reaktor/dateutils/issues",
-  "homepage"    : "http://reaktor.github.com/dateutils/",
-  "docs"        : "http://reaktor.github.com/dateutils/",
-  "download"    : "https://github.com/reaktor/dateutils/archive/0.1.zip",
+  "bugs"        : "https://github.com/continuouscalendar/dateutils/issues",
+  "homepage"    : "http://continuouscalendar.github.com/dateutils/",
+  "docs"        : "http://continuouscalendar.github.com/dateutils/",
+  "download"    : "https://github.com/continuouscalendar/dateutils/archive/0.1.zip",
 }
