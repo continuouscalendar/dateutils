@@ -1,10 +1,15 @@
 Documentation
 =============
 
-```DateTime.fromDateTime(2010, 12, 15, 14, 35).plusDays(10).toISOString() ===  '2010-12-25T14:35:00'```
-```DateFormat.format(DateTime.fromDate(2010, 12, 15), 'Y-m-d') === '2010-12-15'```
+Creating dates
 
-[Documentation](http://continuouscalendar.github.com/dateutils/")
+```DateTime.fromDateTime(2010, 12, 15, 14, 35).plusDays(10).toISOString()``` returns ```2010-12-25T14:35:00```
+
+Formatting dates
+
+```DateFormat.format(DateTime.fromDate(2010, 12, 15), 'Y-m-d')``` returns ```2010-12-15```
+
+[Documentation](http://continuouscalendar.github.io/dateutils/docs/)
 
 
 Supported languages
