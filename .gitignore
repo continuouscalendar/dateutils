@@ -11,3 +11,4 @@ out/
 .sass-cache
 .idea
 node_modules
+*.log
