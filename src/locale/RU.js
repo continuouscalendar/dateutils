@@ -57,8 +57,6 @@ module.exports = {
      */
     return hoursAndMinutes + ' Часа'
   },
-  clearRangeLabel: 'Очистить диапазон',
-  clearDateLabel: 'Очистить дату',
   shortDateFormat: 'j.n.Y',
   weekDateFormat: 'D j.n.Y',
   dateTimeFormat: 'D j.n.Y k\\lo G:i',
