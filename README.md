@@ -1,3 +1,18 @@
+Why another date util library
+=============================
+
+* Small and not a feature creep
+* Favors immutability - less bugs and easy to chain functions
+* Favors factory methods for creating new instances instead of multi-purpose constructor
+* DateTime can contain only valid dates
+* Instead of one big file there are several small modules for different purposes: 
+ * Calculations and transformations
+ * Formatting
+ * Parsing
+ * Localizations
+ * Ranges
+* continuouscalendar uses this library
+
 Documentation
 =============
 
