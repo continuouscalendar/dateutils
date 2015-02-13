@@ -175,6 +175,16 @@ describe(module.id, function () {
         })
       })
 
+      describe('toIsoDateString', function () {
+        it('returns ISO string without times ', function () {
+          expect(fromDateTime(2010, 3, 5, 4, 0).toISODateString()).to.equal('2010-03-05')
+          expect(fromDateTime(2010, 12, 25, 14, 35).toISODateString()).to.equal('2010-12-25')
+          var isoDateTime = '2010-12-25T14:35:05'
+          expect(fromIsoDateTime(isoDateTime).toISOString()).to.equal(isoDateTime)
+          expect(fromIsoDateTime(now().withResetMS().toISOString()).date).to.eql(now().withResetMS().date)
+        })
+      })
+
       describe('plusDay / minusDays s vs distanceInDays', function () {
         it('takes day light saving into account (test passes at least in Finland)', function () {
           var winter1 = fromDateTime(2013, 3, 29, 10, 0)
