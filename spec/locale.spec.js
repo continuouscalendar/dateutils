@@ -66,4 +66,11 @@ describe(module.id, function () {
       expect(locale.hoursLabel(1, 22)).to.equal('1,37 Часа')
     })
   })
+  describe('holidays', function () {
+    var locale = DateLocale.FI
+
+    it('shows holidays for finland', function () {
+      expect(locale.holidays['2021-12-26']).to.equal('Tapaninpäivä')
+    })
+  })
 })
