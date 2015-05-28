@@ -1,4 +1,4 @@
-{
+module.exports = {
   "2015-01-01": "Uudenvuodenpäivä",
   "2015-01-06": "Loppiainen",
   "2015-04-03": "Pitkäperjantai",

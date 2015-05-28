@@ -1,6 +1,6 @@
 var DateTime = require('../DateTime')
 var DateFormat = require('../DateFormat')
-var holidays = require('./FI-holidays.json')
+var holidays = require('./FI-holidays')
 module.exports = {
   id: 'FI',
   monthNames: ['tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu'],
