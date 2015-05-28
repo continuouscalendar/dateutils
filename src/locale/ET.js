@@ -12,6 +12,8 @@
       var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
       return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Tund' : 'Tundi')
     },
+    clearRangeLabel: 'TODO',
+    clearDateLabel: 'TODO',
     shortDateFormat: 'j.n.Y',
     weekDateFormat : 'D j.n.Y',
     dateTimeFormat : 'D j.n.Y k\\l G:i',

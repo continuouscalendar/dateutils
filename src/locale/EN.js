@@ -12,6 +12,8 @@ module.exports = {
     var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Hour' : 'Hours')
   },
+  clearRangeLabel: 'Clear Range',
+  clearDateLabel: 'Clear Date',
   shortDateFormat: 'n/j/Y',
   weekDateFormat: 'D n/j/Y',
   dateTimeFormat: 'D n/j/Y G:i',
