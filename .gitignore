@@ -5,10 +5,8 @@
 *.ipr
 *.iws
 *.swp
-.idea/workspace.xml
 out/
 .idea
 .sass-cache
-.idea
 node_modules
 *.log
