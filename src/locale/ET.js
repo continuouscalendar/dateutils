@@ -15,5 +15,6 @@
     shortDateFormat: 'j.n.Y',
     weekDateFormat : 'D j.n.Y',
     dateTimeFormat : 'D j.n.Y k\\l G:i',
-    firstWeekday   : DateTime.MONDAY
+    firstWeekday   : DateTime.MONDAY,
+    holidays: {}
   }
