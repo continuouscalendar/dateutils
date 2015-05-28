@@ -79,10 +79,10 @@
             <li><a href="../DateTime.js.html">DateTime.js</a></li>
             <li><a href="../Duration.js.html">Duration.js</a></li>
             <li><a href="../index.js.html">index.js</a></li>
-            <li class="active"><a href="../locale/AU.js.html">locale/AU.js</a></li>
+            <li><a href="../locale/AU.js.html">locale/AU.js</a></li>
             <li><a href="../locale/EN.js.html">locale/EN.js</a></li>
             <li><a href="../locale/ET.js.html">locale/ET.js</a></li>
-            <li><a href="../locale/FI-holidays.js.html">locale/FI-holidays.js</a></li>
+            <li class="active"><a href="../locale/FI-holidays.js.html">locale/FI-holidays.js</a></li>
             <li><a href="../locale/FI.js.html">locale/FI.js</a></li>
             <li><a href="../locale/LV.js.html">locale/LV.js</a></li>
             <li><a href="../locale/RU.js.html">locale/RU.js</a></li>
@@ -90,39 +90,126 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#DateTime"><i class="alert alert-success"></i><span>DateTime</span></a>
+              <li><a href="#exports"><i class="alert alert-success"></i><span>exports</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="DateTime">
-            <h1>DateTime</h1>
+          <section id="exports">
+            <h1>exports</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>DateTime</span>
+              <div class="label label-success radius ctx-type">property</div><span>module.exports</span>
             </p>
           </section>
           <div class="description"> </div>
-          <pre><code class="language-javascript">var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
-module.exports = {
-  id: 'AU',
-  monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-  dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-  shortDayNames: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-  yearsLabel: function (years) { return years + ' ' + (years === 1 ? 'Year' : 'Years'); },
-  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'Months' : 'Months') },
-  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'Day' : 'Days') },
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
-    return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Hour' : 'Hours')
-  },
-  shortDateFormat: 'j/n/Y',
-  weekDateFormat: 'D j/n/Y',
-  dateTimeFormat: 'D j/n/Y G:i',
-  firstWeekday: DateTime.SUNDAY,
-  holidays: {}
+          <pre><code class="language-javascript">module.exports = {
+  &quot;2015-01-01&quot;: &quot;Uudenvuodenpäivä&quot;,
+  &quot;2015-01-06&quot;: &quot;Loppiainen&quot;,
+  &quot;2015-04-03&quot;: &quot;Pitkäperjantai&quot;,
+  &quot;2015-04-04&quot;: &quot;Pääsiäislauantai&quot;,
+  &quot;2015-04-05&quot;: &quot;Pääsiäispäivä&quot;,
+  &quot;2015-04-06&quot;: &quot;2. pääsiäispäivä&quot;,
+  &quot;2015-05-01&quot;: &quot;Vappu&quot;,
+  &quot;2015-05-14&quot;: &quot;Helatorstai&quot;,
+  &quot;2015-06-19&quot;: &quot;Juhannusaatto&quot;,
+  &quot;2015-06-20&quot;: &quot;Juhannuspäivä&quot;,
+  &quot;2015-10-31&quot;: &quot;Pyhäinpäivä&quot;,
+  &quot;2015-12-06&quot;: &quot;Itsenäisyyspäivä&quot;,
+  &quot;2015-12-24&quot;: &quot;Jouluaatto&quot;,
+  &quot;2015-12-25&quot;: &quot;Joulupäivä&quot;,
+  &quot;2015-12-26&quot;: &quot;Tapaninpäivä&quot;,
+  &quot;2016-01-01&quot;: &quot;Uudenvuodenpäivä&quot;,
+  &quot;2016-01-06&quot;: &quot;Loppiainen&quot;,
+  &quot;2016-03-25&quot;: &quot;Pitkäperjantai&quot;,
+  &quot;2016-03-26&quot;: &quot;Pääsiäislauantai&quot;,
+  &quot;2016-03-27&quot;: &quot;Pääsiäispäivä&quot;,
+  &quot;2016-03-28&quot;: &quot;2. pääsiäispäivä&quot;,
+  &quot;2016-05-01&quot;: &quot;Vappu&quot;,
+  &quot;2016-05-05&quot;: &quot;Helatorstai&quot;,
+  &quot;2016-06-24&quot;: &quot;Juhannusaatto&quot;,
+  &quot;2016-06-25&quot;: &quot;Juhannuspäivä&quot;,
+  &quot;2016-11-05&quot;: &quot;Pyhäinpäivä&quot;,
+  &quot;2016-12-06&quot;: &quot;Itsenäisyyspäivä&quot;,
+  &quot;2016-12-24&quot;: &quot;Jouluaatto&quot;,
+  &quot;2016-12-25&quot;: &quot;Joulupäivä&quot;,
+  &quot;2016-12-26&quot;: &quot;Tapaninpäivä&quot;,
+  &quot;2017-01-01&quot;: &quot;Uudenvuodenpäivä&quot;,
+  &quot;2017-01-06&quot;: &quot;Loppiainen&quot;,
+  &quot;2017-04-14&quot;: &quot;Pitkäperjantai&quot;,
+  &quot;2017-04-15&quot;: &quot;Pääsiäislauantai&quot;,
+  &quot;2017-04-16&quot;: &quot;Pääsiäispäivä&quot;,
+  &quot;2017-04-17&quot;: &quot;2. pääsiäispäivä&quot;,
+  &quot;2017-05-01&quot;: &quot;Vappu&quot;,
+  &quot;2017-05-25&quot;: &quot;Helatorstai&quot;,
+  &quot;2017-06-23&quot;: &quot;Juhannusaatto&quot;,
+  &quot;2017-06-24&quot;: &quot;Juhannuspäivä&quot;,
+  &quot;2017-11-04&quot;: &quot;Pyhäinpäivä&quot;,
+  &quot;2017-12-06&quot;: &quot;Itsenäisyyspäivä&quot;,
+  &quot;2017-12-24&quot;: &quot;Jouluaatto&quot;,
+  &quot;2017-12-25&quot;: &quot;Joulupäivä&quot;,
+  &quot;2017-12-26&quot;: &quot;Tapaninpäivä&quot;,
+  &quot;2018-01-01&quot;: &quot;Uudenvuodenpäivä&quot;,
+  &quot;2018-01-06&quot;: &quot;Loppiainen&quot;,
+  &quot;2018-03-30&quot;: &quot;Pitkäperjantai&quot;,
+  &quot;2018-03-31&quot;: &quot;Pääsiäislauantai&quot;,
+  &quot;2018-04-01&quot;: &quot;Pääsiäispäivä&quot;,
+  &quot;2018-04-02&quot;: &quot;2. pääsiäispäivä&quot;,
+  &quot;2018-05-01&quot;: &quot;Vappu&quot;,
+  &quot;2018-05-10&quot;: &quot;Helatorstai&quot;,
+  &quot;2018-06-22&quot;: &quot;Juhannusaatto&quot;,
+  &quot;2018-06-23&quot;: &quot;Juhannuspäivä&quot;,
+  &quot;2018-11-03&quot;: &quot;Pyhäinpäivä&quot;,
+  &quot;2018-12-06&quot;: &quot;Itsenäisyyspäivä&quot;,
+  &quot;2018-12-24&quot;: &quot;Jouluaatto&quot;,
+  &quot;2018-12-25&quot;: &quot;Joulupäivä&quot;,
+  &quot;2018-12-26&quot;: &quot;Tapaninpäivä&quot;,
+  &quot;2019-01-01&quot;: &quot;Uudenvuodenpäivä&quot;,
+  &quot;2019-01-06&quot;: &quot;Loppiainen&quot;,
+  &quot;2019-04-19&quot;: &quot;Pitkäperjantai&quot;,
+  &quot;2019-04-20&quot;: &quot;Pääsiäislauantai&quot;,
+  &quot;2019-04-21&quot;: &quot;Pääsiäispäivä&quot;,
+  &quot;2019-04-22&quot;: &quot;2. pääsiäispäivä&quot;,
+  &quot;2019-05-01&quot;: &quot;Vappu&quot;,
+  &quot;2019-05-30&quot;: &quot;Helatorstai&quot;,
+  &quot;2019-06-21&quot;: &quot;Juhannusaatto&quot;,
+  &quot;2019-06-22&quot;: &quot;Juhannuspäivä&quot;,
+  &quot;2019-11-02&quot;: &quot;Pyhäinpäivä&quot;,
+  &quot;2019-12-06&quot;: &quot;Itsenäisyyspäivä&quot;,
+  &quot;2019-12-24&quot;: &quot;Jouluaatto&quot;,
+  &quot;2019-12-25&quot;: &quot;Joulupäivä&quot;,
+  &quot;2019-12-26&quot;: &quot;Tapaninpäivä&quot;,
+  &quot;2020-01-01&quot;: &quot;Uudenvuodenpäivä&quot;,
+  &quot;2020-01-06&quot;: &quot;Loppiainen&quot;,
+  &quot;2020-04-10&quot;: &quot;Pitkäperjantai&quot;,
+  &quot;2020-04-11&quot;: &quot;Pääsiäislauantai&quot;,
+  &quot;2020-04-12&quot;: &quot;Pääsiäispäivä&quot;,
+  &quot;2020-04-13&quot;: &quot;2. pääsiäispäivä&quot;,
+  &quot;2020-05-01&quot;: &quot;Vappu&quot;,
+  &quot;2020-05-21&quot;: &quot;Helatorstai&quot;,
+  &quot;2020-06-19&quot;: &quot;Juhannusaatto&quot;,
+  &quot;2020-06-20&quot;: &quot;Juhannuspäivä&quot;,
+  &quot;2020-10-31&quot;: &quot;Pyhäinpäivä&quot;,
+  &quot;2020-12-06&quot;: &quot;Itsenäisyyspäivä&quot;,
+  &quot;2020-12-24&quot;: &quot;Jouluaatto&quot;,
+  &quot;2020-12-25&quot;: &quot;Joulupäivä&quot;,
+  &quot;2020-12-26&quot;: &quot;Tapaninpäivä&quot;,
+  &quot;2021-01-01&quot;: &quot;Uudenvuodenpäivä&quot;,
+  &quot;2021-01-06&quot;: &quot;Loppiainen&quot;,
+  &quot;2021-04-02&quot;: &quot;Pitkäperjantai&quot;,
+  &quot;2021-04-03&quot;: &quot;Pääsiäislauantai&quot;,
+  &quot;2021-04-04&quot;: &quot;Pääsiäispäivä&quot;,
+  &quot;2021-04-05&quot;: &quot;2. pääsiäispäivä&quot;,
+  &quot;2021-05-01&quot;: &quot;Vappu&quot;,
+  &quot;2021-05-13&quot;: &quot;Helatorstai&quot;,
+  &quot;2021-06-25&quot;: &quot;Juhannusaatto&quot;,
+  &quot;2021-06-26&quot;: &quot;Juhannuspäivä&quot;,
+  &quot;2021-11-06&quot;: &quot;Pyhäinpäivä&quot;,
+  &quot;2021-12-06&quot;: &quot;Itsenäisyyspäivä&quot;,
+  &quot;2021-12-24&quot;: &quot;Jouluaatto&quot;,
+  &quot;2021-12-25&quot;: &quot;Joulupäivä&quot;,
+  &quot;2021-12-26&quot;: &quot;Tapaninpäivä&quot;
 }</code></pre>
         </div>
       </div>
