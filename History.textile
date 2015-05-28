@@ -1,3 +1,7 @@
+h3. 0.1.9 
+
+* Put back missing clear date translations
+
 h3. 0.1.8 
 
 * Change holidays from json to js in order to make r.js converter work
