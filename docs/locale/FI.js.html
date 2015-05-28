@@ -105,6 +105,7 @@
           <div class="description"> </div>
           <pre><code class="language-javascript">var DateTime = require('../DateTime')
 var DateFormat = require('../DateFormat')
+var holidays = require('./FI-holidays.json')
 module.exports = {
   id: 'FI',
   monthNames: ['tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu'],
@@ -117,12 +118,11 @@ module.exports = {
     var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'tunti' : 'tuntia')
   },
-  clearRangeLabel: 'Poista valinta',
-  clearDateLabel: 'Poista valinta',
   shortDateFormat: 'j.n.Y',
   weekDateFormat: 'D j.n.Y',
   dateTimeFormat: 'D j.n.Y k\\lo G:i',
-  firstWeekday: DateTime.MONDAY
+  firstWeekday: DateTime.MONDAY,
+  holidays: holidays
 }</code></pre>
         </div>
       </div>

@@ -1,8 +1,12 @@
-h3. 0.1.5 
+h3. 0.1.6
+
+* Add list of public holidays for Finland
+
+h3. 0.1.5
 
 * Add documentation
 
-h3. 0.1.4 
+h3. 0.1.4
 
 * Internal refactoring
 
