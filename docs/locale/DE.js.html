@@ -71,49 +71,62 @@
       <div class="row">
         <div class="span3 bs-docs-sidebar">
           <ul class="nav nav-list bs-docs-sidenav affix-top">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="DateFormat.js.html">DateFormat.js</a></li>
-            <li><a href="DateLocale.js.html">DateLocale.js</a></li>
-            <li><a href="DateParse.js.html">DateParse.js</a></li>
-            <li><a href="DateRange.js.html">DateRange.js</a></li>
-            <li><a href="DateTime.js.html">DateTime.js</a></li>
-            <li><a href="Duration.js.html">Duration.js</a></li>
-            <li class="active"><a href="index.js.html">index.js</a></li>
-            <li><a href="locale/AU.js.html">locale/AU.js</a></li>
-            <li><a href="locale/DE.js.html">locale/DE.js</a></li>
-            <li><a href="locale/EN.js.html">locale/EN.js</a></li>
-            <li><a href="locale/ET.js.html">locale/ET.js</a></li>
-            <li><a href="locale/FI-holidays.js.html">locale/FI-holidays.js</a></li>
-            <li><a href="locale/FI.js.html">locale/FI.js</a></li>
-            <li><a href="locale/FR.js.html">locale/FR.js</a></li>
-            <li><a href="locale/LV.js.html">locale/LV.js</a></li>
-            <li><a href="locale/RU.js.html">locale/RU.js</a></li>
-            <li><a href="locale/SV.js.html">locale/SV.js</a></li>
+            <li><a href="../index.html">Main</a></li>
+            <li><a href="../DateFormat.js.html">DateFormat.js</a></li>
+            <li><a href="../DateLocale.js.html">DateLocale.js</a></li>
+            <li><a href="../DateParse.js.html">DateParse.js</a></li>
+            <li><a href="../DateRange.js.html">DateRange.js</a></li>
+            <li><a href="../DateTime.js.html">DateTime.js</a></li>
+            <li><a href="../Duration.js.html">Duration.js</a></li>
+            <li><a href="../index.js.html">index.js</a></li>
+            <li><a href="../locale/AU.js.html">locale/AU.js</a></li>
+            <li class="active"><a href="../locale/DE.js.html">locale/DE.js</a></li>
+            <li><a href="../locale/EN.js.html">locale/EN.js</a></li>
+            <li><a href="../locale/ET.js.html">locale/ET.js</a></li>
+            <li><a href="../locale/FI-holidays.js.html">locale/FI-holidays.js</a></li>
+            <li><a href="../locale/FI.js.html">locale/FI.js</a></li>
+            <li><a href="../locale/FR.js.html">locale/FR.js</a></li>
+            <li><a href="../locale/LV.js.html">locale/LV.js</a></li>
+            <li><a href="../locale/RU.js.html">locale/RU.js</a></li>
+            <li><a href="../locale/SV.js.html">locale/SV.js</a></li>
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#exports"><i class="alert alert-success"></i><span>exports</span></a>
+              <li><a href="#DateTime"><i class="alert alert-success"></i><span>DateTime</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="exports">
-            <h1>exports</h1>
+          <section id="DateTime">
+            <h1>DateTime</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">property</div><span>module.exports</span>
+              <div class="label label-success radius ctx-type">declaration</div><span>DateTime</span>
             </p>
           </section>
           <div class="description"> </div>
-          <pre><code class="language-javascript">module.exports = {
-  &quot;version&quot;:  &quot;0.2.0&quot;,
-  DateFormat: require('./DateFormat'),
-  DateLocale: require('./DateLocale'),
-  DateParse:  require('./DateParse'),
-  DateRange:  require('./DateRange'),
-  DateTime:   require('./DateTime'),
-  Duration:   require('./Duration')
+          <pre><code class="language-javascript">var DateTime = require('../DateTime')
+var DateFormat = require('../DateFormat')
+module.exports = {
+  id: 'DE',
+  monthNames: ['Januar','Februar','März','April','Mai','Juni', 'Juli','August','September','Oktober','November','Dezember'],
+  dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+  shortDayNames: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+  yearsLabel: function (years) { return years + ' ' + 'Jahr'; },
+  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'Monat' : 'Months') },
+  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'Tag' : 'Tage') },
+  hoursLabel: function (hours, minutes) {
+    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
+    return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Stunde' : 'Stunden')
+  },
+  clearRangeLabel: 'Auswahl löschen',
+  clearDateLabel: 'Auswahl löschen',
+  shortDateFormat: 'j.n.Y',
+  weekDateFormat: 'D j.n.Y',
+  dateTimeFormat: 'D j.n.Y  G:i',
+  firstWeekday: DateTime.MONDAY,
+  holidays: {}
 }</code></pre>
         </div>
       </div>

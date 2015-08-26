@@ -80,10 +80,12 @@
             <li><a href="Duration.js.html">Duration.js</a></li>
             <li><a href="index.js.html">index.js</a></li>
             <li><a href="locale/AU.js.html">locale/AU.js</a></li>
+            <li><a href="locale/DE.js.html">locale/DE.js</a></li>
             <li><a href="locale/EN.js.html">locale/EN.js</a></li>
             <li><a href="locale/ET.js.html">locale/ET.js</a></li>
             <li><a href="locale/FI-holidays.js.html">locale/FI-holidays.js</a></li>
             <li><a href="locale/FI.js.html">locale/FI.js</a></li>
+            <li><a href="locale/FR.js.html">locale/FR.js</a></li>
             <li><a href="locale/LV.js.html">locale/LV.js</a></li>
             <li><a href="locale/RU.js.html">locale/RU.js</a></li>
             <li><a href="locale/SV.js.html">locale/SV.js</a></li>
@@ -127,112 +129,112 @@
               <tr>
                 <td>d</td>
                 <td>Date</td>
-                <td>[01-31]</td>
+                <td><p>[01-31]</p></td>
               </tr>
               <tr>
                 <td>D</td>
                 <td>Short_Day_Name</td>
-                <td>[Su, Mo, Tu, We, Th, Fr, Sa]</td>
+                <td><p>[Su, Mo, Tu, We, Th, Fr, Sa]</p></td>
               </tr>
               <tr>
                 <td>j</td>
                 <td>Date</td>
-                <td>[1-31]</td>
+                <td><p>[1-31]</p></td>
               </tr>
               <tr>
                 <td>l</td>
                 <td>Full_day_name</td>
-                <td>[Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]</td>
+                <td><p>[Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]</p></td>
               </tr>
               <tr>
                 <td>w</td>
                 <td>Week_day_number</td>
-                <td>0=Sunday, 1=Monday, 2=Tuesday etc...</td>
+                <td><p>0=Sunday, 1=Monday, 2=Tuesday etc...</p></td>
               </tr>
               <tr>
                 <td>z</td>
                 <td>Nth_day_of_year</td>
-                <td>[1-365] except leap years</td>
+                <td><p>[1-365] except leap years</p></td>
               </tr>
               <tr>
                 <td>F</td>
                 <td>Full_month_name</td>
-                <td>[January, February, ...]</td>
+                <td><p>[January, February, ...]</p></td>
               </tr>
               <tr>
                 <td>m</td>
                 <td>Month_number</td>
-                <td>[01-12]</td>
+                <td><p>[01-12]</p></td>
               </tr>
               <tr>
                 <td>M</td>
                 <td>Month_name_stripped_to_three_letters</td>
-                <td>[Jan, Feb, ...]</td>
+                <td><p>[Jan, Feb, ...]</p></td>
               </tr>
               <tr>
                 <td>n</td>
                 <td>Month_number</td>
-                <td>[1-12]</td>
+                <td><p>[1-12]</p></td>
               </tr>
               <tr>
                 <td>t</td>
                 <td>Days_in_current_month</td>
-                <td>[28-31]</td>
+                <td><p>[28-31]</p></td>
               </tr>
               <tr>
                 <td>Y</td>
                 <td>Full_year</td>
-                <td>[1900, ...]</td>
+                <td><p>[1900, ...]</p></td>
               </tr>
               <tr>
                 <td>y</td>
                 <td>Last_two_digits_of_a_year</td>
-                <td>[01-99]</td>
+                <td><p>[01-99]</p></td>
               </tr>
               <tr>
                 <td>a</td>
                 <td>Time_postfix</td>
-                <td>[am|pm]</td>
+                <td><p>[am|pm]</p></td>
               </tr>
               <tr>
                 <td>A</td>
                 <td>Time_postfix</td>
-                <td>[AM|PM]</td>
+                <td><p>[AM|PM]</p></td>
               </tr>
               <tr>
                 <td>g</td>
                 <td>Hours_in_12h_format</td>
-                <td>[1-12]</td>
+                <td><p>[1-12]</p></td>
               </tr>
               <tr>
                 <td>G</td>
                 <td>Hours_in_24h_format</td>
-                <td>[0-23]</td>
+                <td><p>[0-23]</p></td>
               </tr>
               <tr>
                 <td>h</td>
                 <td>Hour_in_12h_format_with_padding</td>
-                <td>[01-12]</td>
+                <td><p>[01-12]</p></td>
               </tr>
               <tr>
                 <td>H</td>
                 <td>Hours_in_24h_format_with_padding</td>
-                <td>[00-23]</td>
+                <td><p>[00-23]</p></td>
               </tr>
               <tr>
                 <td>i</td>
                 <td>Minutes_with_padding</td>
-                <td>[00-59]</td>
+                <td><p>[00-59]</p></td>
               </tr>
               <tr>
                 <td>s</td>
                 <td>Seconds_with_padding</td>
-                <td>[00-59]</td>
+                <td><p>[00-59]</p></td>
               </tr>
               <tr>
                 <td>Z</td>
                 <td>Timezone</td>
-                <td>2 for GMT+2</td>
+                <td><p>2 for GMT+2</p></td>
               </tr>
             </tbody>
           </table>
@@ -289,17 +291,17 @@
               <tr>
                 <td>dateTime</td>
                 <td>DateTime</td>
-                <td>DateTime object to be formatted</td>
+                <td><p>DateTime object to be formatted</p></td>
               </tr>
               <tr>
                 <td>format</td>
                 <td>String</td>
-                <td>Pattern to be used for formatting</td>
+                <td><p>Pattern to be used for formatting</p></td>
               </tr>
               <tr>
                 <td>locale</td>
                 <td>DateLocale</td>
-                <td>Locale to be used for formatting</td>
+                <td><p>Locale to be used for formatting</p></td>
               </tr>
             </tbody>
           </table>
@@ -342,12 +344,12 @@
               <tr>
                 <td>dateTime</td>
                 <td>DateTime</td>
-                <td>DateTime to be formattend</td>
+                <td><p>DateTime to be formattend</p></td>
               </tr>
               <tr>
                 <td>locale</td>
                 <td>DateLocale</td>
-                <td>locale to be used for formatting</td>
+                <td><p>locale to be used for formatting</p></td>
               </tr>
             </tbody>
           </table>
@@ -372,12 +374,12 @@
               <tr>
                 <td>dateRange</td>
                 <td>DateRange</td>
-                <td>DateRange to be formatted</td>
+                <td><p>DateRange to be formatted</p></td>
               </tr>
               <tr>
                 <td>locale</td>
                 <td>DateLocale</td>
-                <td>to be used for formatting</td>
+                <td><p>to be used for formatting</p></td>
               </tr>
             </tbody>
           </table>
@@ -406,13 +408,13 @@
             </thead>
             <tbody>
               <tr>
-                <td></td>
                 <td>dateRange</td>
+                <td></td>
                 <td></td>
               </tr>
               <tr>
-                <td></td>
                 <td>locale</td>
+                <td></td>
                 <td></td>
               </tr>
             </tbody>
@@ -444,77 +446,77 @@
               <tr>
                 <td>ISO8601LongPattern</td>
                 <td>DateLocale.EN</td>
-                <td>2014-02-05 14:30:00</td>
+                <td><p>2014-02-05 14:30:00</p></td>
               </tr>
               <tr>
                 <td>ISO8601ShortPattern</td>
                 <td>DateLocale.EN</td>
-                <td>2014-02-05</td>
+                <td><p>2014-02-05</p></td>
               </tr>
               <tr>
                 <td>ShortDatePattern</td>
                 <td>DateLocale.EN</td>
-                <td>2/5/2014</td>
+                <td><p>2/5/2014</p></td>
               </tr>
               <tr>
                 <td>ShortDatePattern</td>
                 <td>DateLocale.EN</td>
-                <td>2/5/2014</td>
+                <td><p>2/5/2014</p></td>
               </tr>
               <tr>
                 <td>FiShortDatePattern</td>
                 <td>DateLocale.EN</td>
-                <td>5.2.2014</td>
+                <td><p>5.2.2014</p></td>
               </tr>
               <tr>
                 <td>FiWeekdayDatePattern</td>
                 <td>DateLocale.EN</td>
-                <td>We 5.2.2014</td>
+                <td><p>We 5.2.2014</p></td>
               </tr>
               <tr>
                 <td>FiWeekdayDateTimePattern</td>
                 <td>DateLocale.FI</td>
-                <td>ke 5.2.2014 klo 14:30 (for DateLocale.FI)</td>
+                <td><p>ke 5.2.2014 klo 14:30 (for DateLocale.FI)</p></td>
               </tr>
               <tr>
                 <td>LongDatePattern</td>
                 <td>DateLocale.EN</td>
-                <td>Wednesday, February 05, 2014</td>
+                <td><p>Wednesday, February 05, 2014</p></td>
               </tr>
               <tr>
                 <td>FullDateTimePattern</td>
                 <td>DateLocale.EN</td>
-                <td>Wednesday, February 05, 2014 2:30:00 PM</td>
+                <td><p>Wednesday, February 05, 2014 2:30:00 PM</p></td>
               </tr>
               <tr>
                 <td>MontdDayPattern</td>
                 <td>DateLocale.EN</td>
-                <td>February 05</td>
+                <td><p>February 05</p></td>
               </tr>
               <tr>
                 <td>ShortTimePattern</td>
                 <td>DateLocale.EN</td>
-                <td>2:30 PM</td>
+                <td><p>2:30 PM</p></td>
               </tr>
               <tr>
                 <td>LongTimePattern</td>
                 <td>DateLocale.EN</td>
-                <td>2:30:00 PM</td>
+                <td><p>2:30:00 PM</p></td>
               </tr>
               <tr>
                 <td>SortableDateTimePattern</td>
                 <td>DateLocale.EN</td>
-                <td>2014-02-05T14:30:00</td>
+                <td><p>2014-02-05T14:30:00</p></td>
               </tr>
               <tr>
                 <td>UniversalSortableDateTimePattern</td>
                 <td>DateLocale.EN</td>
-                <td>2014-02-05 14:30:00+-200</td>
+                <td><p>2014-02-05 14:30:00+-200</p></td>
               </tr>
               <tr>
                 <td>YearMontdPattern</td>
                 <td>DateLocale.EN</td>
-                <td>February, 2014</td>
+                <td><p>February, 2014</p></td>
               </tr>
             </tbody>
           </table>
