@@ -7,7 +7,7 @@
     "url": "https://github.com/continuouscalendar/dateutils"
   },
   "scripts": {
-    "test": "mocha spec --reporter dot --require spec/helpers/testconfig.js",
+    "test": "mocha",
     "prepublish": "doxx --source src --target docs"
   },
   "keywords": [

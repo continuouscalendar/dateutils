@@ -1,0 +1,3 @@
+--recursive
+--reporter dot
+--require test/helpers/testconfig.js
