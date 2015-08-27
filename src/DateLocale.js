@@ -14,5 +14,7 @@ module.exports = {
   ET: ET,
   RU: RU,
   SV: SV,
-  LV: LV
+  LV: LV,
+  FR: FR,
+  DE: DE
 }
