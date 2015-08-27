@@ -1,20 +1,11 @@
-var FI = require('./locale/FI')
-var EN = require('./locale/EN')
-var AU = require('./locale/AU')
-var ET = require('./locale/ET')
-var RU = require('./locale/RU')
-var SV = require('./locale/SV')
-var LV = require('./locale/LV')
-var FR = require('./locale/FR')
-var DE = require('./locale/DE')
 module.exports = {
-  FI: FI,
-  EN: EN,
-  AU: AU,
-  ET: ET,
-  RU: RU,
-  SV: SV,
-  LV: LV,
-  FR: FR,
-  DE: DE
+  FI: require('./locale/FI'),
+  EN: require('./locale/EN'),
+  AU: require('./locale/AU'),
+  ET: require('./locale/ET'),
+  RU: require('./locale/RU'),
+  SV: require('./locale/SV'),
+  LV: require('./locale/LV'),
+  FR: require('./locale/FR'),
+  DE: require('./locale/DE')
 }
