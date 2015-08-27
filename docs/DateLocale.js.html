@@ -92,37 +92,30 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#FI"><i class="alert alert-success"></i><span>FI</span></a>
+              <li><a href="#exports"><i class="alert alert-success"></i><span>exports</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="FI">
-            <h1>FI</h1>
+          <section id="exports">
+            <h1>exports</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>FI</span>
+              <div class="label label-success radius ctx-type">property</div><span>module.exports</span>
             </p>
           </section>
           <div class="description"> </div>
-          <pre><code class="language-javascript">var FI = require('./locale/FI')
-var EN = require('./locale/EN')
-var AU = require('./locale/AU')
-var ET = require('./locale/ET')
-var RU = require('./locale/RU')
-var SV = require('./locale/SV')
-var LV = require('./locale/LV')
-var FR = require('./locale/FR')
-var DE = require('./locale/DE')
-module.exports = {
-  FI: FI,
-  EN: EN,
-  AU: AU,
-  ET: ET,
-  RU: RU,
-  SV: SV,
-  LV: LV
+          <pre><code class="language-javascript">module.exports = {
+  FI: require('./locale/FI'),
+  EN: require('./locale/EN'),
+  AU: require('./locale/AU'),
+  ET: require('./locale/ET'),
+  RU: require('./locale/RU'),
+  SV: require('./locale/SV'),
+  LV: require('./locale/LV'),
+  FR: require('./locale/FR'),
+  DE: require('./locale/DE')
 }</code></pre>
         </div>
       </div>
