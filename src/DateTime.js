@@ -33,13 +33,9 @@ DateTime.fromDateTime = function(year, month, day, hours, minutes, seconds) {
   return new DateTime(createSafeDate(+year, +month, +day, +hours, +minutes, +seconds || 0))
 }
 
-DateTime.fromDate = function(year, month, day) {
-  return DateTime.fromDateTime(year, month, day, 0, 0, 0)
-}
+DateTime.fromDate = function(year, month, day) { return DateTime.fromDateTime(year, month, day, 0, 0, 0) }
 
-DateTime.fromDateObject = function(date) {
-  return new DateTime(date)
-}
+DateTime.fromDateObject = function(date) { return new DateTime(date) }
 
 /**
  * Returns date from ISO date ignoring time information
@@ -96,13 +92,9 @@ DateTime.HOUR = 60 * DateTime.MINUTE
 DateTime.DAY = 24 * DateTime.HOUR
 DateTime.WEEK = 7 * DateTime.DAY
 
-DateTime.now = function() {
-  return new DateTime()
-}
+DateTime.now = function() { return new DateTime() }
 
-DateTime.today = function() {
-  return DateTime.now().getOnlyDate()
-}
+DateTime.today = function() { return DateTime.now().getOnlyDate() }
 
 DateTime.prototype.getTime = function() { return this.date.getTime() }
 
@@ -156,17 +148,11 @@ DateTime.prototype.plusDays = function(days) {
   return newDateTime
 }
 
-DateTime.prototype.plusMinutes = function(minutes) {
-  return DateTime.fromMillis(this.clone().getTime() + (minutes * DateTime.MINUTE))
-}
+DateTime.prototype.plusMinutes = function(minutes) { return DateTime.fromMillis(this.clone().getTime() + (minutes * DateTime.MINUTE)) }
 
-DateTime.prototype.minusMinutes = function(minutes) {
-  return this.plusMinutes(-minutes)
-}
+DateTime.prototype.minusMinutes = function(minutes) { return this.plusMinutes(-minutes) }
 
-DateTime.prototype.minusDays = function(days) {
-  return this.plusDays(-days)
-}
+DateTime.prototype.minusDays = function(days) { return this.plusDays(-days) }
 
 /**
  * Compares DateTimes. Examples:
@@ -219,9 +205,7 @@ DateTime.prototype.clone = function() { return new DateTime(this.date) }
 DateTime.prototype.isOddMonth = function() { return this.getMonth() % 2 === 0 }
 
 DateTime.prototype.equalsOnlyDate = function(date) {
-  if(!date) {
-    return false
-  }
+  if(!date) return false
   return this.getMonth() === date.getMonth() && this.getDate() === date.getDate() && this.getFullYear() === date.getFullYear()
 }
 
@@ -259,9 +243,7 @@ DateTime.prototype.toISOString = function() { return isoDate.call(this) + 'T' + 
 
 DateTime.prototype.toISODateString = function() { return isoDate.call(this) }
 
-function isoDate() {
-  return this.getFullYear() + '-' + twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate())
-}
+function isoDate() { return this.getFullYear() + '-' + twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate()) }
 
 function isoTime() {
   return twoDigits(this.getHours()) + ':' + twoDigits(this.getMinutes()) + ':' + twoDigits(this.getSeconds())
