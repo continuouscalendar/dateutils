@@ -31,10 +31,10 @@
     "README.md"
   ],
   "devDependencies": {
-    "mocha": "~2.2.5",
-    "chai": "~3.2.0",
-    "requirejs": "~2.1.20",
-    "doxx": "^1.5.0"
+    "mocha": "~2.4.5",
+    "chai": "~3.5.0",
+    "requirejs": "~2.1.22",
+    "doxx": "^2.1.1"
   },
   "dependencies": {
   }
