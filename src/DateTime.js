@@ -97,17 +97,11 @@ DateTime.DAY = 24 * DateTime.HOUR
 DateTime.WEEK = 7 * DateTime.DAY
 
 DateTime.now = function() {
-  if(typeof DateTime._now === 'undefined') {
-    DateTime._now = new DateTime()
-  }
-  return DateTime._now
+  return new DateTime()
 }
 
 DateTime.today = function() {
-  if(typeof DateTime._today == 'undefined') {
-    DateTime._today = new DateTime().getOnlyDate()
-  }
-  return DateTime._today
+  return DateTime.now().getOnlyDate()
 }
 
 DateTime.prototype.getTime = function() { return this.date.getTime() }
