@@ -51,16 +51,186 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
+              <li><a href="#fromDateTime"><i class="alert alert-info"></i><span>fromDateTime</span></a>
+              </li>
+              <li><a href="#fromDate"><i class="alert alert-info"></i><span>fromDate</span></a>
+              </li>
+              <li><a href="#fromDateObject"><i class="alert alert-info"></i><span>fromDateObject</span></a>
+              </li>
               <li><a href="#fromIsoDate"><i class="alert alert-info"></i><span>fromIsoDate</span></a>
               </li>
               <li><a href="#fromIsoDateTime"><i class="alert alert-info"></i><span>fromIsoDateTime</span></a>
               </li>
+              <li><a href="#fromMillis"><i class="alert alert-info"></i><span>fromMillis</span></a>
+              </li>
+              <li><a href="#withResetMS"><i class="alert alert-info"></i><span>withResetMS</span></a>
+              </li>
+              <li><a href="#withTime"><i class="alert alert-info"></i><span>withTime</span></a>
+              </li>
+              <li><a href="#now"><i class="alert alert-info"></i><span>now</span></a>
+              </li>
+              <li><a href="#today"><i class="alert alert-info"></i><span>today</span></a>
+              </li>
+              <li><a href="#getTime"><i class="alert alert-info"></i><span>getTime</span></a>
+              </li>
+              <li><a href="#getFullYear"><i class="alert alert-info"></i><span>getFullYear</span></a>
+              </li>
+              <li><a href="#getDate"><i class="alert alert-info"></i><span>getDate</span></a>
+              </li>
+              <li><a href="#getMonth"><i class="alert alert-info"></i><span>getMonth</span></a>
+              </li>
+              <li><a href="#getDay"><i class="alert alert-info"></i><span>getDay</span></a>
+              </li>
+              <li><a href="#getHours"><i class="alert alert-info"></i><span>getHours</span></a>
+              </li>
+              <li><a href="#getMinutes"><i class="alert alert-info"></i><span>getMinutes</span></a>
+              </li>
+              <li><a href="#getSeconds"><i class="alert alert-info"></i><span>getSeconds</span></a>
+              </li>
+              <li><a href="#getMilliseconds"><i class="alert alert-info"></i><span>getMilliseconds</span></a>
+              </li>
+              <li><a href="#getDaysInMonth"><i class="alert alert-info"></i><span>getDaysInMonth</span></a>
+              </li>
+              <li><a href="#getDayInYear"><i class="alert alert-info"></i><span>getDayInYear</span></a>
+              </li>
+              <li><a href="#plusDays"><i class="alert alert-info"></i><span>plusDays</span></a>
+              </li>
+              <li><a href="#plusMinutes"><i class="alert alert-info"></i><span>plusMinutes</span></a>
+              </li>
+              <li><a href="#minusMinutes"><i class="alert alert-info"></i><span>minusMinutes</span></a>
+              </li>
+              <li><a href="#minusDays"><i class="alert alert-info"></i><span>minusDays</span></a>
+              </li>
               <li><a href="#compareTo"><i class="alert alert-info"></i><span>compareTo</span></a>
+              </li>
+              <li><a href="#isToday"><i class="alert alert-info"></i><span>isToday</span></a>
+              </li>
+              <li><a href="#getWeekInYear"><i class="alert alert-info"></i><span>getWeekInYear</span></a>
+              </li>
+              <li><a href="#clone"><i class="alert alert-info"></i><span>clone</span></a>
+              </li>
+              <li><a href="#isOddMonth"><i class="alert alert-info"></i><span>isOddMonth</span></a>
+              </li>
+              <li><a href="#equalsOnlyDate"><i class="alert alert-info"></i><span>equalsOnlyDate</span></a>
+              </li>
+              <li><a href="#isBetweenDates"><i class="alert alert-info"></i><span>isBetweenDates</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
+          <section id="fromDateTime">
+            <h1>fromDateTime</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.fromDateTime()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>year</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>month</td>
+                <td></td>
+                <td><p>1-12</p></td>
+              </tr>
+              <tr>
+                <td>day</td>
+                <td></td>
+                <td><p>1-31</p></td>
+              </tr>
+              <tr>
+                <td>hours</td>
+                <td></td>
+                <td><p>0-23</p></td>
+              </tr>
+              <tr>
+                <td>minutes</td>
+                <td></td>
+                <td><p>0-59</p></td>
+              </tr>
+              <tr>
+                <td>seconds</td>
+                <td></td>
+                <td><p>0-59</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns DateTime for given date and time</p></div>
+          <pre><code class="language-javascript">DateTime.fromDateTime = function(year, month, day, hours, minutes, seconds) {
+  return new DateTime(createSafeDate(+year, +month, +day, +hours, +minutes, +seconds || 0))
+}</code></pre>
+          <section id="fromDate">
+            <h1>fromDate</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.fromDate()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>year</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>month</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>day</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns DateTime for given date by setting time to midnight</p></div>
+          <pre><code class="language-javascript">DateTime.fromDate = function(year, month, day) { return DateTime.fromDateTime(year, month, day, 0, 0, 0) }</code></pre>
+          <section id="fromDateObject">
+            <h1>fromDateObject</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.fromDateObject()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>date</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns DateTime from given Date object</p></div>
+          <pre><code class="language-javascript">DateTime.fromDateObject = function(date) { return new DateTime(date) }</code></pre>
           <section id="fromIsoDate">
             <h1>fromIsoDate</h1>
             <h5 class="subheader"></h5>
@@ -89,7 +259,7 @@
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Returns date from ISO date ignoring time information</p></div>
+          <div class="description"><p>Returns DateTime from ISO date ignoring time information</p></div>
           <pre><code class="language-javascript">DateTime.fromIsoDate = function(isoDate) {
   var optionalTimePattern = /^\d{4}-[01]\d-[0-3]\d(T[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z?))?$/
   if(!optionalTimePattern.test(isoDate)) throw Error(isoDate + ' is not valid ISO Date (YYYY-MM-DD or YYYY-MM-DDTHH:MM)')
@@ -120,11 +290,11 @@
               <tr>
                 <td>return</td>
                 <td>DateTime</td>
-                <td></td>
+                <td><p>Returns DateTime or throws error for invalid syntax</p></td>
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Returns date with time from ISO date</p></div>
+          <div class="description"><p>Returns DateTime with time from ISO date</p></div>
           <pre><code class="language-javascript">DateTime.fromIsoDateTime = function(isoDateTime) {
   var fullPatternTest = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z?)/
   if(!fullPatternTest.test(isoDateTime)) throw Error(isoDateTime + ' is not valid ISO Date (YYYY-MM-DDTHH:MM)')
@@ -133,17 +303,75 @@
   var time = parseTime(dateAndTime.length === 2 &amp;&amp; dateAndTime[1])
   var date = parseDate(dateAndTime[0])
   return DateTime.fromDateTime(date.year, date.month, date.day, time.hours, time.minutes, time.seconds)
-}
-
-DateTime.fromMillis = function(ms) { return new DateTime(new Date(ms)) }
-
-DateTime.prototype.withResetMS = function() {
+}</code></pre>
+          <section id="fromMillis">
+            <h1>fromMillis</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.fromMillis()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ms</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns DateTime from current time in milliseconds</p></div>
+          <pre><code class="language-javascript">DateTime.fromMillis = function(ms) { return new DateTime(new Date(ms)) }</code></pre>
+          <section id="withResetMS">
+            <h1>withResetMS</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.withResetMS()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns new DateTime with milliseconds set to 0</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.withResetMS = function() {
   var newDate = this.clone()
   newDate.date.setMilliseconds(0)
   return newDate
-}
-
-DateTime.prototype.withTime = function(h, m) {
+}</code></pre>
+          <section id="withTime">
+            <h1>withTime</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.withTime()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>h</td>
+                <td></td>
+                <td><p>0-23</p></td>
+              </tr>
+              <tr>
+                <td>m</td>
+                <td></td>
+                <td><p>0-59</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns new DateTime with given hours and minutes and 0 milliseconds</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.withTime = function(h, m) {
   if(typeof h === 'string') {
     var hoursAndMinutes = h.split(':')
     h = hoursAndMinutes[0]
@@ -161,46 +389,149 @@ DateTime.SECOND = 1000
 DateTime.MINUTE = 60 * DateTime.SECOND
 DateTime.HOUR = 60 * DateTime.MINUTE
 DateTime.DAY = 24 * DateTime.HOUR
-DateTime.WEEK = 7 * DateTime.DAY
-
-DateTime.now = function() { return new DateTime() }
-
-DateTime.today = function() { return DateTime.now().getOnlyDate() }
-
-DateTime.prototype.getTime = function() { return this.date.getTime() }
-
-DateTime.prototype.getFullYear = function() { return this.date.getFullYear() }
-
-DateTime.prototype.getDate = function() { return this.date.getDate() }
-
-DateTime.prototype.getMonth = function() { return this.date.getMonth() + 1 }
-
-DateTime.prototype.getDay = function() { return this.date.getDay() }
-
-DateTime.prototype.getHours = function() { return this.date.getHours() }
-
-DateTime.prototype.getMinutes = function() { return this.date.getMinutes() }
-
-DateTime.prototype.getSeconds = function() { return this.date.getSeconds() }
-
-DateTime.prototype.getMilliseconds = function() { return this.date.getMilliseconds() }
-
-DateTime.getDaysInMonth = function(year, month) {
-  if(month &gt; 12 || month &lt; 1)
-    throw new Error('Month must be between 1-12')
-  var yearAndMonth = year * 12 + month
-  return DateTime.fromDate(Math.floor(yearAndMonth / 12), yearAndMonth % 12 + 1, 1).minusDays(1).getDate()
-}
-
-DateTime.getDayInYear = function(year, month, day) {
-  return DateTime.fromDate(year, 1, 1).distanceInDays(DateTime.fromDate(year, month, day)) + 1
-}
-
-DateTime.prototype.getDaysInMonth = function() { return DateTime.getDaysInMonth(this.getFullYear(), this.getMonth()) }
-
-DateTime.prototype.getDayInYear = function() { return DateTime.getDayInYear(this.getFullYear(), this.getMonth(), this.getDate()) }
-
-DateTime.prototype.plusDays = function(days) {
+DateTime.WEEK = 7 * DateTime.DAY</code></pre>
+          <section id="now">
+            <h1>now</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.now()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns new DateTime with current time</p></div>
+          <pre><code class="language-javascript">DateTime.now = function() { return new DateTime() }</code></pre>
+          <section id="today">
+            <h1>today</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.today()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns new DateTime with current date and midnight time</p></div>
+          <pre><code class="language-javascript">DateTime.today = function() { return DateTime.now().getOnlyDate() }</code></pre>
+          <section id="getTime">
+            <h1>getTime</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getTime()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns time in milliseconds</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getTime = function() { return this.date.getTime() }</code></pre>
+          <section id="getFullYear">
+            <h1>getFullYear</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getFullYear()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns year</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getFullYear = function() { return this.date.getFullYear() }</code></pre>
+          <section id="getDate">
+            <h1>getDate</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getDate()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns day of month</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getDate = function() { return this.date.getDate() }</code></pre>
+          <section id="getMonth">
+            <h1>getMonth</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getMonth()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns month</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getMonth = function() { return this.date.getMonth() + 1 }</code></pre>
+          <section id="getDay">
+            <h1>getDay</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getDay()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns day of week. 0=sunday, 1=monday, ...</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getDay = function() { return this.date.getDay() }</code></pre>
+          <section id="getHours">
+            <h1>getHours</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getHours()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns hours</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getHours = function() { return this.date.getHours() }</code></pre>
+          <section id="getMinutes">
+            <h1>getMinutes</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getMinutes()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns minutes</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getMinutes = function() { return this.date.getMinutes() }</code></pre>
+          <section id="getSeconds">
+            <h1>getSeconds</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getSeconds()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns seconds</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getSeconds = function() { return this.date.getSeconds() }</code></pre>
+          <section id="getMilliseconds">
+            <h1>getMilliseconds</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getMilliseconds()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns milliseconds</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getMilliseconds = function() { return this.date.getMilliseconds() }</code></pre>
+          <section id="getDaysInMonth">
+            <h1>getDaysInMonth</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getDaysInMonth()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns days in month for current DateTime</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getDaysInMonth = function() { return DateTime.getDaysInMonth(this.getFullYear(), this.getMonth()) }</code></pre>
+          <section id="getDayInYear">
+            <h1>getDayInYear</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getDayInYear()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns days in year for current Date</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getDayInYear = function() { return DateTime.getDayInYear(this.getFullYear(), this.getMonth(), this.getDate()) }</code></pre>
+          <section id="plusDays">
+            <h1>plusDays</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.plusDays()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>days</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns new DateTime with given days later</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.plusDays = function(days) {
   var newDateTime = DateTime.fromMillis(this.getTime() + days * DateTime.DAY)
   var hours = this.getHours()
 
@@ -217,13 +548,82 @@ DateTime.prototype.plusDays = function(days) {
     return DateTime.fromMillis(newDateTime.getTime() + (delta * DateTime.HOUR))
   }
   return newDateTime
-}
-
-DateTime.prototype.plusMinutes = function(minutes) { return DateTime.fromMillis(this.clone().getTime() + (minutes * DateTime.MINUTE)) }
-
-DateTime.prototype.minusMinutes = function(minutes) { return this.plusMinutes(-minutes) }
-
-DateTime.prototype.minusDays = function(days) { return this.plusDays(-days) }</code></pre>
+}</code></pre>
+          <section id="plusMinutes">
+            <h1>plusMinutes</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.plusMinutes()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>minutes</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns new DateTime with given minutes later</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.plusMinutes = function(minutes) { return DateTime.fromMillis(this.clone().getTime() + (minutes * DateTime.MINUTE)) }</code></pre>
+          <section id="minusMinutes">
+            <h1>minusMinutes</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.minusMinutes()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>minutes</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns new DateTime with given minutes earlier</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.minusMinutes = function(minutes) { return this.plusMinutes(-minutes) }</code></pre>
+          <section id="minusDays">
+            <h1>minusDays</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.minusDays()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>days</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns new DateTime with given days earlier</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.minusDays = function(days) { return this.plusDays(-days) }</code></pre>
           <section id="compareTo">
             <h1>compareTo</h1>
             <h5 class="subheader"></h5>
@@ -254,11 +654,41 @@ DateTime.prototype.minusDays = function(days) { return this.plusDays(-days) }</c
   }
   var diff = this.getTime() - date.getTime()
   return diff === 0 ? 0 : diff / Math.abs(diff)
-}
-
-DateTime.prototype.isToday = function() { return this.equalsOnlyDate(DateTime.today()) }
-
-DateTime.prototype.getWeekInYear = function(weekNumberingSystem) {
+}</code></pre>
+          <section id="isToday">
+            <h1>isToday</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.isToday()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns true if DateTime is within today</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.isToday = function() { return this.equalsOnlyDate(DateTime.today()) }</code></pre>
+          <section id="getWeekInYear">
+            <h1>getWeekInYear</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getWeekInYear()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>weekNumberingSystem</td>
+                <td>string</td>
+                <td><p>US or ISO</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns the week number of current DateTime</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getWeekInYear = function(weekNumberingSystem) {
   if(weekNumberingSystem !== 'US' &amp;&amp; weekNumberingSystem !== 'ISO') {
     throw('Week numbering system must be either US or ISO, was ' + weekNumberingSystem)
   }
@@ -283,49 +713,155 @@ DateTime.prototype.getWeekInYear = function(weekNumberingSystem) {
   // If first days of this year are on last year's last week, the above gives one week too much
   if(firstDay &gt; THU) week--
   return week
-}
-
-DateTime.prototype.clone = function() { return new DateTime(this.date) }
-
-DateTime.prototype.isOddMonth = function() { return this.getMonth() % 2 === 0 }
-
-DateTime.prototype.equalsOnlyDate = function(date) {
+}</code></pre>
+          <section id="clone">
+            <h1>clone</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.clone()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Creates clone of current DateTime</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.clone = function() { return new DateTime(this.date) }</code></pre>
+          <section id="isOddMonth">
+            <h1>isOddMonth</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.isOddMonth()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returs true if month is odd, ie. january=true</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.isOddMonth = function() { return this.getMonth() % 2 === 0 }</code></pre>
+          <section id="equalsOnlyDate">
+            <h1>equalsOnlyDate</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.equalsOnlyDate()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>date</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns true if given DateTime has same day as current DateTime</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.equalsOnlyDate = function(date) {
   if(!date) return false
   return this.getMonth() === date.getMonth() &amp;&amp; this.getDate() === date.getDate() &amp;&amp; this.getFullYear() === date.getFullYear()
-}
-
-DateTime.prototype.isBetweenDates = function(start, end) {
+}</code></pre>
+          <section id="isBetweenDates">
+            <h1>isBetweenDates</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.isBetweenDates()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>start</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>end</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns true if current DateTime is between start and end DateTimes</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.isBetweenDates = function(start, end) {
   if(start.getTime() &gt; end.getTime()) throw Error(&quot;start date can't be after end date&quot;)
   var onlyDate = this.getOnlyDate()
   return onlyDate.compareTo(start.getOnlyDate()) &gt;= 0 &amp;&amp; onlyDate.compareTo(end.getOnlyDate()) &lt;= 0
 }
 
+/**
+ * Returns first date of month from current date
+ * @returns {DateTime}
+ */
 DateTime.prototype.firstDateOfMonth = function() { return DateTime.fromDate(this.getFullYear(), this.getMonth(), 1) }
 
+/**
+ * Returns last date of month from current date
+ * @returns {DateTime}
+ */
 DateTime.prototype.lastDateOfMonth = function() { return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDaysInMonth()) }
 
+/**
+ * Returns number of days between current and given date
+ * @param date
+ * @returns {number}
+ */
 DateTime.prototype.distanceInDays = function(date) {
   var first = parseInt(this.getTime() / DateTime.DAY, 10)
   var last = parseInt(date.getTime() / DateTime.DAY, 10)
   return (last - first)
 }
 
+/**
+ * Returns new DateTime from same week with given weekDay
+ * @param weekday 0=sunday, 1=monday, ...
+ * @returns {DateTime}
+ */
 DateTime.prototype.withWeekday = function(weekday) { return this.plusDays(weekday - this.getDay()) }
 
+/**
+ * Returns new DateTime with midnight time
+ * @returns {DateTime}
+ */
 DateTime.prototype.getOnlyDate = function() { return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDate()) }
 
+/**
+ * Returns true if date is in weekend
+ * @returns {boolean}
+ */
 DateTime.prototype.isWeekend = function() { return this.getDay() === 6 || this.getDay() === 0 }
 
+/**
+ * Returns default string representation
+ */
 DateTime.prototype.toString = function() { return this.toISOString() }
 
+/**
+ * Returns first date from same week
+ * @param locale Based on locale it can be a monday or a sunday
+ * @returns {DateTime}
+ */
 DateTime.prototype.getFirstDateOfWeek = function(locale) {
   var firstWeekday = locale ? locale.firstWeekday : DateTime.MONDAY
   if(firstWeekday == this.getDay) return this.clone()
   else return this.plusDays(firstWeekday - this.getDay() - (firstWeekday &gt; this.getDay() ? 7 : 0))
 }
 
+/**
+ * Returns ISO DateTime string: YYYY-MM-DDT:HH:MM:SS
+ * @returns {string}
+ */
 DateTime.prototype.toISOString = function() { return isoDate.call(this) + 'T' + isoTime.call(this) }
 
+/**
+ * Returns ISO Date string: YYYY-MM-DD
+ */
 DateTime.prototype.toISODateString = function() { return isoDate.call(this) }
 
 function isoDate() { return this.getFullYear() + '-' + twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate()) }
