@@ -113,6 +113,26 @@
               </li>
               <li><a href="#equalsOnlyDate"><i class="alert alert-info"></i><span>equalsOnlyDate</span></a>
               </li>
+              <li><a href="#firstDateOfMonth"><i class="alert alert-info"></i><span>firstDateOfMonth</span></a>
+              </li>
+              <li><a href="#lastDateOfMonth"><i class="alert alert-info"></i><span>lastDateOfMonth</span></a>
+              </li>
+              <li><a href="#distanceInDays"><i class="alert alert-info"></i><span>distanceInDays</span></a>
+              </li>
+              <li><a href="#withWeekday"><i class="alert alert-info"></i><span>withWeekday</span></a>
+              </li>
+              <li><a href="#getOnlyDate"><i class="alert alert-info"></i><span>getOnlyDate</span></a>
+              </li>
+              <li><a href="#isWeekend"><i class="alert alert-info"></i><span>isWeekend</span></a>
+              </li>
+              <li><a href="#toString"><i class="alert alert-info"></i><span>toString</span></a>
+              </li>
+              <li><a href="#getFirstDateOfWeek"><i class="alert alert-info"></i><span>getFirstDateOfWeek</span></a>
+              </li>
+              <li><a href="#toISOString"><i class="alert alert-info"></i><span>toISOString</span></a>
+              </li>
+              <li><a href="#toISODateString"><i class="alert alert-info"></i><span>toISODateString</span></a>
+              </li>
               <li><a href="#isBetweenDates"><i class="alert alert-info"></i><span>isBetweenDates</span></a>
               </li>
             </ul>
@@ -760,6 +780,152 @@ DateTime.WEEK = 7 * DateTime.DAY</code></pre>
   if(!date) return false
   return this.getMonth() === date.getMonth() &amp;&amp; this.getDate() === date.getDate() &amp;&amp; this.getFullYear() === date.getFullYear()
 }</code></pre>
+          <section id="firstDateOfMonth">
+            <h1>firstDateOfMonth</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.firstDateOfMonth()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns first date of month from current date</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.firstDateOfMonth = function() { return DateTime.fromDate(this.getFullYear(), this.getMonth(), 1) }</code></pre>
+          <section id="lastDateOfMonth">
+            <h1>lastDateOfMonth</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.lastDateOfMonth()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns last date of month from current date</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.lastDateOfMonth = function() { return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDaysInMonth()) }</code></pre>
+          <section id="distanceInDays">
+            <h1>distanceInDays</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.distanceInDays()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>date</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns number of days between current and given date</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.distanceInDays = function(date) {
+  var first = parseInt(this.getTime() / DateTime.DAY, 10)
+  var last = parseInt(date.getTime() / DateTime.DAY, 10)
+  return (last - first)
+}</code></pre>
+          <section id="withWeekday">
+            <h1>withWeekday</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.withWeekday()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>weekday</td>
+                <td></td>
+                <td><p>0=sunday, 1=monday, ...</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns new DateTime from same week with given weekDay</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.withWeekday = function(weekday) { return this.plusDays(weekday - this.getDay()) }</code></pre>
+          <section id="getOnlyDate">
+            <h1>getOnlyDate</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getOnlyDate()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns new DateTime with midnight time</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getOnlyDate = function() { return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDate()) }</code></pre>
+          <section id="isWeekend">
+            <h1>isWeekend</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.isWeekend()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns true if date is in weekend</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.isWeekend = function() { return this.getDay() === 6 || this.getDay() === 0 }</code></pre>
+          <section id="toString">
+            <h1>toString</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.toString()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns default string representation</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.toString = function() { return this.toISOString() }</code></pre>
+          <section id="getFirstDateOfWeek">
+            <h1>getFirstDateOfWeek</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.getFirstDateOfWeek()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>locale</td>
+                <td></td>
+                <td><p>Based on locale it can be a monday or a sunday</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Returns first date from same week</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.getFirstDateOfWeek = function(locale) {
+  var firstWeekday = locale ? locale.firstWeekday : DateTime.MONDAY
+  if(firstWeekday == this.getDay) return this.clone()
+  else return this.plusDays(firstWeekday - this.getDay() - (firstWeekday &gt; this.getDay() ? 7 : 0))
+}</code></pre>
+          <section id="toISOString">
+            <h1>toISOString</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.toISOString()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns ISO DateTime string: YYYY-MM-DDT:HH:MM:SS</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.toISOString = function() { return isoDate.call(this) + 'T' + isoTime.call(this) }</code></pre>
+          <section id="toISODateString">
+            <h1>toISODateString</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">method</div><span>&nbsp;</span><span>DateTime.prototype.toISODateString()</span><span>&nbsp;</span>
+            </p>
+          </section>
+          <div class="description"><p>Returns ISO Date string: YYYY-MM-DD</p></div>
+          <pre><code class="language-javascript">DateTime.prototype.toISODateString = function() { return isoDate.call(this) }</code></pre>
           <section id="isBetweenDates">
             <h1>isBetweenDates</h1>
             <h5 class="subheader"></h5>
@@ -778,12 +944,12 @@ DateTime.WEEK = 7 * DateTime.DAY</code></pre>
             <tbody>
               <tr>
                 <td>start</td>
-                <td></td>
+                <td>DateTime</td>
                 <td></td>
               </tr>
               <tr>
                 <td>end</td>
-                <td></td>
+                <td>DateTime</td>
                 <td></td>
               </tr>
             </tbody>
@@ -794,75 +960,6 @@ DateTime.WEEK = 7 * DateTime.DAY</code></pre>
   var onlyDate = this.getOnlyDate()
   return onlyDate.compareTo(start.getOnlyDate()) &gt;= 0 &amp;&amp; onlyDate.compareTo(end.getOnlyDate()) &lt;= 0
 }
-
-/**
- * Returns first date of month from current date
- * @returns {DateTime}
- */
-DateTime.prototype.firstDateOfMonth = function() { return DateTime.fromDate(this.getFullYear(), this.getMonth(), 1) }
-
-/**
- * Returns last date of month from current date
- * @returns {DateTime}
- */
-DateTime.prototype.lastDateOfMonth = function() { return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDaysInMonth()) }
-
-/**
- * Returns number of days between current and given date
- * @param date
- * @returns {number}
- */
-DateTime.prototype.distanceInDays = function(date) {
-  var first = parseInt(this.getTime() / DateTime.DAY, 10)
-  var last = parseInt(date.getTime() / DateTime.DAY, 10)
-  return (last - first)
-}
-
-/**
- * Returns new DateTime from same week with given weekDay
- * @param weekday 0=sunday, 1=monday, ...
- * @returns {DateTime}
- */
-DateTime.prototype.withWeekday = function(weekday) { return this.plusDays(weekday - this.getDay()) }
-
-/**
- * Returns new DateTime with midnight time
- * @returns {DateTime}
- */
-DateTime.prototype.getOnlyDate = function() { return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDate()) }
-
-/**
- * Returns true if date is in weekend
- * @returns {boolean}
- */
-DateTime.prototype.isWeekend = function() { return this.getDay() === 6 || this.getDay() === 0 }
-
-/**
- * Returns default string representation
- */
-DateTime.prototype.toString = function() { return this.toISOString() }
-
-/**
- * Returns first date from same week
- * @param locale Based on locale it can be a monday or a sunday
- * @returns {DateTime}
- */
-DateTime.prototype.getFirstDateOfWeek = function(locale) {
-  var firstWeekday = locale ? locale.firstWeekday : DateTime.MONDAY
-  if(firstWeekday == this.getDay) return this.clone()
-  else return this.plusDays(firstWeekday - this.getDay() - (firstWeekday &gt; this.getDay() ? 7 : 0))
-}
-
-/**
- * Returns ISO DateTime string: YYYY-MM-DDT:HH:MM:SS
- * @returns {string}
- */
-DateTime.prototype.toISOString = function() { return isoDate.call(this) + 'T' + isoTime.call(this) }
-
-/**
- * Returns ISO Date string: YYYY-MM-DD
- */
-DateTime.prototype.toISODateString = function() { return isoDate.call(this) }
 
 function isoDate() { return this.getFullYear() + '-' + twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate()) }
 

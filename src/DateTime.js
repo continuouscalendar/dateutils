@@ -326,18 +326,6 @@ DateTime.prototype.equalsOnlyDate = function(date) {
 }
 
 /**
- * Returns true if current DateTime is between start and end DateTimes
- * @param start
- * @param end
- * @returns {boolean}
- */
-DateTime.prototype.isBetweenDates = function(start, end) {
-  if(start.getTime() > end.getTime()) throw Error("start date can't be after end date")
-  var onlyDate = this.getOnlyDate()
-  return onlyDate.compareTo(start.getOnlyDate()) >= 0 && onlyDate.compareTo(end.getOnlyDate()) <= 0
-}
-
-/**
  * Returns first date of month from current date
  * @returns {DateTime}
  */
@@ -405,6 +393,18 @@ DateTime.prototype.toISOString = function() { return isoDate.call(this) + 'T' + 
  * Returns ISO Date string: YYYY-MM-DD
  */
 DateTime.prototype.toISODateString = function() { return isoDate.call(this) }
+
+/**
+ * Returns true if current DateTime is between start and end DateTimes
+ * @param {DateTime} start
+ * @param {DateTime} end
+ * @returns {boolean}
+ */
+DateTime.prototype.isBetweenDates = function(start, end) {
+  if(start.getTime() > end.getTime()) throw Error("start date can't be after end date")
+  var onlyDate = this.getOnlyDate()
+  return onlyDate.compareTo(start.getOnlyDate()) >= 0 && onlyDate.compareTo(end.getOnlyDate()) <= 0
+}
 
 function isoDate() { return this.getFullYear() + '-' + twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate()) }
 
