@@ -406,6 +406,17 @@ DateTime.prototype.isBetweenDates = function(start, end) {
   return onlyDate.compareTo(start.getOnlyDate()) >= 0 && onlyDate.compareTo(end.getOnlyDate()) <= 0
 }
 
+DateTime.getDaysInMonth = function(year, month) {
+  if(month > 12 || month < 1)
+    throw new Error('Month must be between 1-12')
+  var yearAndMonth = year * 12 + month
+  return DateTime.fromDate(Math.floor(yearAndMonth / 12), yearAndMonth % 12 + 1, 1).minusDays(1).getDate()
+}
+
+DateTime.getDayInYear = function(year, month, day) {
+  return DateTime.fromDate(year, 1, 1).distanceInDays(DateTime.fromDate(year, month, day)) + 1
+}
+
 function isoDate() { return this.getFullYear() + '-' + twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate()) }
 
 function isoTime() {
