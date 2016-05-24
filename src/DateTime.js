@@ -406,6 +406,12 @@ DateTime.prototype.isBetweenDates = function(start, end) {
   return onlyDate.compareTo(start.getOnlyDate()) >= 0 && onlyDate.compareTo(end.getOnlyDate()) <= 0
 }
 
+/**
+ * Returns number of days for given month
+ * @param {Number} year Year of month
+ * @param {Number} month Number of month (1-12)
+ * @returns {Number} [28-31]
+ */
 DateTime.getDaysInMonth = function(year, month) {
   if(month > 12 || month < 1)
     throw new Error('Month must be between 1-12')
@@ -413,6 +419,13 @@ DateTime.getDaysInMonth = function(year, month) {
   return DateTime.fromDate(Math.floor(yearAndMonth / 12), yearAndMonth % 12 + 1, 1).minusDays(1).getDate()
 }
 
+/**
+ * Returns index of given day from beginning of year
+ * @param year year
+ * @param month month
+ * @param day day
+ * @returns {Number} index number starting grom beginning of year
+ */
 DateTime.getDayInYear = function(year, month, day) {
   return DateTime.fromDate(year, 1, 1).distanceInDays(DateTime.fromDate(year, month, day)) + 1
 }
