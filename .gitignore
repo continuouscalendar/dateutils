@@ -10,3 +10,4 @@ out/
 .sass-cache
 node_modules
 *.log
+.DS_Store
