@@ -74,11 +74,11 @@
             <li><a href="index.html">Main</a></li>
             <li><a href="DateFormat.js.html">DateFormat.js</a></li>
             <li><a href="DateLocale.js.html">DateLocale.js</a></li>
-            <li class="active"><a href="DateParse.js.html">DateParse.js</a></li>
+            <li><a href="DateParse.js.html">DateParse.js</a></li>
             <li><a href="DateRange.js.html">DateRange.js</a></li>
             <li><a href="DateTime.js.html">DateTime.js</a></li>
             <li><a href="Duration.js.html">Duration.js</a></li>
-            <li><a href="global.js.html">global.js</a></li>
+            <li class="active"><a href="global.js.html">global.js</a></li>
             <li><a href="index.js.html">index.js</a></li>
             <li><a href="locale/AU.js.html">locale/AU.js</a></li>
             <li><a href="locale/DE.js.html">locale/DE.js</a></li>
@@ -93,84 +93,26 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#DateTime"><i class="alert alert-success"></i><span>DateTime</span></a>
+              <li><a href="#DateFormat"><i class="alert alert-success"></i><span>DateFormat</span></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="DateTime">
-            <h1>DateTime</h1>
+          <section id="DateFormat">
+            <h1>DateFormat</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-success radius ctx-type">declaration</div><span>DateTime</span>
+              <div class="label label-success radius ctx-type">property</div><span>window.DateFormat</span>
             </p>
           </section>
           <div class="description"> </div>
-          <pre><code class="language-javascript">var DateTime = require('./DateTime')
-var DateParse = {}
-DateParse.parseRegexes = []
-DateParse.defaultFormat = 'n/j/Y'
-
-DateParse.parse = function (input, locale) {
-  if (typeof input === 'string') {
-    if (input === 'today') {
-      return DateTime.today()
-    }
-    var format = locale ? locale.shortDateFormat : DateParse.defaultFormat
-    var date = DateParse.parseDate(input, format)
-    return date ? date : new DateTime(new Date(input))
-  }
-  throw new Error(&quot;DateParse only accepts strings&quot;)
-}
-
-DateParse.parseDate = function (input, format) {
-  var values = input.match(getOrCreateParseRegexp())
-  return values ? matchesToDateTime(values) : null
-
-  function matchesToDateTime(values) {
-    var day = matchesToObject(values)
-    return DateTime.fromDate(day.Y, (day.m ? day.m : day.n), (day.d ? day.d : day.j))
-  }
-
-  function matchesToObject(matchValues) {
-    var day = {}
-    var keys = format.replace(/[^djmnY]/g, '').split('')
-    for (var i = 0; i &lt; keys.length; i++) day[keys[i]] = +matchValues[i + 1]
-    return day
-  }
-
-  function getOrCreateParseRegexp() {
-    if (DateParse.parseRegexes[format] === undefined) {
-      DateParse.parseRegexes[format] = new RegExp(format.replace(/[djmnY]/g, '(\\d+)').replace(/\./g, '\\.'))
-    }
-    return DateParse.parseRegexes[format]
-  }
-}
-
-DateParse.parseTime = function (timeStr) {
-  var splittedTime = splitTime(timeStr.replace(/:|,/i, '.'))
-  var time = [+(splittedTime[0]), +(splittedTime[1])]
-  return (isHour(time[0]) &amp;&amp; isMinute(time[1])) ? time : null
-
-  function splitTime(timeStr) {
-    if (timeStr.indexOf('.') !== -1) {
-      return timeStr.split('.')
-    }
-    var splitTimes = {
-      4: [timeStr.slice(0, 2), timeStr.slice(2, 4)],
-      3: [timeStr.slice(0, 1), timeStr.slice(1, 3)],
-      2: [timeStr, 0]
-    }
-    return splitTimes[timeStr.length] || [-1, -1]
-  }
-
-  function isMinute(minutes) { return !isNaN(minutes) &amp;&amp; minutes &gt;= 0 &amp;&amp; minutes &lt;= 59 }
-
-  function isHour(hours) { return !isNaN(hours) &amp;&amp; hours &gt;= 0 &amp;&amp; hours &lt;= 23 }
-}
-
-module.exports = DateParse</code></pre>
+          <pre><code class="language-javascript">window.DateFormat = require('./DateFormat')
+window.DateLocale = require('./DateLocale')
+window.DateParse = require('./DateParse')
+window.DateRange = require('./DateRange')
+window.DateTime = require('./DateTime')
+window.Duration = require('./Duration')</code></pre>
         </div>
       </div>
     </div>
