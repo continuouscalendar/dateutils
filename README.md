@@ -24,6 +24,8 @@ Formatting dates
 
 ```DateFormat.format(DateTime.fromDate(2010, 12, 15), 'Y-m-d')``` returns ```2010-12-15```
 
+```DateFormat.shortDateFormat(DateTime.now(), DateLocale.CN)``` returns ```2016年08月13日```
+
 [Documentation](http://continuouscalendar.github.io/dateutils/docs/)
 
 
@@ -36,6 +38,7 @@ Supported languages
 -   Latvian
 -   Russian
 -   Swedish
+-   简体中文
 
 
 License

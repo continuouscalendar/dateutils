@@ -71,62 +71,63 @@
       <div class="row">
         <div class="span3 bs-docs-sidebar">
           <ul class="nav nav-list bs-docs-sidenav affix-top">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="DateFormat.js.html">DateFormat.js</a></li>
-            <li><a href="DateLocale.js.html">DateLocale.js</a></li>
-            <li><a href="DateParse.js.html">DateParse.js</a></li>
-            <li><a href="DateRange.js.html">DateRange.js</a></li>
-            <li><a href="DateTime.js.html">DateTime.js</a></li>
-            <li class="active"><a href="Duration.js.html">Duration.js</a></li>
-            <li><a href="global.js.html">global.js</a></li>
-            <li><a href="index.js.html">index.js</a></li>
-            <li><a href="locale/AU.js.html">locale/AU.js</a></li>
-            <li><a href="locale/CN.js.html">locale/CN.js</a></li>
-            <li><a href="locale/DE.js.html">locale/DE.js</a></li>
-            <li><a href="locale/EN.js.html">locale/EN.js</a></li>
-            <li><a href="locale/ET.js.html">locale/ET.js</a></li>
-            <li><a href="locale/FI-holidays.js.html">locale/FI-holidays.js</a></li>
-            <li><a href="locale/FI.js.html">locale/FI.js</a></li>
-            <li><a href="locale/FR.js.html">locale/FR.js</a></li>
-            <li><a href="locale/LV.js.html">locale/LV.js</a></li>
-            <li><a href="locale/RU.js.html">locale/RU.js</a></li>
-            <li><a href="locale/SV.js.html">locale/SV.js</a></li>
+            <li><a href="../index.html">Main</a></li>
+            <li><a href="../DateFormat.js.html">DateFormat.js</a></li>
+            <li><a href="../DateLocale.js.html">DateLocale.js</a></li>
+            <li><a href="../DateParse.js.html">DateParse.js</a></li>
+            <li><a href="../DateRange.js.html">DateRange.js</a></li>
+            <li><a href="../DateTime.js.html">DateTime.js</a></li>
+            <li><a href="../Duration.js.html">Duration.js</a></li>
+            <li><a href="../global.js.html">global.js</a></li>
+            <li><a href="../index.js.html">index.js</a></li>
+            <li><a href="../locale/AU.js.html">locale/AU.js</a></li>
+            <li class="active"><a href="../locale/CN.js.html">locale/CN.js</a></li>
+            <li><a href="../locale/DE.js.html">locale/DE.js</a></li>
+            <li><a href="../locale/EN.js.html">locale/EN.js</a></li>
+            <li><a href="../locale/ET.js.html">locale/ET.js</a></li>
+            <li><a href="../locale/FI-holidays.js.html">locale/FI-holidays.js</a></li>
+            <li><a href="../locale/FI.js.html">locale/FI.js</a></li>
+            <li><a href="../locale/FR.js.html">locale/FR.js</a></li>
+            <li><a href="../locale/LV.js.html">locale/LV.js</a></li>
+            <li><a href="../locale/RU.js.html">locale/RU.js</a></li>
+            <li><a href="../locale/SV.js.html">locale/SV.js</a></li>
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#Duration"><i class="alert alert-info"></i><span>Duration</span></a>
-              </li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="Duration">
-            <h1>Duration</h1>
-            <h5 class="subheader"></h5>
-            <p>
-              <div class="label label-info radius ctx-type">function</div><span>Duration()</span>
-            </p>
-          </section>
           <div class="description"> </div>
-          <pre><code class="language-javascript">var Duration = function (durationMs) {
-  this.durationMs = durationMs
-}
-
-Duration.MS = 1
-Duration.SECOND = 1000
-Duration.MIN = 60 * Duration.SECOND
-Duration.HOUR = 60 * Duration.MIN
-Duration.DAY = 24 * Duration.HOUR
-
-Duration.fromMS = function (milliSeconds) { return new Duration(milliSeconds) }
-Duration.fromSeconds = function (seconds) { return Duration.fromMS(seconds * Duration.SECOND) }
-Duration.fromMinutes = function (minutes) { return Duration.fromMS(minutes * Duration.MIN) }
-Duration.fromHours = function (hours) { return Duration.fromMS(hours * Duration.HOUR) }
-Duration.fromDays = function (days) { return Duration.fromMS(days * Duration.DAY) }
-
-Duration.prototype.toMS = function () { return this.durationMs }
-Duration.prototype.asUnit = function (unit) { return Number(this.durationMs / unit) }
-module.exports = Duration</code></pre>
+          <pre><code class="language-javascript">//简体中文
+var DateTime = require('../DateTime');
+var DateFormat = require('../DateFormat');
+module.exports = {
+    id: 'AU',
+    monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+    dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+    shortDayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+    yearsLabel: function (years) {
+        return years + ' ' + (years === 1 ? '年' : '年');
+    },
+    monthsLabel: function (months) {
+        return months + ' ' + (months === 1 ? '月' : '月')
+    },
+    daysLabel: function (days) {
+        return days + ' ' + (days === 1 ? '日' : '日')
+    },
+    hoursLabel: function (hours, minutes) {
+        var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
+        return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? '小时' : '小时')
+    },
+    clearRangeLabel: '范围',
+    clearDateLabel: '日期',
+    shortDateFormat: 'Y年m月d日',
+    weekDateFormat: 'Y年m月d日 D',
+    dateTimeFormat: 'Y年m月d日 H时i分s秒',
+    firstWeekday: DateTime.MONDAY,
+    holidays: {}
+};</code></pre>
         </div>
       </div>
     </div>
