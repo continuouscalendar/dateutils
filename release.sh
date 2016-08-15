@@ -27,6 +27,7 @@ else
 	echo "git push "
 	echo "git push --tags"
 	echo "npm publish"
+	echo "git co gh-pages && git merge master && git push && git co master"
 fi
 cd $current_dir
 
