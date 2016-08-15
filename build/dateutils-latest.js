@@ -179,18 +179,19 @@ module.exports = DateFormat
 
 },{"./DateTime":5}],2:[function(require,module,exports){
 module.exports = {
-  FI: require('./locale/FI'),
-  EN: require('./locale/EN'),
-  AU: require('./locale/AU'),
-  ET: require('./locale/ET'),
-  RU: require('./locale/RU'),
-  SV: require('./locale/SV'),
-  LV: require('./locale/LV'),
-  FR: require('./locale/FR'),
-  DE: require('./locale/DE')
+    FI: require('./locale/FI'),
+    EN: require('./locale/EN'),
+    AU: require('./locale/AU'),
+    ET: require('./locale/ET'),
+    RU: require('./locale/RU'),
+    SV: require('./locale/SV'),
+    LV: require('./locale/LV'),
+    FR: require('./locale/FR'),
+    DE: require('./locale/DE'),
+    CN: require('./locale/CN')
 }
 
-},{"./locale/AU":8,"./locale/DE":9,"./locale/EN":10,"./locale/ET":11,"./locale/FI":13,"./locale/FR":14,"./locale/LV":15,"./locale/RU":16,"./locale/SV":17}],3:[function(require,module,exports){
+},{"./locale/AU":8,"./locale/CN":9,"./locale/DE":10,"./locale/EN":11,"./locale/ET":12,"./locale/FI":14,"./locale/FR":15,"./locale/LV":16,"./locale/RU":17,"./locale/SV":18}],3:[function(require,module,exports){
 var DateTime = require('./DateTime')
 var DateParse = {}
 DateParse.parseRegexes = []
@@ -965,6 +966,36 @@ module.exports = {
 }
 
 },{"../DateFormat":1,"../DateTime":5}],9:[function(require,module,exports){
+//简体中文
+var DateTime = require('../DateTime');
+var DateFormat = require('../DateFormat');
+module.exports = {
+    id: 'AU',
+    monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+    dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+    shortDayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+    yearsLabel: function (years) {
+        return years + ' ' + (years === 1 ? '年' : '年');
+    },
+    monthsLabel: function (months) {
+        return months + ' ' + (months === 1 ? '月' : '月')
+    },
+    daysLabel: function (days) {
+        return days + ' ' + (days === 1 ? '日' : '日')
+    },
+    hoursLabel: function (hours, minutes) {
+        var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
+        return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? '小时' : '小时')
+    },
+    clearRangeLabel: '范围',
+    clearDateLabel: '日期',
+    shortDateFormat: 'Y年m月d日',
+    weekDateFormat: 'Y年m月d日 D',
+    dateTimeFormat: 'Y年m月d日 H时i分s秒',
+    firstWeekday: DateTime.MONDAY,
+    holidays: {}
+};
+},{"../DateFormat":1,"../DateTime":5}],10:[function(require,module,exports){
 var DateTime = require('../DateTime')
 var DateFormat = require('../DateFormat')
 module.exports = {
@@ -988,7 +1019,7 @@ module.exports = {
   holidays: {}
 }
 
-},{"../DateFormat":1,"../DateTime":5}],10:[function(require,module,exports){
+},{"../DateFormat":1,"../DateTime":5}],11:[function(require,module,exports){
 var DateTime = require('../DateTime')
 var DateFormat = require('../DateFormat')
 module.exports = {
@@ -1012,7 +1043,7 @@ module.exports = {
   holidays: {}
 }
 
-},{"../DateFormat":1,"../DateTime":5}],11:[function(require,module,exports){
+},{"../DateFormat":1,"../DateTime":5}],12:[function(require,module,exports){
   var DateTime = require('../DateTime')
   var DateFormat = require('../DateFormat')
   module.exports = {
@@ -1036,7 +1067,7 @@ module.exports = {
     holidays: {}
   }
 
-},{"../DateFormat":1,"../DateTime":5}],12:[function(require,module,exports){
+},{"../DateFormat":1,"../DateTime":5}],13:[function(require,module,exports){
 module.exports = {
   "2015-01-01": "Uudenvuodenpäivä",
   "2015-01-06": "Loppiainen",
@@ -1145,7 +1176,7 @@ module.exports = {
   "2021-12-26": "Tapaninpäivä"
 }
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var DateTime = require('../DateTime')
 var DateFormat = require('../DateFormat')
 var holidays = require('./FI-holidays')
@@ -1170,7 +1201,7 @@ module.exports = {
   holidays: holidays
 }
 
-},{"../DateFormat":1,"../DateTime":5,"./FI-holidays":12}],14:[function(require,module,exports){
+},{"../DateFormat":1,"../DateTime":5,"./FI-holidays":13}],15:[function(require,module,exports){
 var DateTime = require('../DateTime')
 var DateFormat = require('../DateFormat')
 module.exports = {
@@ -1194,7 +1225,7 @@ module.exports = {
   holidays: {}
 }
 
-},{"../DateFormat":1,"../DateTime":5}],15:[function(require,module,exports){
+},{"../DateFormat":1,"../DateTime":5}],16:[function(require,module,exports){
 var DateTime = require('../DateTime')
 var DateFormat = require('../DateFormat')
 module.exports = {
@@ -1218,7 +1249,7 @@ module.exports = {
   holidays: {}
 }
 
-},{"../DateFormat":1,"../DateTime":5}],16:[function(require,module,exports){
+},{"../DateFormat":1,"../DateTime":5}],17:[function(require,module,exports){
 var DateTime = require('../DateTime')
 var DateFormat = require('../DateFormat')
 
@@ -1287,7 +1318,7 @@ module.exports = {
   holidays: {}
 }
 
-},{"../DateFormat":1,"../DateTime":5}],17:[function(require,module,exports){
+},{"../DateFormat":1,"../DateTime":5}],18:[function(require,module,exports){
 var DateTime = require('../DateTime')
 var DateFormat = require('../DateFormat')
 module.exports = {
