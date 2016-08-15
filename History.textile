@@ -1,3 +1,7 @@
+h3. 0.3.0 
+
+* Add Chinese date time format
+
 h3. 0.2.6 
 
 * Inject dateutils to documentation pages
