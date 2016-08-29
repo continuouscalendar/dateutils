@@ -10,7 +10,7 @@
     "test": "mocha",
     "buildBundle": "browserify src/global.js -o build/dateutils-latest.js",
     "doxx": "doxx --source src --target docs",
-    "sed": "sed -i '' 's/<head>/<head><script src=\"..\\/build\\/dateutils-latest.js\"><\\/script>/g' docs/*.html",
+    "sed": "sed -i .bak 's/<head>/<head><script src=\"..\\/build\\/dateutils-latest.js\"><\\/script>/g' docs/*.html",
     "prepublish": "npm run buildBundle && npm run doxx && npm run sed"
   },
   "keywords": [
