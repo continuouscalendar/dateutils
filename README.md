@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/continuouscalendar/dateutils.svg?branch=master)](https://travis-ci.org/continuouscalendar/dateutils)
+
 Why another date util library
 =============================
 
