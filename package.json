@@ -34,12 +34,10 @@
     "README.md"
   ],
   "devDependencies": {
+    "browserify": "^13.1.0",
     "mocha": "~2.5.3",
     "chai": "~3.5.0",
     "requirejs": "~2.2.0",
     "doxx": "^1.5.0"
-  },
-  "dependencies": {
-    "browserify": "^13.1.0"
   }
 }
