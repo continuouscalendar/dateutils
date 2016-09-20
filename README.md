@@ -7,7 +7,7 @@ Why another date util library
 * Favors immutability - less bugs and easy to chain functions
 * Favors factory methods for creating new instances instead of multi-purpose constructor
 * DateTime can contain only valid dates
-* Instead of one big file there are several small modules for different purposes: 
+* Instead of one big file there are several small modules for different purposes:
  * Calculations and transformations
  * Formatting
  * Parsing
@@ -27,6 +27,10 @@ Formatting dates
 ```DateFormat.format(DateTime.fromDate(2010, 12, 15), 'Y-m-d')``` returns ```2010-12-15```
 
 ```DateFormat.shortDateFormat(DateTime.now(), DateLocale.CN)``` returns ```2016年08月13日```
+
+Holiday dates
+
+```DateTime.fromDate(2016, 10, 1).holiday(DateLocale.CN)``` returns ```国庆节```
 
 [Documentation](http://continuouscalendar.github.io/dateutils/docs/)
 
