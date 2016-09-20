@@ -10,8 +10,8 @@
     "test": "mocha",
     "buildBundle": "browserify src/global.js -o build/dateutils-latest.js",
     "doxx": "doxx --source src --target docs",
-    "sed": "sed -i '' 's/<head>/<head><script src=\"..\\/build\\/dateutils-latest.js\"><\\/script>/g' docs/*.html",
-    "prepublish": "npm run buildBundle && npm run doxx && npm run sed"
+    "sed": "sed -i .bak 's/<head>/<head><script src=\"..\\/build\\/dateutils-latest.js\"><\\/script>/g' docs/*.html",
+    "release": "npm run buildBundle && npm run doxx && npm run sed"
   },
   "keywords": [
     "calendar",
@@ -34,12 +34,10 @@
     "README.md"
   ],
   "devDependencies": {
+    "browserify": "^13.1.0",
     "mocha": "~2.5.3",
     "chai": "~3.5.0",
     "requirejs": "~2.2.0",
     "doxx": "^1.5.0"
-  },
-  "dependencies": {
-    "browserify": "^13.1.0"
   }
 }

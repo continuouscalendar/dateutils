@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/continuouscalendar/dateutils.svg?branch=master)](https://travis-ci.org/continuouscalendar/dateutils) [![NPM version](http://img.shields.io/npm/v/dateutils.svg)](https://www.npmjs.org/package/dateutils)
+
 Why another date util library
 =============================
 
