@@ -3,7 +3,7 @@ var DateRange = require('../src/DateRange')
 var DateFormat = require('../src/DateFormat')
 var DateLocale = require('../src/DateLocale')
 
-describe(module.id, function () {
+describe('DateRange', function () {
   var range
   var start
   var end

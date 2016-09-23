@@ -1,6 +1,6 @@
 var DateTime = require('../src/DateTime')
 
-describe(module.id, function () {
+describe('DateTime', function () {
   with (DateTime) {
     var dateWithMS = new Date(2010, 2, 3, 12, 45, 30)
     var dateWithNoMS = new Date(2010, 2, 3, 12, 45, 0)

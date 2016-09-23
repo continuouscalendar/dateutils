@@ -1,6 +1,6 @@
 var DateLocale = require('../src/DateLocale')
 
-describe(module.id, function () {
+describe('locale', function () {
   describe('Russian localizatioon', function () {
     var locale = DateLocale.RU
 
