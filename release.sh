@@ -8,7 +8,7 @@ npm test
 update_version() { sed  -i '' -E "s/(\"version\".*:.*\").*(\".*)/\1$version\2/g" $@; }
 update_version src/index.js
 npm install
-npm release
+#npm release
 #TODO create js documentation
 #/usr/local/share/npm/lib/node_modules/doxx/bin/doxx --source ./src/main --target ./docs
 if [ "$version" = "" ]
