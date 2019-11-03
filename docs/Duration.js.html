@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><script src="../build/dateutils-latest.js"></script>
+  <head>
     <meta name="viewport" content="width=device-width" charset="utf-8">
     <title>dateutils</title>
     <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css">
@@ -108,9 +108,9 @@
             </p>
           </section>
           <div class="description"> </div>
-          <pre><code class="language-javascript">var Duration = function (durationMs) {
+          <pre><code class="language-javascript">const Duration = function (durationMs) {
   this.durationMs = durationMs
-}
+};
 
 Duration.MS = 1
 Duration.SECOND = 1000
@@ -118,11 +118,11 @@ Duration.MIN = 60 * Duration.SECOND
 Duration.HOUR = 60 * Duration.MIN
 Duration.DAY = 24 * Duration.HOUR
 
-Duration.fromMS = function (milliSeconds) { return new Duration(milliSeconds) }
-Duration.fromSeconds = function (seconds) { return Duration.fromMS(seconds * Duration.SECOND) }
-Duration.fromMinutes = function (minutes) { return Duration.fromMS(minutes * Duration.MIN) }
-Duration.fromHours = function (hours) { return Duration.fromMS(hours * Duration.HOUR) }
-Duration.fromDays = function (days) { return Duration.fromMS(days * Duration.DAY) }
+Duration.fromMS = milliSeconds =&gt; new Duration(milliSeconds)
+Duration.fromSeconds = seconds =&gt; Duration.fromMS(seconds * Duration.SECOND)
+Duration.fromMinutes = minutes =&gt; Duration.fromMS(minutes * Duration.MIN)
+Duration.fromHours = hours =&gt; Duration.fromMS(hours * Duration.HOUR)
+Duration.fromDays = days =&gt; Duration.fromMS(days * Duration.DAY)
 
 Duration.prototype.toMS = function () { return this.durationMs }
 Duration.prototype.asUnit = function (unit) { return Number(this.durationMs / unit) }

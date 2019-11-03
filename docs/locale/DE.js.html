@@ -108,18 +108,18 @@
             </p>
           </section>
           <div class="description"> </div>
-          <pre><code class="language-javascript">var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
+          <pre><code class="language-javascript">const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 module.exports = {
   id: 'DE',
   monthNames: ['Januar','Februar','März','April','Mai','Juni', 'Juli','August','September','Oktober','November','Dezember'],
   dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
   shortDayNames: ['So','Mo','Di','Mi','Do','Fr','Sa'],
-  yearsLabel: function (years) { return years + ' ' + 'Jahr'; },
-  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'Monat' : 'Months') },
-  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'Tag' : 'Tage') },
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
+  yearsLabel: years =&gt; years + ' ' + 'Jahr',
+  monthsLabel: months =&gt; months + ' ' + (months === 1 ? 'Monat' : 'Months'),
+  daysLabel: days =&gt; days + ' ' + (days === 1 ? 'Tag' : 'Tage'),
+  hoursLabel: (hours, minutes) =&gt; {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Stunde' : 'Stunden')
   },
   clearRangeLabel: 'Auswahl löschen',

@@ -1,6 +1,6 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var DateTime = require('./DateTime')
-var DateFormat = {}
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const DateTime = require('./DateTime');
+const DateFormat = {};
 /**
  * Formatting patterns listed above
  * @param {Date} d [01-31]
@@ -26,33 +26,33 @@ var DateFormat = {}
  * @param {Seconds_with_padding} s [00-59]
  * @param {Timezone} Z 2 for GMT+2
  */
-var codes = {
-  d: function (d) { return leftPad(d.getDate(), 2, '0') },
-  D: function (d, l) { return l.shortDayNames[d.getDay()] },
-  j: function (d) { return d.getDate() },
-  l: function (d, l) { return l.dayNames[d.getDay()] },
-  w: function (d) { return d.getDay() },
-  z: function (d) { return d.getDayInYear() },
-  F: function (d, l) { return l.monthNames[d.getMonth() - 1] },
-  m: function (d) { return leftPad(d.getMonth(), 2, '0') },
-  M: function (d, l) { return l.monthNames[d.getMonth() - 1].substring(0, 3) },
-  n: function (d) { return (d.getMonth()) },
-  t: function (d) { return d.getDaysInMonth() },
-  Y: function (d) { return d.getFullYear() },
-  y: function (d) { return ('' + d.getFullYear()).substring(2, 4) } ,
-  a: function (d) { return (d.getHours() < 12 ? 'am' : 'pm') },
-  A: function (d) { return (d.getHours() < 12 ? 'AM' : 'PM') },
-  g: function (d) { return ((d.getHours() % 12) ? d.getHours() % 12 : 12) },
-  G: function (d) { return d.getHours() },
-  h: function (d) { return leftPad((d.getHours() % 12) ? d.getHours() % 12 : 12, 2, '0') },
-  H: function (d) { return leftPad(d.getHours(), 2, '0') },
-  i: function (d) { return leftPad(d.getMinutes(), 2, '0') },
-  s: function (d) { return leftPad(d.getSeconds(), 2, '0') },
-  Z: function (d) { return (d.date.getTimezoneOffset() / -60) }
-}
+const codes = {
+  d: d => leftPad(d.getDate(), 2, '0'),
+  D: (d, l) => l.shortDayNames[d.getDay()],
+  j: d => d.getDate(),
+  l: (d, l) => l.dayNames[d.getDay()],
+  w: d => d.getDay(),
+  z: d => d.getDayInYear(),
+  F: (d, l) => l.monthNames[d.getMonth() - 1],
+  m: d => leftPad(d.getMonth(), 2, '0'),
+  M: (d, l) => l.monthNames[d.getMonth() - 1].substring(0, 3),
+  n: d => (d.getMonth()),
+  t: d => d.getDaysInMonth(),
+  Y: d => d.getFullYear(),
+  y: d => ('' + d.getFullYear()).substring(2, 4),
+  a: d => (d.getHours() < 12 ? 'am' : 'pm'),
+  A: d => (d.getHours() < 12 ? 'AM' : 'PM'),
+  g: d => ((d.getHours() % 12) ? d.getHours() % 12 : 12),
+  G: d => d.getHours(),
+  h: d => leftPad((d.getHours() % 12) ? d.getHours() % 12 : 12, 2, '0'),
+  H: d => leftPad(d.getHours(), 2, '0'),
+  i: d => leftPad(d.getMinutes(), 2, '0'),
+  s: d => leftPad(d.getSeconds(), 2, '0'),
+  Z: d => (d.date.getTimezoneOffset() / -60)
+};
 
 /** Returns hours and minutes as hours in decimal. For example <code>DateFormat.hoursAndMinutes(22,30)</code> returns <code>22.5</code> */
-DateFormat.hoursAndMinutes = function (hours, minutes) { return (Math.round((hours + minutes / 60) * 100) / 100).toString() }
+DateFormat.hoursAndMinutes = (hours, minutes) => (Math.round((hours + minutes / 60) * 100) / 100).toString()
 
 /** Formats dateTime. For example <code>DateFormat.format(DateTime.fromDateTime(2014, 2, 25, 14, 30), 'Y-m-d H:i:s', DateLocale.EN)</code> returns <code>2014-02-25 14:30:00</code>
  * @param {DateTime} dateTime DateTime object to be formatted
@@ -61,11 +61,11 @@ DateFormat.hoursAndMinutes = function (hours, minutes) { return (Math.round((hou
  * @see DateFormat.patterns
  * @returns {String} Formatted date
  * */
-DateFormat.format = function (dateTime, format, locale) {
-  var result = ''
-  var special = false
-  var ch = ''
-  for (var i = 0; i < format.length; ++i) {
+DateFormat.format = (dateTime, format, locale) => {
+  let result = '';
+  let special = false;
+  let ch = '';
+  for (let i = 0; i < format.length; ++i) {
     ch = format.charAt(i)
     if (!special && ch === '\\') {
       special = true
@@ -87,7 +87,7 @@ DateFormat.format = function (dateTime, format, locale) {
  * @param {DateLocale} locale locale to be used for formatting
  * @returns {String} Returns Date in short date format depending on locale
  */
-DateFormat.shortDateFormat = function (dateTime, locale) { return DateFormat.format(dateTime, locale ? locale.shortDateFormat : 'n/j/Y', locale) }
+DateFormat.shortDateFormat = (dateTime, locale) => DateFormat.format(dateTime, locale ? locale.shortDateFormat : 'n/j/Y', locale)
 
 /**
  * Formats DateRange. TODO
@@ -95,7 +95,7 @@ DateFormat.shortDateFormat = function (dateTime, locale) { return DateFormat.for
  * @param {DateLocale} locale to be used for formatting
  * @returns {string} returns date range in formatted form, for example <code>2/25/2014-2/15/2015</code>
  */
-DateFormat.formatRange = function (dateRange, locale) {
+DateFormat.formatRange = (dateRange, locale) => {
   if (dateRange._hasTimes) {
     return locale.daysLabel(dateRange.days()) + ' ' + locale.hoursLabel(dateRange.hours(), dateRange.minutes())
   } else {
@@ -109,10 +109,10 @@ DateFormat.formatRange = function (dateRange, locale) {
  * @param locale
  * @returns {*}
  */
-DateFormat.formatDefiningRangeDuration = function (dateRange, locale) {
-  var years = parseInt(dateRange.days() / 360, 10)
+DateFormat.formatDefiningRangeDuration = (dateRange, locale) => {
+  const years = parseInt(dateRange.days() / 360, 10);
   if (years > 0) return locale.yearsLabel(years)
-  var months = parseInt(dateRange.days() / 30, 10)
+  const months = parseInt(dateRange.days() / 30, 10);
   if (months > 0) return locale.monthsLabel(months)
   return locale.daysLabel(dateRange.days())
 }
@@ -166,7 +166,7 @@ function getGMTOffset(dateTime) {
 
 /** @private */
 function leftPad(val, size, ch) {
-  var result = String(val)
+  let result = String(val);
   if (ch === null) {
     ch = ' '
   }
@@ -192,8 +192,8 @@ module.exports = {
 }
 
 },{"./locale/AU":8,"./locale/CN":9,"./locale/DE":10,"./locale/EN":11,"./locale/ET":12,"./locale/FI":14,"./locale/FR":15,"./locale/LV":16,"./locale/RU":17,"./locale/SV":18}],3:[function(require,module,exports){
-var DateTime = require('./DateTime')
-var DateParse = {}
+const DateTime = require('./DateTime')
+const DateParse = {}
 DateParse.parseRegexes = []
 DateParse.defaultFormat = 'n/j/Y'
 
@@ -202,26 +202,26 @@ DateParse.parse = function (input, locale) {
     if (input === 'today') {
       return DateTime.today()
     }
-    var format = locale ? locale.shortDateFormat : DateParse.defaultFormat
-    var date = DateParse.parseDate(input, format)
+    const format = locale ? locale.shortDateFormat : DateParse.defaultFormat
+    const date = DateParse.parseDate(input, format)
     return date ? date : new DateTime(new Date(input))
   }
   throw new Error("DateParse only accepts strings")
 }
 
 DateParse.parseDate = function (input, format) {
-  var values = input.match(getOrCreateParseRegexp())
+  const values = input.match(getOrCreateParseRegexp())
   return values ? matchesToDateTime(values) : null
 
   function matchesToDateTime(values) {
-    var day = matchesToObject(values)
+    const day = matchesToObject(values)
     return DateTime.fromDate(day.Y, (day.m ? day.m : day.n), (day.d ? day.d : day.j))
   }
 
   function matchesToObject(matchValues) {
-    var day = {}
-    var keys = format.replace(/[^djmnY]/g, '').split('')
-    for (var i = 0; i < keys.length; i++) day[keys[i]] = +matchValues[i + 1]
+    const day = {}
+    const keys = format.replace(/[^djmnY]/g, '').split('')
+    for (let i = 0; i < keys.length; i++) day[keys[i]] = +matchValues[i + 1]
     return day
   }
 
@@ -234,15 +234,15 @@ DateParse.parseDate = function (input, format) {
 }
 
 DateParse.parseTime = function (timeStr) {
-  var splittedTime = splitTime(timeStr.replace(/:|,/i, '.'))
-  var time = [+(splittedTime[0]), +(splittedTime[1])]
+  const splittedTime = splitTime(timeStr.replace(/:|,/i, '.'))
+  const time = [+(splittedTime[0]), +(splittedTime[1])]
   return (isHour(time[0]) && isMinute(time[1])) ? time : null
 
   function splitTime(timeStr) {
     if (timeStr.indexOf('.') !== -1) {
       return timeStr.split('.')
     }
-    var splitTimes = {
+    const splitTimes = {
       4: [timeStr.slice(0, 2), timeStr.slice(2, 4)],
       3: [timeStr.slice(0, 1), timeStr.slice(1, 3)],
       2: [timeStr, 0]
@@ -258,9 +258,9 @@ DateParse.parseTime = function (timeStr) {
 module.exports = DateParse
 
 },{"./DateTime":5}],4:[function(require,module,exports){
-var DateTime = require('./DateTime')
-var DateFormat = require('./DateFormat')
-var DateParse = require('./DateParse')
+const DateTime = require('./DateTime');
+const DateFormat = require('./DateFormat');
+const DateParse = require('./DateParse');
 
 function DateRange(date1, date2) {
   if (!date1 || !date2) {
@@ -274,30 +274,28 @@ function DateRange(date1, date2) {
   this._valid = true
 }
 
-DateRange.emptyRange = function () {
+DateRange.emptyRange = () => {
   function NullDateRange() {
     this.start = null
     this.end = null
-    this.days = function () {
-      return 0
-    }
-    this.shiftDays = function () {}
-    this.hasDate = function () { return false }
-    this.clone = function () { return DateRange.emptyRange() }
+    this.days = () => 0
+    this.shiftDays = () => {}
+    this.hasDate = () => false
+    this.clone = () => DateRange.emptyRange()
     this.expandDaysTo = function () { return this }
-    this.hasEndsOnWeekend = function () { return false }
-    this.isPermittedRange = function () { return true }
-    this.hasSelection = function () { return false }
+    this.hasEndsOnWeekend = () => false
+    this.isPermittedRange = () => true
+    this.hasSelection = () => false
   }
 
   return new NullDateRange()
 }
 
-DateRange.rangeWithMinimumSize = function (oldRange, minimumSize, disableWeekends, outerRange) {
+DateRange.rangeWithMinimumSize = (oldRange, minimumSize, disableWeekends, outerRange) => {
   if (isTooSmallSelection()) {
-    var newRange = oldRange.expandDaysTo(minimumSize)
+    let newRange = oldRange.expandDaysTo(minimumSize);
     if (disableWeekends && newRange.hasEndsOnWeekend()) {
-      var shiftedDays = newRange.shiftDays(delta(newRange.end.getDay())).shiftInside(outerRange)
+      let shiftedDays = newRange.shiftDays(delta(newRange.end.getDay())).shiftInside(outerRange);
       while (!shiftedDays.isPermittedRange(minimumSize, disableWeekends, outerRange) || shiftedDays.end.compareTo(outerRange.end) > 0) {
         if (!shiftedDays.isPermittedRange(minimumSize, false, outerRange)) {
           return DateRange.emptyRange()
@@ -320,7 +318,7 @@ DateRange.rangeWithMinimumSize = function (oldRange, minimumSize, disableWeekend
 
 DateRange.prototype._setDaysHoursAndMinutes = function () {
   if (this._hasTimes) {
-    var ms = parseInt((this.end.getTime() - this.start.getTime()), 10)
+    let ms = parseInt((this.end.getTime() - this.start.getTime()), 10);
     this._days = parseInt(ms / DateTime.DAY, 10)
     ms = ms - (this._days * DateTime.DAY)
     this._hours = parseInt(ms / DateTime.HOUR, 10)
@@ -329,7 +327,7 @@ DateRange.prototype._setDaysHoursAndMinutes = function () {
   }
 }
 
-DateRange.prototype._dateWithTime = function (dateWithoutTime, parsedTime) { return dateWithoutTime.withTime(parsedTime[0], parsedTime[1]) }
+DateRange.prototype._dateWithTime = (dateWithoutTime, parsedTime) => dateWithoutTime.withTime(parsedTime[0], parsedTime[1])
 
 DateRange.prototype.hours = function () { return this._hours }
 
@@ -344,8 +342,8 @@ DateRange.prototype.days = function () { return this._hasTimes ? this._days : Ma
 DateRange.prototype.shiftDays = function (days) { return new DateRange(this.start.plusDays(days), this.end.plusDays(days)) }
 
 DateRange.prototype.expandTo = function (date) {
-  var newStart = this.start.clone()
-  var newEnd = this.end.clone()
+  let newStart = this.start.clone();
+  let newEnd = this.end.clone();
   if (date.compareTo(this.start) < 0) newStart = date
   else if (date.compareTo(this.end) > 0) newEnd = date
   return new DateRange(newStart, newEnd)
@@ -360,8 +358,8 @@ DateRange.prototype.hasValidSizeAndEndsOnWorkWeek = function (minimumDays) {
 }
 
 DateRange.prototype.and = function (that) {
-  var latestStart = this.start.compareTo(that.start) > 0 ? this.start : that.start
-  var earliestEnd = this.end.compareTo(that.end) > 0 ? that.end : this.end
+  const latestStart = this.start.compareTo(that.start) > 0 ? this.start : that.start;
+  const earliestEnd = this.end.compareTo(that.end) > 0 ? that.end : this.end;
   return latestStart.compareTo(earliestEnd) < 0 ? new DateRange(latestStart, earliestEnd) : DateRange.emptyRange()
 }
 
@@ -372,9 +370,9 @@ DateRange.prototype.isInside = function (outer) {
 DateRange.prototype.hasEndsOnWeekend = function () { return this.start.isWeekend() || this.end.isWeekend() }
 
 DateRange.prototype.withTimes = function (startTimeStr, endTimeStr) {
-  var parsedStartTime = DateParse.parseTime(startTimeStr)
-  var parsedEndTime = DateParse.parseTime(endTimeStr)
-  var rangeWithTimes = this.clone()
+  const parsedStartTime = DateParse.parseTime(startTimeStr);
+  const parsedEndTime = DateParse.parseTime(endTimeStr);
+  const rangeWithTimes = this.clone();
   if (parsedStartTime && parsedEndTime) {
     rangeWithTimes._valid = true
     rangeWithTimes._hasTimes = true
@@ -413,8 +411,8 @@ DateRange.prototype.shiftInside = function (outerRange) {
   if (this.days() > outerRange.days()) {
     return DateRange.emptyRange()
   }
-  var distanceToOuterRangeStart = this.start.distanceInDays(outerRange.start)
-  var distanceToOuterRangeEnd = this.end.distanceInDays(outerRange.end)
+  const distanceToOuterRangeStart = this.start.distanceInDays(outerRange.start);
+  const distanceToOuterRangeEnd = this.end.distanceInDays(outerRange.end);
   if (distanceToOuterRangeStart > 0) {
     return this.shiftDays(distanceToOuterRangeStart)
   }
@@ -912,9 +910,9 @@ module.exports = DateTime
 
 
 },{}],6:[function(require,module,exports){
-var Duration = function (durationMs) {
+const Duration = function (durationMs) {
   this.durationMs = durationMs
-}
+};
 
 Duration.MS = 1
 Duration.SECOND = 1000
@@ -922,11 +920,11 @@ Duration.MIN = 60 * Duration.SECOND
 Duration.HOUR = 60 * Duration.MIN
 Duration.DAY = 24 * Duration.HOUR
 
-Duration.fromMS = function (milliSeconds) { return new Duration(milliSeconds) }
-Duration.fromSeconds = function (seconds) { return Duration.fromMS(seconds * Duration.SECOND) }
-Duration.fromMinutes = function (minutes) { return Duration.fromMS(minutes * Duration.MIN) }
-Duration.fromHours = function (hours) { return Duration.fromMS(hours * Duration.HOUR) }
-Duration.fromDays = function (days) { return Duration.fromMS(days * Duration.DAY) }
+Duration.fromMS = milliSeconds => new Duration(milliSeconds)
+Duration.fromSeconds = seconds => Duration.fromMS(seconds * Duration.SECOND)
+Duration.fromMinutes = minutes => Duration.fromMS(minutes * Duration.MIN)
+Duration.fromHours = hours => Duration.fromMS(hours * Duration.HOUR)
+Duration.fromDays = days => Duration.fromMS(days * Duration.DAY)
 
 Duration.prototype.toMS = function () { return this.durationMs }
 Duration.prototype.asUnit = function (unit) { return Number(this.durationMs / unit) }
@@ -942,18 +940,18 @@ window.Duration = require('./Duration')
 
 
 },{"./DateFormat":1,"./DateLocale":2,"./DateParse":3,"./DateRange":4,"./DateTime":5,"./Duration":6}],8:[function(require,module,exports){
-var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 module.exports = {
   id: 'AU',
   monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
   dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   shortDayNames: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-  yearsLabel: function (years) { return years + ' ' + (years === 1 ? 'Year' : 'Years'); },
-  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'Months' : 'Months') },
-  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'Day' : 'Days') },
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
+  yearsLabel: years => years + ' ' + (years === 1 ? 'Year' : 'Years'),
+  monthsLabel: months => months + ' ' + (months === 1 ? 'Months' : 'Months'),
+  daysLabel: days => days + ' ' + (days === 1 ? 'Day' : 'Days'),
+  hoursLabel: (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Hour' : 'Hours')
   },
   clearRangeLabel: 'Clear Range',
@@ -967,25 +965,19 @@ module.exports = {
 
 },{"../DateFormat":1,"../DateTime":5}],9:[function(require,module,exports){
 //简体中文
-var DateTime = require('../DateTime');
-var DateFormat = require('../DateFormat');
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 module.exports = {
     id: 'AU',
     monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
     dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
     shortDayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
-    yearsLabel: function (years) {
-        return years + ' ' + (years === 1 ? '年' : '年');
-    },
-    monthsLabel: function (months) {
-        return months + ' ' + (months === 1 ? '月' : '月')
-    },
-    daysLabel: function (days) {
-        return days + ' ' + (days === 1 ? '日' : '日')
-    },
-    hoursLabel: function (hours, minutes) {
-        var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
-        return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? '小时' : '小时')
+    yearsLabel: years => years + ' ' + (years === 1 ? '年' : '年'),
+    monthsLabel: months => months + ' ' + (months === 1 ? '月' : '月'),
+    daysLabel: days => days + ' ' + (days === 1 ? '日' : '日'),
+    hoursLabel: (hours, minutes) => {
+      const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
+      return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? '小时' : '小时')
     },
     clearRangeLabel: '范围',
     clearDateLabel: '日期',
@@ -995,19 +987,20 @@ module.exports = {
     firstWeekday: DateTime.MONDAY,
     holidays: {}
 };
+
 },{"../DateFormat":1,"../DateTime":5}],10:[function(require,module,exports){
-var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 module.exports = {
   id: 'DE',
   monthNames: ['Januar','Februar','März','April','Mai','Juni', 'Juli','August','September','Oktober','November','Dezember'],
   dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
   shortDayNames: ['So','Mo','Di','Mi','Do','Fr','Sa'],
-  yearsLabel: function (years) { return years + ' ' + 'Jahr'; },
-  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'Monat' : 'Months') },
-  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'Tag' : 'Tage') },
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
+  yearsLabel: years => years + ' ' + 'Jahr',
+  monthsLabel: months => months + ' ' + (months === 1 ? 'Monat' : 'Months'),
+  daysLabel: days => days + ' ' + (days === 1 ? 'Tag' : 'Tage'),
+  hoursLabel: (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Stunde' : 'Stunden')
   },
   clearRangeLabel: 'Auswahl löschen',
@@ -1020,18 +1013,18 @@ module.exports = {
 }
 
 },{"../DateFormat":1,"../DateTime":5}],11:[function(require,module,exports){
-var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 module.exports = {
   id: 'EN',
   monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
   dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   shortDayNames: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-  yearsLabel: function (years) { return years + ' ' + (years === 1 ? 'Year' : 'Years'); },
-  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'Months' : 'Months') },
-  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'Day' : 'Days') },
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
+  yearsLabel: years => years + ' ' + (years === 1 ? 'Year' : 'Years'),
+  monthsLabel: months => months + ' ' + (months === 1 ? 'Months' : 'Months'),
+  daysLabel: days => days + ' ' + (days === 1 ? 'Day' : 'Days'),
+  hoursLabel: (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Hour' : 'Hours')
   },
   clearRangeLabel: 'Clear Range',
@@ -1044,28 +1037,28 @@ module.exports = {
 }
 
 },{"../DateFormat":1,"../DateTime":5}],12:[function(require,module,exports){
-  var DateTime = require('../DateTime')
-  var DateFormat = require('../DateFormat')
-  module.exports = {
-    id             : 'ET',
-    monthNames     : [ 'Jaanuar', 'Veebruar', 'Märts', 'Aprill', 'Mai', 'Juuni', 'Juuli', 'August', 'September', 'Oktoober', 'November', 'Detsember'],
-    dayNames       : ['Pühapäev', 'Esmaspäev', 'Teisipäev', 'Kolmapäev', 'Neljapäev', 'Reede', 'Laupäev'],
-    shortDayNames  : ['P', 'E', 'T', 'K', 'N', 'R', 'L'],
-    yearsLabel     : function(years) { return years + ' ' + (years === 1 ? 'Aasta' : 'Aastat') },
-    monthsLabel    : function(months) { return months + ' ' + (months === 1 ? 'Kuu' : 'Kuud') },
-    daysLabel      : function(days) { return days + ' ' + (days === 1 ? 'Päev' : 'Päeva') },
-    hoursLabel     : function(hours, minutes) {
-      var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
-      return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Tund' : 'Tundi')
-    },
-    clearRangeLabel: 'TODO',
-    clearDateLabel: 'TODO',
-    shortDateFormat: 'j.n.Y',
-    weekDateFormat : 'D j.n.Y',
-    dateTimeFormat : 'D j.n.Y G:i',
-    firstWeekday   : DateTime.MONDAY,
-    holidays: {}
-  }
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
+module.exports = {
+  id             : 'ET',
+  monthNames     : [ 'Jaanuar', 'Veebruar', 'Märts', 'Aprill', 'Mai', 'Juuni', 'Juuli', 'August', 'September', 'Oktoober', 'November', 'Detsember'],
+  dayNames       : ['Pühapäev', 'Esmaspäev', 'Teisipäev', 'Kolmapäev', 'Neljapäev', 'Reede', 'Laupäev'],
+  shortDayNames  : ['P', 'E', 'T', 'K', 'N', 'R', 'L'],
+  yearsLabel     : years => years + ' ' + (years === 1 ? 'Aasta' : 'Aastat'),
+  monthsLabel    : months => months + ' ' + (months === 1 ? 'Kuu' : 'Kuud'),
+  daysLabel      : days => days + ' ' + (days === 1 ? 'Päev' : 'Päeva'),
+  hoursLabel     : (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');
+    return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Tund' : 'Tundi')
+  },
+  clearRangeLabel: 'TODO',
+  clearDateLabel: 'TODO',
+  shortDateFormat: 'j.n.Y',
+  weekDateFormat : 'D j.n.Y',
+  dateTimeFormat : 'D j.n.Y G:i',
+  firstWeekday   : DateTime.MONDAY,
+  holidays: {}
+}
 
 },{"../DateFormat":1,"../DateTime":5}],13:[function(require,module,exports){
 module.exports = {
@@ -1177,19 +1170,19 @@ module.exports = {
 }
 
 },{}],14:[function(require,module,exports){
-var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
-var holidays = require('./FI-holidays')
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
+const holidays = require('./FI-holidays');
 module.exports = {
   id: 'FI',
   monthNames: ['tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu'],
   dayNames: ['sunnuntai', 'maanantai', 'tiistai', 'keskiviikko', 'torstai', 'perjantai', 'lauantai'],
   shortDayNames: ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la'],
-  yearsLabel: function (years) { return years + ' ' + (years === 1 ? 'vuosi' : 'vuotta') },
-  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'kuukausi' : 'kuukautta') },
-  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'päivä' : 'päivää') },
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
+  yearsLabel: years => years + ' ' + (years === 1 ? 'vuosi' : 'vuotta'),
+  monthsLabel: months => months + ' ' + (months === 1 ? 'kuukausi' : 'kuukautta'),
+  daysLabel: days => days + ' ' + (days === 1 ? 'päivä' : 'päivää'),
+  hoursLabel: (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'tunti' : 'tuntia')
   },
   clearRangeLabel: 'Poista valinta',
@@ -1202,18 +1195,18 @@ module.exports = {
 }
 
 },{"../DateFormat":1,"../DateTime":5,"./FI-holidays":13}],15:[function(require,module,exports){
-var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 module.exports = {
   id: 'FR',
   monthNames: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
   dayNames: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
   shortDayNames: ['D','L','M','M','J','V','S'],
-  yearsLabel: function (years) { return years + ' ' + (years === 1 ? 'Année' : 'Années'); },
-  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'Mois' : 'Moiss') },
-  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'Jour' : 'Jours') },
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
+  yearsLabel: years => years + ' ' + (years === 1 ? 'Année' : 'Années'),
+  monthsLabel: months => months + ' ' + (months === 1 ? 'Mois' : 'Moiss'),
+  daysLabel: days => days + ' ' + (days === 1 ? 'Jour' : 'Jours'),
+  hoursLabel: (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Heure' : 'Heures')
   },
   clearRangeLabel: 'Effacer la sélection',
@@ -1226,18 +1219,18 @@ module.exports = {
 }
 
 },{"../DateFormat":1,"../DateTime":5}],16:[function(require,module,exports){
-var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 module.exports = {
   id: 'LV',
   monthNames: ['Janvāris', 'Februāris', 'Marts', 'Aprīlis', 'Maijs', 'Jūnijs', ' Jūlijs', 'Augusts', 'Septembris', 'Oktobris', 'Novembris', 'Decembris'],
   dayNames: ['Svētdiena', 'Pirmdiena', 'Otrdiena', 'Trešdiena', 'Ceturtdiena', 'Piektdiena', 'Sestdiena'],
   shortDayNames: ['Sv', 'P', 'O', 'T', 'C', 'Pk', 'S'],
-  yearsLabel: function (years) { return years + ' ' + (years === 1 ? 'G' : 'G'); },
-  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'Mēnesī' : 'Mēnešiem') },
-  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'Diena' : 'Dienas') },
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
+  yearsLabel: years => years + ' ' + (years === 1 ? 'G' : 'G'),
+  monthsLabel: months => months + ' ' + (months === 1 ? 'Mēnesī' : 'Mēnešiem'),
+  daysLabel: days => days + ' ' + (days === 1 ? 'Diena' : 'Dienas'),
+  hoursLabel: (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Stundas' : 'Minūtes')
   },
   clearRangeLabel: 'TODO',
@@ -1250,8 +1243,8 @@ module.exports = {
 }
 
 },{"../DateFormat":1,"../DateTime":5}],17:[function(require,module,exports){
-var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 
 /**
  * For example:
@@ -1265,8 +1258,8 @@ var DateFormat = require('../DateFormat')
  * @return {string}
  */
 function pluralize(number, words) {
-  var magnitude = number % 100;
-  var pluralWord = ''
+  const magnitude = number % 100;
+  let pluralWord = '';
 
   if ((magnitude > 10 && magnitude < 20) || (number === 0)) {
     pluralWord = words[2];
@@ -1293,11 +1286,11 @@ module.exports = {
   monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
   dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
   shortDayNames: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-  yearsLabel: function (years) {return pluralize(years, ['Год', 'Года', 'Лет'])},
-  monthsLabel: function (months) {return pluralize(months, ['Месяц', 'Месяца', 'Месяцев'])},
-  daysLabel: function (days) {return pluralize(days, ['День', 'Дня', 'Дней'])},
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
+  yearsLabel: years => pluralize(years, ['Год', 'Года', 'Лет']),
+  monthsLabel: months => pluralize(months, ['Месяц', 'Месяца', 'Месяцев']),
+  daysLabel: days => pluralize(days, ['День', 'Дня', 'Дней']),
+  hoursLabel: (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');
     /*
      * It's weird to say like this but correct pronounce is:
      * 1,2  = '1 целая две десятых часа'
@@ -1319,18 +1312,18 @@ module.exports = {
 }
 
 },{"../DateFormat":1,"../DateTime":5}],18:[function(require,module,exports){
-var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 module.exports = {
   id: 'SV',
   monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
   dayNames: ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'],
   shortDayNames: ['Sö', 'Må', 'Ti', 'On', 'To', 'Fr', 'Lö'],
-  yearsLabel: function (years) { return years + ' ' + (years === 1 ? 'År' : 'År') },
-  monthsLabel: function (months) { return months + ' ' + (months === 1 ? 'Månad' : 'Månader') },
-  daysLabel: function (days) { return days + ' ' + (days === 1 ? 'Dag' : 'Dagar') },
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
+  yearsLabel: years => years + ' ' + (years === 1 ? 'År' : 'År'),
+  monthsLabel: months => months + ' ' + (months === 1 ? 'Månad' : 'Månader'),
+  daysLabel: days => days + ' ' + (days === 1 ? 'Dag' : 'Dagar'),
+  hoursLabel: (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Minut' : 'Minuter')
   },
   clearRangeLabel: 'TODO',

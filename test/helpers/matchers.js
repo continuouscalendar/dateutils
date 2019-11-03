@@ -1,9 +1,9 @@
-var DateTime = require('../../src/DateTime')
-var DateFormat = require('../../src/DateFormat')
+const DateTime = require('../../src/DateTime')
+const DateFormat = require('../../src/DateFormat')
 
-module.exports = function (chai, utils) {
-  var flag = utils.flag
-  var matchers = {
+module.exports = (chai, utils) => {
+  const flag = utils.flag
+  const matchers = {
     toHaveLength: function (length) {
       this.assert(
         $(flag(this, 'object')).length === length
@@ -61,5 +61,5 @@ module.exports = function (chai, utils) {
     }
   }
 
-  for(var name in matchers) chai.Assertion.addMethod(name, matchers[name]);
+  for(let name in matchers) chai.Assertion.addMethod(name, matchers[name])
 }

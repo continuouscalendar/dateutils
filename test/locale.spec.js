@@ -1,10 +1,10 @@
-var DateLocale = require('../src/DateLocale')
+const DateLocale = require('../src/DateLocale');
 
-describe('locale', function () {
-  describe('Russian localizatioon', function () {
-    var locale = DateLocale.RU
+describe('locale', () => {
+  describe('Russian localizatioon', () => {
+    const locale = DateLocale.RU;
 
-    it('Years', function () {
+    it('Years', () => {
       expect(locale.yearsLabel(1)).to.equal('1 Год')
       expect(locale.yearsLabel(2)).to.equal('2 Года')
       expect(locale.yearsLabel(3)).to.equal('3 Года')
@@ -20,7 +20,7 @@ describe('locale', function () {
       expect(locale.yearsLabel(32)).to.equal('32 Года')
     })
 
-    it('Months', function () {
+    it('Months', () => {
       expect(locale.monthsLabel(1)).to.equal('1 Месяц')
       expect(locale.monthsLabel(2)).to.equal('2 Месяца')
       expect(locale.monthsLabel(3)).to.equal('3 Месяца')
@@ -36,7 +36,7 @@ describe('locale', function () {
       expect(locale.monthsLabel(32)).to.equal('32 Месяца')
     })
 
-    it('Days', function () {
+    it('Days', () => {
       expect(locale.daysLabel(1)).to.equal('1 День')
       expect(locale.daysLabel(2)).to.equal('2 Дня')
       expect(locale.daysLabel(3)).to.equal('3 Дня')
@@ -52,7 +52,7 @@ describe('locale', function () {
       expect(locale.daysLabel(32)).to.equal('32 Дня')
     })
 
-    it('Hours and minuts', function () {
+    it('Hours and minuts', () => {
       expect(locale.hoursLabel(0, 1)).to.equal('0,02 Часа')
       expect(locale.hoursLabel(0, 2)).to.equal('0,03 Часа')
       expect(locale.hoursLabel(1, 3)).to.equal('1,05 Часа')
@@ -66,10 +66,10 @@ describe('locale', function () {
       expect(locale.hoursLabel(1, 22)).to.equal('1,37 Часа')
     })
   })
-  describe('holidays', function () {
-    var locale = DateLocale.FI
+  describe('holidays', () => {
+    const locale = DateLocale.FI
 
-    it('shows holidays for finland', function () {
+    it('shows holidays for finland', () => {
       expect(locale.holidays['2021-12-26']).to.equal('Tapaninpäivä')
     })
   })

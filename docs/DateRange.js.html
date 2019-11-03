@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><script src="../build/dateutils-latest.js"></script>
+  <head>
     <meta name="viewport" content="width=device-width" charset="utf-8">
     <title>dateutils</title>
     <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css">
@@ -108,9 +108,9 @@
             </p>
           </section>
           <div class="description"> </div>
-          <pre><code class="language-javascript">var DateTime = require('./DateTime')
-var DateFormat = require('./DateFormat')
-var DateParse = require('./DateParse')
+          <pre><code class="language-javascript">const DateTime = require('./DateTime');
+const DateFormat = require('./DateFormat');
+const DateParse = require('./DateParse');
 
 function DateRange(date1, date2) {
   if (!date1 || !date2) {
@@ -124,30 +124,28 @@ function DateRange(date1, date2) {
   this._valid = true
 }
 
-DateRange.emptyRange = function () {
+DateRange.emptyRange = () =&gt; {
   function NullDateRange() {
     this.start = null
     this.end = null
-    this.days = function () {
-      return 0
-    }
-    this.shiftDays = function () {}
-    this.hasDate = function () { return false }
-    this.clone = function () { return DateRange.emptyRange() }
+    this.days = () =&gt; 0
+    this.shiftDays = () =&gt; {}
+    this.hasDate = () =&gt; false
+    this.clone = () =&gt; DateRange.emptyRange()
     this.expandDaysTo = function () { return this }
-    this.hasEndsOnWeekend = function () { return false }
-    this.isPermittedRange = function () { return true }
-    this.hasSelection = function () { return false }
+    this.hasEndsOnWeekend = () =&gt; false
+    this.isPermittedRange = () =&gt; true
+    this.hasSelection = () =&gt; false
   }
 
   return new NullDateRange()
 }
 
-DateRange.rangeWithMinimumSize = function (oldRange, minimumSize, disableWeekends, outerRange) {
+DateRange.rangeWithMinimumSize = (oldRange, minimumSize, disableWeekends, outerRange) =&gt; {
   if (isTooSmallSelection()) {
-    var newRange = oldRange.expandDaysTo(minimumSize)
+    let newRange = oldRange.expandDaysTo(minimumSize);
     if (disableWeekends &amp;&amp; newRange.hasEndsOnWeekend()) {
-      var shiftedDays = newRange.shiftDays(delta(newRange.end.getDay())).shiftInside(outerRange)
+      let shiftedDays = newRange.shiftDays(delta(newRange.end.getDay())).shiftInside(outerRange);
       while (!shiftedDays.isPermittedRange(minimumSize, disableWeekends, outerRange) || shiftedDays.end.compareTo(outerRange.end) &gt; 0) {
         if (!shiftedDays.isPermittedRange(minimumSize, false, outerRange)) {
           return DateRange.emptyRange()
@@ -170,7 +168,7 @@ DateRange.rangeWithMinimumSize = function (oldRange, minimumSize, disableWeekend
 
 DateRange.prototype._setDaysHoursAndMinutes = function () {
   if (this._hasTimes) {
-    var ms = parseInt((this.end.getTime() - this.start.getTime()), 10)
+    let ms = parseInt((this.end.getTime() - this.start.getTime()), 10);
     this._days = parseInt(ms / DateTime.DAY, 10)
     ms = ms - (this._days * DateTime.DAY)
     this._hours = parseInt(ms / DateTime.HOUR, 10)
@@ -179,7 +177,7 @@ DateRange.prototype._setDaysHoursAndMinutes = function () {
   }
 }
 
-DateRange.prototype._dateWithTime = function (dateWithoutTime, parsedTime) { return dateWithoutTime.withTime(parsedTime[0], parsedTime[1]) }
+DateRange.prototype._dateWithTime = (dateWithoutTime, parsedTime) =&gt; dateWithoutTime.withTime(parsedTime[0], parsedTime[1])
 
 DateRange.prototype.hours = function () { return this._hours }
 
@@ -194,8 +192,8 @@ DateRange.prototype.days = function () { return this._hasTimes ? this._days : Ma
 DateRange.prototype.shiftDays = function (days) { return new DateRange(this.start.plusDays(days), this.end.plusDays(days)) }
 
 DateRange.prototype.expandTo = function (date) {
-  var newStart = this.start.clone()
-  var newEnd = this.end.clone()
+  let newStart = this.start.clone();
+  let newEnd = this.end.clone();
   if (date.compareTo(this.start) &lt; 0) newStart = date
   else if (date.compareTo(this.end) &gt; 0) newEnd = date
   return new DateRange(newStart, newEnd)
@@ -210,8 +208,8 @@ DateRange.prototype.hasValidSizeAndEndsOnWorkWeek = function (minimumDays) {
 }
 
 DateRange.prototype.and = function (that) {
-  var latestStart = this.start.compareTo(that.start) &gt; 0 ? this.start : that.start
-  var earliestEnd = this.end.compareTo(that.end) &gt; 0 ? that.end : this.end
+  const latestStart = this.start.compareTo(that.start) &gt; 0 ? this.start : that.start;
+  const earliestEnd = this.end.compareTo(that.end) &gt; 0 ? that.end : this.end;
   return latestStart.compareTo(earliestEnd) &lt; 0 ? new DateRange(latestStart, earliestEnd) : DateRange.emptyRange()
 }
 
@@ -222,9 +220,9 @@ DateRange.prototype.isInside = function (outer) {
 DateRange.prototype.hasEndsOnWeekend = function () { return this.start.isWeekend() || this.end.isWeekend() }
 
 DateRange.prototype.withTimes = function (startTimeStr, endTimeStr) {
-  var parsedStartTime = DateParse.parseTime(startTimeStr)
-  var parsedEndTime = DateParse.parseTime(endTimeStr)
-  var rangeWithTimes = this.clone()
+  const parsedStartTime = DateParse.parseTime(startTimeStr);
+  const parsedEndTime = DateParse.parseTime(endTimeStr);
+  const rangeWithTimes = this.clone();
   if (parsedStartTime &amp;&amp; parsedEndTime) {
     rangeWithTimes._valid = true
     rangeWithTimes._hasTimes = true
@@ -263,8 +261,8 @@ DateRange.prototype.shiftInside = function (outerRange) {
   if (this.days() &gt; outerRange.days()) {
     return DateRange.emptyRange()
   }
-  var distanceToOuterRangeStart = this.start.distanceInDays(outerRange.start)
-  var distanceToOuterRangeEnd = this.end.distanceInDays(outerRange.end)
+  const distanceToOuterRangeStart = this.start.distanceInDays(outerRange.start);
+  const distanceToOuterRangeEnd = this.end.distanceInDays(outerRange.end);
   if (distanceToOuterRangeStart &gt; 0) {
     return this.shiftDays(distanceToOuterRangeStart)
   }

@@ -135,8 +135,8 @@
           </table>
           <div class="description"><p>For example:<br />  1 год<br />  2 года, 3 года, 4 года<br />  5 лет, 6 лет … 11 лет, 12 лет … 20 лет<br />  21 год, 31 год<br />  22 года, 32 года</p> </div>
           <pre><code class="language-javascript">function pluralize(number, words) {
-  var magnitude = number % 100;
-  var pluralWord = ''
+  const magnitude = number % 100;
+  let pluralWord = '';
 
   if ((magnitude &gt; 10 &amp;&amp; magnitude &lt; 20) || (number === 0)) {
     pluralWord = words[2];
@@ -163,11 +163,11 @@ module.exports = {
   monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
   dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
   shortDayNames: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-  yearsLabel: function (years) {return pluralize(years, ['Год', 'Года', 'Лет'])},
-  monthsLabel: function (months) {return pluralize(months, ['Месяц', 'Месяца', 'Месяцев'])},
-  daysLabel: function (days) {return pluralize(days, ['День', 'Дня', 'Дней'])},
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')</code></pre>
+  yearsLabel: years =&gt; pluralize(years, ['Год', 'Года', 'Лет']),
+  monthsLabel: months =&gt; pluralize(months, ['Месяц', 'Месяца', 'Месяцев']),
+  daysLabel: days =&gt; pluralize(days, ['День', 'Дня', 'Дней']),
+  hoursLabel: (hours, minutes) =&gt; {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');</code></pre>
           <div class="description"><p>It&#39;s weird to say like this but correct pronounce is:<br />1,2  = &#39;1 целая две десятых часа&#39;<br />0,1  = &#39;1 десятая часа&#39;<br />0,06 = &#39;6 сотых часа&#39;<br />2,05 = &#39;2 целых пять сотых часа&#39;<br />3,12 = &#39;3 целых двенадцать сотых часа&#39;<br />4,29 = &#39;4 целых 29 сотых часа&#39;</p> </div>
           <pre><code class="language-javascript">return hoursAndMinutes + ' Часа'
   },

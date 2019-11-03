@@ -1,5 +1,5 @@
-var DateTime = require('../DateTime')
-var DateFormat = require('../DateFormat')
+const DateTime = require('../DateTime');
+const DateFormat = require('../DateFormat');
 
 /**
  * For example:
@@ -13,8 +13,8 @@ var DateFormat = require('../DateFormat')
  * @return {string}
  */
 function pluralize(number, words) {
-  var magnitude = number % 100;
-  var pluralWord = ''
+  const magnitude = number % 100;
+  let pluralWord = '';
 
   if ((magnitude > 10 && magnitude < 20) || (number === 0)) {
     pluralWord = words[2];
@@ -41,11 +41,11 @@ module.exports = {
   monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
   dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
   shortDayNames: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-  yearsLabel: function (years) {return pluralize(years, ['Год', 'Года', 'Лет'])},
-  monthsLabel: function (months) {return pluralize(months, ['Месяц', 'Месяца', 'Месяцев'])},
-  daysLabel: function (days) {return pluralize(days, ['День', 'Дня', 'Дней'])},
-  hoursLabel: function (hours, minutes) {
-    var hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
+  yearsLabel: years => pluralize(years, ['Год', 'Года', 'Лет']),
+  monthsLabel: months => pluralize(months, ['Месяц', 'Месяца', 'Месяцев']),
+  daysLabel: days => pluralize(days, ['День', 'Дня', 'Дней']),
+  hoursLabel: (hours, minutes) => {
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');
     /*
      * It's weird to say like this but correct pronounce is:
      * 1,2  = '1 целая две десятых часа'

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head><script src="../build/dateutils-latest.js"></script>
+  <head>
     <meta name="viewport" content="width=device-width" charset="utf-8">
     <title>dateutils</title>
     <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css">
@@ -96,15 +96,15 @@
             <ul class="nav nav-list bs-docs-sidenav affix-top">
               <li><a href="#codes"><i class="alert alert-success"></i><span>codes</span></a>
               </li>
-              <li><a href="#hoursAndMinutes"><i class="alert alert-info"></i><span>hoursAndMinutes</span></a>
+              <li><a href="#hoursAndMinutes"><i class="alert alert-success"></i><span>hoursAndMinutes</span></a>
               </li>
-              <li><a href="#format"><i class="alert alert-info"></i><span>format</span></a>
+              <li><a href="#format"><i class="alert alert-success"></i><span>format</span></a>
               </li>
-              <li><a href="#shortDateFormat"><i class="alert alert-info"></i><span>shortDateFormat</span></a>
+              <li><a href="#shortDateFormat"><i class="alert alert-success"></i><span>shortDateFormat</span></a>
               </li>
-              <li><a href="#formatRange"><i class="alert alert-info"></i><span>formatRange</span></a>
+              <li><a href="#formatRange"><i class="alert alert-success"></i><span>formatRange</span></a>
               </li>
-              <li><a href="#formatDefiningRangeDuration"><i class="alert alert-info"></i><span>formatDefiningRangeDuration</span></a>
+              <li><a href="#formatDefiningRangeDuration"><i class="alert alert-success"></i><span>formatDefiningRangeDuration</span></a>
               </li>
               <li><a href="#patterns"><i class="alert alert-success"></i><span>patterns</span></a>
               </li>
@@ -241,44 +241,44 @@
             </tbody>
           </table>
           <div class="description"><p>Formatting patterns listed above</p> </div>
-          <pre><code class="language-javascript">var codes = {
-  d: function (d) { return leftPad(d.getDate(), 2, '0') },
-  D: function (d, l) { return l.shortDayNames[d.getDay()] },
-  j: function (d) { return d.getDate() },
-  l: function (d, l) { return l.dayNames[d.getDay()] },
-  w: function (d) { return d.getDay() },
-  z: function (d) { return d.getDayInYear() },
-  F: function (d, l) { return l.monthNames[d.getMonth() - 1] },
-  m: function (d) { return leftPad(d.getMonth(), 2, '0') },
-  M: function (d, l) { return l.monthNames[d.getMonth() - 1].substring(0, 3) },
-  n: function (d) { return (d.getMonth()) },
-  t: function (d) { return d.getDaysInMonth() },
-  Y: function (d) { return d.getFullYear() },
-  y: function (d) { return ('' + d.getFullYear()).substring(2, 4) } ,
-  a: function (d) { return (d.getHours() &lt; 12 ? 'am' : 'pm') },
-  A: function (d) { return (d.getHours() &lt; 12 ? 'AM' : 'PM') },
-  g: function (d) { return ((d.getHours() % 12) ? d.getHours() % 12 : 12) },
-  G: function (d) { return d.getHours() },
-  h: function (d) { return leftPad((d.getHours() % 12) ? d.getHours() % 12 : 12, 2, '0') },
-  H: function (d) { return leftPad(d.getHours(), 2, '0') },
-  i: function (d) { return leftPad(d.getMinutes(), 2, '0') },
-  s: function (d) { return leftPad(d.getSeconds(), 2, '0') },
-  Z: function (d) { return (d.date.getTimezoneOffset() / -60) }
-}</code></pre>
+          <pre><code class="language-javascript">const codes = {
+  d: d =&gt; leftPad(d.getDate(), 2, '0'),
+  D: (d, l) =&gt; l.shortDayNames[d.getDay()],
+  j: d =&gt; d.getDate(),
+  l: (d, l) =&gt; l.dayNames[d.getDay()],
+  w: d =&gt; d.getDay(),
+  z: d =&gt; d.getDayInYear(),
+  F: (d, l) =&gt; l.monthNames[d.getMonth() - 1],
+  m: d =&gt; leftPad(d.getMonth(), 2, '0'),
+  M: (d, l) =&gt; l.monthNames[d.getMonth() - 1].substring(0, 3),
+  n: d =&gt; (d.getMonth()),
+  t: d =&gt; d.getDaysInMonth(),
+  Y: d =&gt; d.getFullYear(),
+  y: d =&gt; ('' + d.getFullYear()).substring(2, 4),
+  a: d =&gt; (d.getHours() &lt; 12 ? 'am' : 'pm'),
+  A: d =&gt; (d.getHours() &lt; 12 ? 'AM' : 'PM'),
+  g: d =&gt; ((d.getHours() % 12) ? d.getHours() % 12 : 12),
+  G: d =&gt; d.getHours(),
+  h: d =&gt; leftPad((d.getHours() % 12) ? d.getHours() % 12 : 12, 2, '0'),
+  H: d =&gt; leftPad(d.getHours(), 2, '0'),
+  i: d =&gt; leftPad(d.getMinutes(), 2, '0'),
+  s: d =&gt; leftPad(d.getSeconds(), 2, '0'),
+  Z: d =&gt; (d.date.getTimezoneOffset() / -60)
+};</code></pre>
           <section id="hoursAndMinutes">
             <h1>hoursAndMinutes</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>DateFormat.hoursAndMinutes()</span>
+              <div class="label label-success radius ctx-type">property</div><span>DateFormat.hoursAndMinutes</span>
             </p>
           </section>
           <div class="description"><p>Returns hours and minutes as hours in decimal. For example <code>DateFormat.hoursAndMinutes(22,30)</code> returns <code>22.5</code></p> </div>
-          <pre><code class="language-javascript">DateFormat.hoursAndMinutes = function (hours, minutes) { return (Math.round((hours + minutes / 60) * 100) / 100).toString() }</code></pre>
+          <pre><code class="language-javascript">DateFormat.hoursAndMinutes = (hours, minutes) =&gt; (Math.round((hours + minutes / 60) * 100) / 100).toString()</code></pre>
           <section id="format">
             <h1>format</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>DateFormat.format()</span>
+              <div class="label label-success radius ctx-type">property</div><span>DateFormat.format</span>
             </p>
           </section>
           <table class="table table-bordered table-striped">
@@ -308,11 +308,11 @@
             </tbody>
           </table>
           <div class="description"><p>Formats dateTime. For example <code>DateFormat.format(DateTime.fromDateTime(2014, 2, 25, 14, 30), &#39;Y-m-d H:i:s&#39;, DateLocale.EN)</code> returns <code>2014-02-25 14:30:00</code></p> </div>
-          <pre><code class="language-javascript">DateFormat.format = function (dateTime, format, locale) {
-  var result = ''
-  var special = false
-  var ch = ''
-  for (var i = 0; i &lt; format.length; ++i) {
+          <pre><code class="language-javascript">DateFormat.format = (dateTime, format, locale) =&gt; {
+  let result = '';
+  let special = false;
+  let ch = '';
+  for (let i = 0; i &lt; format.length; ++i) {
     ch = format.charAt(i)
     if (!special &amp;&amp; ch === '\\') {
       special = true
@@ -331,7 +331,7 @@
             <h1>shortDateFormat</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>DateFormat.shortDateFormat()</span>
+              <div class="label label-success radius ctx-type">property</div><span>DateFormat.shortDateFormat</span>
             </p>
           </section>
           <table class="table table-bordered table-striped">
@@ -356,12 +356,12 @@
             </tbody>
           </table>
           <div class="description"><p>Shorthand for formatting in short date format. For example <code>DateFormat.shortDateFormat(DateTime.fromDateTime(2014, 2, 25, 14, 30), DateLocale.EN)</code> returns <code>2/25/2014</code></p> </div>
-          <pre><code class="language-javascript">DateFormat.shortDateFormat = function (dateTime, locale) { return DateFormat.format(dateTime, locale ? locale.shortDateFormat : 'n/j/Y', locale) }</code></pre>
+          <pre><code class="language-javascript">DateFormat.shortDateFormat = (dateTime, locale) =&gt; DateFormat.format(dateTime, locale ? locale.shortDateFormat : 'n/j/Y', locale)</code></pre>
           <section id="formatRange">
             <h1>formatRange</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>DateFormat.formatRange()</span>
+              <div class="label label-success radius ctx-type">property</div><span>DateFormat.formatRange</span>
             </p>
           </section>
           <table class="table table-bordered table-striped">
@@ -386,7 +386,7 @@
             </tbody>
           </table>
           <div class="description"><p>Formats DateRange. TODO</p> </div>
-          <pre><code class="language-javascript">DateFormat.formatRange = function (dateRange, locale) {
+          <pre><code class="language-javascript">DateFormat.formatRange = (dateRange, locale) =&gt; {
   if (dateRange._hasTimes) {
     return locale.daysLabel(dateRange.days()) + ' ' + locale.hoursLabel(dateRange.hours(), dateRange.minutes())
   } else {
@@ -397,7 +397,7 @@
             <h1>formatDefiningRangeDuration</h1>
             <h5 class="subheader"></h5>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>DateFormat.formatDefiningRangeDuration()</span>
+              <div class="label label-success radius ctx-type">property</div><span>DateFormat.formatDefiningRangeDuration</span>
             </p>
           </section>
           <table class="table table-bordered table-striped">
@@ -422,10 +422,10 @@
             </tbody>
           </table>
           <div class="description"><p>Need&#39;s documentation</p> </div>
-          <pre><code class="language-javascript">DateFormat.formatDefiningRangeDuration = function (dateRange, locale) {
-  var years = parseInt(dateRange.days() / 360, 10)
+          <pre><code class="language-javascript">DateFormat.formatDefiningRangeDuration = (dateRange, locale) =&gt; {
+  const years = parseInt(dateRange.days() / 360, 10);
   if (years &gt; 0) return locale.yearsLabel(years)
-  var months = parseInt(dateRange.days() / 30, 10)
+  const months = parseInt(dateRange.days() / 30, 10);
   if (months &gt; 0) return locale.monthsLabel(months)
   return locale.daysLabel(dateRange.days())
 }</code></pre>
