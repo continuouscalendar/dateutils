@@ -1,3 +1,7 @@
+h3. v0.3.0 
+
+* Add fromIsoTime to Duration
+
 h3. 0.3.1 
 
 Set correct timezone
