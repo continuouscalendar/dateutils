@@ -1,3 +1,7 @@
+
+
+
+
 const Duration = function (durationMs) {
   this.durationMs = durationMs
 };

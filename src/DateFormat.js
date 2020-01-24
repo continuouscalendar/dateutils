@@ -1,31 +1,5 @@
 import { DateTime } from './DateTime.js';
 
-const DateFormat = {};
-/**
- * Formatting patterns listed above
- * @param {Date} d [01-31]
- * @param {Short_Day_Name} D [Su, Mo, Tu, We, Th, Fr, Sa]
- * @param {Date} j [1-31]
- * @param {Full_day_name} l  [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
- * @param {Week_day_number} w 0=Sunday, 1=Monday, 2=Tuesday etc...
- * @param {Nth_day_of_year} z [1-365] except leap years
- * @param {Full_month_name} F [January, February, ...]
- * @param {Month_number} m [01-12]
- * @param {Month_name_stripped_to_three_letters} M [Jan, Feb, ...]
- * @param {Month_number} n [1-12]
- * @param {Days_in_current_month} t [28-31]
- * @param {Full_year} Y [1900, ...]
- * @param {Last_two_digits_of_a_year} y [01-99]
- * @param {Time_postfix} a [am|pm]
- * @param {Time_postfix} A [AM|PM]
- * @param {Hours_in_12h_format} g [1-12]
- * @param {Hours_in_24h_format} G [0-23]
- * @param {Hour_in_12h_format_with_padding} h [01-12]
- * @param {Hours_in_24h_format_with_padding} H [00-23]
- * @param {Minutes_with_padding} i [00-59]
- * @param {Seconds_with_padding} s [00-59]
- * @param {Timezone} Z 2 for GMT+2
- */
 const codes = {
   d: d => leftPad(d.getDate(), 2, '0'),
   D: (d, l) => l.shortDayNames[d.getDay()],
@@ -51,71 +25,105 @@ const codes = {
   Z: d => (d.date.getTimezoneOffset() / -60)
 };
 
-/** Returns hours and minutes as hours in decimal. For example <code>DateFormat.hoursAndMinutes(22,30)</code> returns <code>22.5</code> */
-DateFormat.hoursAndMinutes = (hours, minutes) => (Math.round((hours + minutes / 60) * 100) / 100).toString()
+/**
+ * Formatting patterns listed above
+ * @param {Date} d [01-31]
+ * @param {Short_Day_Name} D [Su, Mo, Tu, We, Th, Fr, Sa]
+ * @param {Date} j [1-31]
+ * @param {Full_day_name} l  [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+ * @param {Week_day_number} w 0=Sunday, 1=Monday, 2=Tuesday etc...
+ * @param {Nth_day_of_year} z [1-365] except leap years
+ * @param {Full_month_name} F [January, February, ...]
+ * @param {Month_number} m [01-12]
+ * @param {Month_name_stripped_to_three_letters} M [Jan, Feb, ...]
+ * @param {Month_number} n [1-12]
+ * @param {Days_in_current_month} t [28-31]
+ * @param {Full_year} Y [1900, ...]
+ * @param {Last_two_digits_of_a_year} y [01-99]
+ * @param {Time_postfix} a [am|pm]
+ * @param {Time_postfix} A [AM|PM]
+ * @param {Hours_in_12h_format} g [1-12]
+ * @param {Hours_in_24h_format} G [0-23]
+ * @param {Hour_in_12h_format_with_padding} h [01-12]
+ * @param {Hours_in_24h_format_with_padding} H [00-23]
+ * @param {Minutes_with_padding} i [00-59]
+ * @param {Seconds_with_padding} s [00-59]
+ * @param {Timezone} Z 2 for GMT+2
+ */
+class DateFormat {
 
-/** Formats dateTime. For example <code>DateFormat.format(DateTime.fromDateTime(2014, 2, 25, 14, 30), 'Y-m-d H:i:s', DateLocale.EN)</code> returns <code>2014-02-25 14:30:00</code>
- * @param {DateTime} dateTime DateTime object to be formatted
- * @param {String} format  Pattern to be used for formatting
- * @param {DateLocale} locale  Locale to be used for formatting
- * @see DateFormat.patterns
- * @returns {String} Formatted date
- * */
-DateFormat.format = (dateTime, format, locale) => {
-  let result = '';
-  let special = false;
-  let ch = '';
-  for (let i = 0; i < format.length; ++i) {
-    ch = format.charAt(i)
-    if (!special && ch === '\\') {
-      special = true
-    } else {
-      if (special) {
-        special = false
-        result += ch
+
+  /** Returns hours and minutes as hours in decimal. For example <code>DateFormat.hoursAndMinutes(22,30)</code> returns <code>22.5</code> */
+  static hoursAndMinutes(hours, minutes) {
+    return (Math.round((hours + minutes / 60) * 100) / 100).toString();
+  }
+
+  /** Formats dateTime. For example <code>DateFormat.format(DateTime.fromDateTime(2014, 2, 25, 14, 30), 'Y-m-d H:i:s', DateLocale.EN)</code> returns <code>2014-02-25 14:30:00</code>
+   * @param {DateTime} dateTime DateTime object to be formatted
+   * @param {String} format  Pattern to be used for formatting
+   * @param {DateLocale} locale  Locale to be used for formatting
+   * @see DateFormat.patterns
+   * @returns {String} Formatted date
+   * */
+  static format(dateTime, format, locale) {
+    let result = '';
+    let special = false;
+    let ch = '';
+    for (let i = 0; i < format.length; ++i) {
+      ch = format.charAt(i);
+      if (!special && ch === '\\') {
+        special = true;
       } else {
-        result += codeToValue(dateTime, ch, locale)
+        if (special) {
+          special = false;
+          result += ch;
+        } else {
+          result += codeToValue(dateTime, ch, locale);
+        }
       }
     }
+    return result;
   }
-  return result
-}
 
-/**
- * Shorthand for formatting in short date format. For example <code>DateFormat.shortDateFormat(DateTime.fromDateTime(2014, 2, 25, 14, 30), DateLocale.EN)</code> returns <code>2/25/2014</code>
- * @param {DateTime} dateTime DateTime to be formattend
- * @param {DateLocale} locale locale to be used for formatting
- * @returns {String} Returns Date in short date format depending on locale
- */
-DateFormat.shortDateFormat = (dateTime, locale) => DateFormat.format(dateTime, locale ? locale.shortDateFormat : 'n/j/Y', locale)
-
-/**
- * Formats DateRange. TODO
- * @param {DateRange} dateRange DateRange to be formatted
- * @param {DateLocale} locale to be used for formatting
- * @returns {string} returns date range in formatted form, for example <code>2/25/2014-2/15/2015</code>
- */
-DateFormat.formatRange = (dateRange, locale) => {
-  if (dateRange._hasTimes) {
-    return locale.daysLabel(dateRange.days()) + ' ' + locale.hoursLabel(dateRange.hours(), dateRange.minutes())
-  } else {
-    return DateFormat.shortDateFormat(dateRange.start, locale) + ' - ' + DateFormat.shortDateFormat(dateRange.end, locale)
+  /**
+   * Shorthand for formatting in short date format. For example <code>DateFormat.shortDateFormat(DateTime.fromDateTime(2014, 2, 25, 14, 30), DateLocale.EN)</code> returns <code>2/25/2014</code>
+   * @param {DateTime} dateTime DateTime to be formattend
+   * @param {DateLocale} locale locale to be used for formatting
+   * @returns {String} Returns Date in short date format depending on locale
+   */
+  static shortDateFormat(dateTime, locale) {
+    return DateFormat.format(dateTime, locale ? locale.shortDateFormat : 'n/j/Y', locale);
   }
+  /**
+   * Formats DateRange. TODO
+   * @param {DateRange} dateRange DateRange to be formatted
+   * @param {DateLocale} locale to be used for formatting
+   * @returns {string} returns date range in formatted form, for example <code>2/25/2014-2/15/2015</code>
+   */
+  static formatRange(dateRange, locale) {
+    if (dateRange._hasTimes) {
+      return locale.daysLabel(dateRange.days()) + ' ' + locale.hoursLabel(dateRange.hours(), dateRange.minutes());
+    } else {
+      return DateFormat.shortDateFormat(dateRange.start, locale) + ' - ' + DateFormat.shortDateFormat(dateRange.end, locale);
+    }
+  }
+
+  /**
+   * Need's documentation
+   * @param dateRange
+   * @param locale
+   * @returns {*}
+   */
+  static formatDefiningRangeDuration(dateRange, locale) {
+    const years = parseInt(dateRange.days() / 360, 10);
+    if (years > 0) return locale.yearsLabel(years);
+    const months = parseInt(dateRange.days() / 30, 10);
+    if (months > 0) return locale.monthsLabel(months);
+    return locale.daysLabel(dateRange.days())
+  }
+
 }
 
-/**
- * Need's documentation
- * @param dateRange
- * @param locale
- * @returns {*}
- */
-DateFormat.formatDefiningRangeDuration = (dateRange, locale) => {
-  const years = parseInt(dateRange.days() / 360, 10);
-  if (years > 0) return locale.yearsLabel(years)
-  const months = parseInt(dateRange.days() / 30, 10);
-  if (months > 0) return locale.monthsLabel(months)
-  return locale.daysLabel(dateRange.days())
-}
 
 /**
  * List of commonly used date format patterns
@@ -152,7 +160,7 @@ DateFormat.patterns = {
   SortableDateTimePattern: 'Y-m-d\\TH:i:s',
   UniversalSortableDateTimePattern: 'Y-m-d H:i:sO',
   YearMonthPattern: 'F, Y'
-}
+};
 
 /** @private */
 function codeToValue(dateTime, ch, locale) { return ch in codes ? codes[ch](dateTime, locale) : ch }

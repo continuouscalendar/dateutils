@@ -7,7 +7,7 @@
     "url": "https://github.com/continuouscalendar/dateutils"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha -r @babel/register -r @babel/core -r @babel/polyfill -r esm --no-use_strict",
     "buildBundle": "npx rollup --config rollup.config.js",
     "doxx": "doxx --source src --target docs",
     "sed": "sed -i .bak 's/<head>/<head><script src=\"..\\/build\\/dateutils-latest.js\"><\\/script>/g' docs/*.html",
@@ -35,9 +35,12 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.7.7",
+    "@babel/polyfill": "^7.8.3",
     "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.8.3",
     "chai": "~4.2.0",
     "doxx": "^2.1.1",
+    "esm": "^3.2.25",
     "mocha": "~6.2.2",
     "rollup": "^1.29.1",
     "rollup-plugin-babel": "^4.3.3",

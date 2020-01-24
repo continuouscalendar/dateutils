@@ -22,12 +22,12 @@ function pluralize(number, words) {
     switch (Math.abs(number % 10)) {
       case 1:
         pluralWord = words[0];
-        break
+        break;
       case 2:
       case 3:
       case 4:
         pluralWord = words[1];
-        break
+        break;
       default:
         pluralWord = words[2];
         break
@@ -64,4 +64,4 @@ export var RU = {
   dateTimeFormat: 'D j.n.Y G:i',
   firstWeekday: DateTime.MONDAY,
   holidays: {}
-}
+};
