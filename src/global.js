@@ -1,7 +1,8 @@
-window.DateFormat = require('./DateFormat')
-window.DateLocale = require('./DateLocale')
-window.DateParse = require('./DateParse')
-window.DateRange = require('./DateRange')
-window.DateTime = require('./DateTime')
-window.Duration = require('./Duration')
+export { DateFormat } from "./DateFormat.js";
+export { DateLocale } from "./DateLocale.js";
+export { DateParse } from "./DateParse.js";
+export { DateRange } from "./DateRange.js";
+export { DateTime } from "./DateTime.js";
+export { Duration } from "./Duration.js";
+
 

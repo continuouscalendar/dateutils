@@ -1,6 +1,6 @@
-const DateTime = require('../DateTime');
-const DateFormat = require('../DateFormat');
-module.exports = {
+import { DateTime } from '../DateTime.js';
+import { DateFormat } from '../DateFormat.js';
+export var FR = {
   id: 'FR',
   monthNames: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
   dayNames: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],

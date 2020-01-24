@@ -28,4 +28,4 @@ Duration.prototype.toMS = function () {
 Duration.prototype.asUnit = function (unit) {
   return Number(this.durationMs / unit)
 }
-module.exports = Duration
+export { Duration };

@@ -1,6 +1,6 @@
 {
   "name": "dateutils",
-  "version": "v0.4.0",
+  "version": "v0.5.0",
   "description": "Lightweight date library for javascript",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "buildBundle": "browserify src/global.js -o build/dateutils-latest.js",
+    "buildBundle": "npx rollup --config rollup.config.js",
     "doxx": "doxx --source src --target docs",
     "sed": "sed -i .bak 's/<head>/<head><script src=\"..\\/build\\/dateutils-latest.js\"><\\/script>/g' docs/*.html",
     "release": "npm run buildBundle && npm run doxx && npm run sed"
@@ -34,10 +34,14 @@
     "README.md"
   ],
   "devDependencies": {
-    "browserify": "^16.5.0",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "chai": "~4.2.0",
     "doxx": "^2.1.1",
-    "mocha": "~6.2.2"
+    "mocha": "~6.2.2",
+    "rollup": "^1.29.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "dependencies": {}
 }

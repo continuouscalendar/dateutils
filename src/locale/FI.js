@@ -1,7 +1,7 @@
-const DateTime = require('../DateTime');
-const DateFormat = require('../DateFormat');
-const holidays = require('./FI-holidays');
-module.exports = {
+import { DateTime } from '../DateTime.js';
+import { DateFormat } from '../DateFormat.js';
+import holidays from './FI-holidays.js';
+export var FI = {
   id: 'FI',
   monthNames: ['tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu'],
   dayNames: ['sunnuntai', 'maanantai', 'tiistai', 'keskiviikko', 'torstai', 'perjantai', 'lauantai'],

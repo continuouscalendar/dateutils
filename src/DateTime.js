@@ -475,5 +475,5 @@ function parseTime(str) {
   }
 }
 
-module.exports = DateTime
+export { DateTime };
 

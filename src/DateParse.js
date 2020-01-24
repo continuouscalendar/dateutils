@@ -1,4 +1,4 @@
-const DateTime = require('./DateTime')
+import { DateTime } from './DateTime.js';
 const DateParse = {}
 DateParse.parseRegexes = []
 DateParse.defaultFormat = 'n/j/Y'
@@ -61,4 +61,4 @@ DateParse.parseTime = function (timeStr) {
   function isHour(hours) { return !isNaN(hours) && hours >= 0 && hours <= 23 }
 }
 
-module.exports = DateParse
+export { DateParse };

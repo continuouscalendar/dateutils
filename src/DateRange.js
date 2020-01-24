@@ -1,5 +1,5 @@
-const DateTime = require('./DateTime')
-const DateParse = require('./DateParse')
+import { DateTime } from "./DateTime.js";
+import { DateParse } from "./DateParse.js";
 
 function DateRange(date1, date2) {
   if (!date1 || !date2) {
@@ -165,4 +165,4 @@ DateRange.prototype.hasSelection = function () {
   return this.days() > 0
 }
 
-module.exports = DateRange
+export { DateRange };

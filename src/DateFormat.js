@@ -1,4 +1,5 @@
-const DateTime = require('./DateTime');
+import { DateTime } from './DateTime.js';
+
 const DateFormat = {};
 /**
  * Formatting patterns listed above
@@ -174,4 +175,4 @@ function leftPad(val, size, ch) {
   }
   return result
 }
-module.exports = DateFormat
+export { DateFormat };
