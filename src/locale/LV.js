@@ -1,6 +1,6 @@
-const DateTime = require('../DateTime');
-const DateFormat = require('../DateFormat');
-module.exports = {
+import { DateTime } from '../DateTime.js';
+import { DateFormat } from '../DateFormat.js';
+export var LV = {
   id: 'LV',
   monthNames: ['Janvāris', 'Februāris', 'Marts', 'Aprīlis', 'Maijs', 'Jūnijs', ' Jūlijs', 'Augusts', 'Septembris', 'Oktobris', 'Novembris', 'Decembris'],
   dayNames: ['Svētdiena', 'Pirmdiena', 'Otrdiena', 'Trešdiena', 'Ceturtdiena', 'Piektdiena', 'Sestdiena'],

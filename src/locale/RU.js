@@ -1,5 +1,5 @@
-const DateTime = require('../DateTime');
-const DateFormat = require('../DateFormat');
+import { DateTime } from '../DateTime.js';
+import { DateFormat } from '../DateFormat.js';
 
 /**
  * For example:
@@ -22,12 +22,12 @@ function pluralize(number, words) {
     switch (Math.abs(number % 10)) {
       case 1:
         pluralWord = words[0];
-        break
+        break;
       case 2:
       case 3:
       case 4:
         pluralWord = words[1];
-        break
+        break;
       default:
         pluralWord = words[2];
         break
@@ -36,7 +36,7 @@ function pluralize(number, words) {
   return [number, pluralWord].join(' ')
 }
 
-module.exports = {
+export var RU = {
   id: 'RU',
   monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
   dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
@@ -64,4 +64,4 @@ module.exports = {
   dateTimeFormat: 'D j.n.Y G:i',
   firstWeekday: DateTime.MONDAY,
   holidays: {}
-}
+};
