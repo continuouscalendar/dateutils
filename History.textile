@@ -1,3 +1,7 @@
+h3. v0.5.1 
+
+Build bundle and put main point to it
+
 h3. v0.5.0 
 
 Restructure to classes and fix tests

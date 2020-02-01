@@ -6,7 +6,7 @@ import { DateTime } from "./DateTime.js";
 import { Duration } from "./Duration.js";
 
 export default {
-  "version":  "v0.5.0",
+  "version":  "v0.5.1",
   DateFormat: DateFormat,
   DateLocale: DateLocale,
   DateParse:  DateParse,
