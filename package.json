@@ -25,13 +25,14 @@
   "bugs": {
     "url": "https://github.com/continuouscalendar/dateutils/issues"
   },
-  "main": "./src/index.js",
+  "main": "./build/dateutils-latest.js",
   "homepage": "http://continuouscalendar.github.com/dateutils/",
   "files": [
     "src",
     "package.json",
     "LICENSE-2.0.txt",
-    "README.md"
+    "README.md",
+    "build"
   ],
   "devDependencies": {
     "@babel/core": "^7.7.7",
