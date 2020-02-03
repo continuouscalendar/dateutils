@@ -1,7 +1,4 @@
-
-
 class DateTime {
-
   constructor(date) {
     if(arguments.length === 0) this.date = new Date();
     else if(date instanceof Date) this.date = new Date(date);
@@ -11,12 +8,12 @@ class DateTime {
   /**
    * Returns DateTime for given date by setting time to midnight
    * @param year
-   * @param month
-   * @param day
-   * @returns {DateTime} new DateTime object or throws error
-   */
-  static fromDate(year, month, day) {
-    return DateTime.fromDateTime(year, month, day, 0, 0, 0);
+    * @param month
+    * @param day
+    * @returns {DateTime} new DateTime object or throws error
+    */
+    static fromDate(year, month, day) {
+    return DateTime.fromDateTime(year, month, day, 0, 0, 0)
   }
 
   /**
@@ -29,8 +26,8 @@ class DateTime {
    * @param seconds 0-59
    * @returns {DateTime} new DateTime object or throws error
    */
-  static fromDateTime(year, month, day, hours, minutes, seconds) {
-    return new DateTime(createSafeDate(+year, +month, +day, +hours, +minutes, +seconds || 0));
+  static fromDateTime (year, month, day, hours, minutes, seconds) {
+    return new DateTime(createSafeDate(+year, +month, +day, +hours, +minutes, +seconds || 0))
   }
 
   /**
@@ -38,8 +35,8 @@ class DateTime {
    * @param date
    * @returns {DateTime}
    */
-  static fromDateObject(date) {
-    return new DateTime(date);
+  static fromDateObject (date) {
+    return new DateTime(date)
   }
 
   /**
@@ -47,11 +44,11 @@ class DateTime {
    * @param isoDate String YYYY-MM-DDTHH-MM
    * @return {DateTime}
    */
-  static fromIsoDate(isoDate) {
-    var optionalTimePattern = /^\d{4}-[01]\d-[0-3]\d(T[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z?))?$/;
-    if(!optionalTimePattern.test(isoDate)) throw Error(isoDate + ' is not valid ISO Date (YYYY-MM-DD or YYYY-MM-DDTHH:MM)');
-    var date = parseDate(isoDate.split('T')[0]);
-    return DateTime.fromDate(date.year, date.month, date.day);
+  static fromIsoDate (isoDate) {
+    var optionalTimePattern = /^\d{4}-[01]\d-[0-3]\d(T[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z?))?$/
+    if (!optionalTimePattern.test(isoDate)) throw Error(isoDate + ' is not valid ISO Date (YYYY-MM-DD or YYYY-MM-DDTHH:MM)')
+    var date = parseDate(isoDate.split('T')[0])
+    return DateTime.fromDate(date.year, date.month, date.day)
   }
 
   /**
@@ -59,14 +56,14 @@ class DateTime {
    * @param isoDateTime String YYYY-MM-DDTHH-MM
    * @return {DateTime} Returns DateTime or throws error for invalid syntax
    */
-  static fromIsoDateTime(isoDateTime) {
-    var fullPatternTest = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z?)/;
-    if(!fullPatternTest.test(isoDateTime)) throw Error(isoDateTime + ' is not valid ISO Date (YYYY-MM-DDTHH:MM)');
+  static fromIsoDateTime (isoDateTime) {
+    var fullPatternTest = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z?)/
+    if (!fullPatternTest.test(isoDateTime)) throw Error(isoDateTime + ' is not valid ISO Date (YYYY-MM-DDTHH:MM)')
 
-    var dateAndTime = isoDateTime.split('T');
-    var time = parseTime(dateAndTime.length === 2 && dateAndTime[1]);
-    var date = parseDate(dateAndTime[0]);
-    return DateTime.fromDateTime(date.year, date.month, date.day, time.hours, time.minutes, time.seconds);
+    var dateAndTime = isoDateTime.split('T')
+    var time = parseTime(dateAndTime.length === 2 && dateAndTime[1])
+    var date = parseDate(dateAndTime[0])
+    return DateTime.fromDateTime(date.year, date.month, date.day, time.hours, time.minutes, time.seconds)
   }
 
   /**
@@ -74,16 +71,16 @@ class DateTime {
    * @param ms
    * @returns {DateTime}
    */
-  static fromMillis(ms) {
-    return new DateTime(new Date(ms));
+  static fromMillis (ms) {
+    return new DateTime(new Date(ms))
   }
 
   /**
    * Returns new DateTime with milliseconds set to 0
    */
-  withResetMS() {
-    var newDate = this.clone();
-    newDate.date.setMilliseconds(0);
+  withResetMS () {
+    var newDate = this.clone()
+    newDate.date.setMilliseconds(0)
     return newDate
   }
 
@@ -92,17 +89,17 @@ class DateTime {
    * @param h 0-23
    * @param m 0-59
    */
-  withTime(h, m) {
-    if(typeof h === 'string') {
-      var hoursAndMinutes = h.split(':');
-      h = hoursAndMinutes[0];
-      m = hoursAndMinutes[1];
+  withTime (h, m) {
+    if (typeof h === 'string') {
+        var hoursAndMinutes = h.split(':')
+        h = hoursAndMinutes[0]
+        m = hoursAndMinutes[1]
     }
-    var dateWithTime = this.clone();
-    dateWithTime.date.setHours(h);
-    dateWithTime.date.setMinutes(m);
-    dateWithTime.date.setSeconds(0);
-    dateWithTime.date.setMilliseconds(0);
+    var dateWithTime = this.clone()
+    dateWithTime.date.setHours(h)
+    dateWithTime.date.setMinutes(m)
+    dateWithTime.date.setSeconds(0)
+    dateWithTime.date.setMilliseconds(0)
     return dateWithTime
   }
 
@@ -111,23 +108,22 @@ class DateTime {
    * @returns {DateTime}
    */
   static now() {
-    return new DateTime();
+    return new DateTime()
   }
 
   /**
    * Returns new DateTime with current date and midnight time
    */
   static today() {
-    return DateTime.now().getOnlyDate();
+    return DateTime.now().getOnlyDate()
   }
-
 
   /**
    * Returns time in milliseconds
    * @returns {number} milliseconds
    */
   getTime() {
-    return this.date.getTime();
+    return this.date.getTime()
   }
 
   /**
@@ -135,7 +131,7 @@ class DateTime {
    * @returns {number} year
    */
   getFullYear() {
-    return this.date.getFullYear();
+    return this.date.getFullYear()
   }
 
   /**
@@ -143,7 +139,7 @@ class DateTime {
    * @returns {number} 1-31
    */
   getDate() {
-    return this.date.getDate();
+    return this.date.getDate()
   }
 
   /**
@@ -151,7 +147,7 @@ class DateTime {
    * @returns {number} 1-12
    */
   getMonth() {
-    return this.date.getMonth() + 1;
+    return this.date.getMonth() + 1
   }
 
   /**
@@ -159,7 +155,7 @@ class DateTime {
    * @returns {number} 0-6
    */
   getDay() {
-    return this.date.getDay();
+    return this.date.getDay()
   }
 
   /**
@@ -167,7 +163,7 @@ class DateTime {
    * @returns {number} 0-23
    */
   getHours() {
-    return this.date.getHours();
+    return this.date.getHours()
   }
 
   /**
@@ -175,7 +171,7 @@ class DateTime {
    * @returns {number} 0-59
    */
   getMinutes() {
-    return this.date.getMinutes();
+    return this.date.getMinutes()
   }
 
   /**
@@ -183,7 +179,7 @@ class DateTime {
    * @returns {number} 0-59
    */
   getSeconds() {
-    return this.date.getSeconds();
+    return this.date.getSeconds()
   }
 
   /**
@@ -191,7 +187,7 @@ class DateTime {
    * @returns {number} 0-999
    */
   getMilliseconds() {
-    return this.date.getMilliseconds();
+    return this.date.getMilliseconds()
   }
 
   /**
@@ -199,7 +195,7 @@ class DateTime {
    * @returns {number}
    */
   getDaysInMonth() {
-    return DateTime.getDaysInMonth(this.getFullYear(), this.getMonth());
+    return DateTime.getDaysInMonth(this.getFullYear(), this.getMonth())
   }
 
   /**
@@ -207,7 +203,7 @@ class DateTime {
    * @returns {*}
    */
   getDayInYear() {
-    return DateTime.getDayInYear(this.getFullYear(), this.getMonth(), this.getDate());
+    return DateTime.getDayInYear(this.getFullYear(), this.getMonth(), this.getDate())
   }
 
   /**
@@ -215,23 +211,23 @@ class DateTime {
    * @param days
    * @returns {DateTime}
    */
-  plusDays(days) {
-    var newDateTime = DateTime.fromMillis(this.getTime() + days * DateTime.DAY);
-    var hours = this.getHours();
+  plusDays (days) {
+    var newDateTime = DateTime.fromMillis(this.getTime() + days * DateTime.DAY)
+    var hours = this.getHours()
 
     // Fix the DateTime offset caused by daylight saving time
-    var delta = hours - newDateTime.getHours();
-    if(delta !== 0) {
-      // Correct the delta to be between [-12, 12]
-      if(delta > 12) {
-        delta -= 24;
-      }
-      if(delta < -12) {
-        delta += 24;
-      }
-      return DateTime.fromMillis(newDateTime.getTime() + (delta * DateTime.HOUR));
+    var delta = hours - newDateTime.getHours()
+    if (delta !== 0) {
+        // Correct the delta to be between [-12, 12]
+        if (delta > 12) {
+            delta -= 24
+        }
+        if (delta < -12) {
+            delta += 24
+        }
+        return DateTime.fromMillis(newDateTime.getTime() + (delta * DateTime.HOUR))
     }
-    return newDateTime;
+    return newDateTime
   }
 
   /**
@@ -239,8 +235,8 @@ class DateTime {
    * @param minutes
    * @returns {DateTime}
    */
-  plusMinutes(minutes) {
-    return DateTime.fromMillis(this.clone().getTime() + (minutes * DateTime.MINUTE));
+  plusMinutes (minutes) {
+    return DateTime.fromMillis(this.clone().getTime() + (minutes * DateTime.MINUTE))
   }
 
   /**
@@ -248,8 +244,8 @@ class DateTime {
    * @param minutes
    * @returns {DateTime}
    */
-  minusMinutes(minutes) {
-    return this.plusMinutes(-minutes);
+  minusMinutes (minutes) {
+    return this.plusMinutes(-minutes)
   }
 
   /**
@@ -257,8 +253,8 @@ class DateTime {
    * @param days
    * @returns {DateTime}
    */
-  minusDays(days) {
-    return this.plusDays(-days);
+  minusDays (days) {
+    return this.plusDays(-days)
   }
 
   /**
@@ -270,19 +266,19 @@ class DateTime {
    * @param date {DateTime}
    * @returns {number}
    */
-  compareTo(date) {
-    if(!date) {
-      return 1;
+  compareTo (date) {
+    if (!date) {
+        return 1
     }
-    var diff = this.getTime() - date.getTime();
-    return diff === 0 ? 0 : diff / Math.abs(diff);
+    var diff = this.getTime() - date.getTime()
+    return diff === 0 ? 0 : diff / Math.abs(diff)
   }
 
   /**
    * Returns true if DateTime is within today
    */
   isToday() {
-    return this.equalsOnlyDate(DateTime.today());
+    return this.equalsOnlyDate(DateTime.today())
   }
 
   /**
@@ -290,31 +286,31 @@ class DateTime {
    * @param {string} weekNumberingSystem US or ISO
    * @returns {number}
    */
-  getWeekInYear(weekNumberingSystem) {
-    if(weekNumberingSystem !== 'US' && weekNumberingSystem !== 'ISO') {
-      throw('Week numbering system must be either US or ISO, was ' + weekNumberingSystem);
+  getWeekInYear (weekNumberingSystem) {
+    if (weekNumberingSystem !== 'US' && weekNumberingSystem !== 'ISO') {
+        throw('Week numbering system must be either US or ISO, was ' + weekNumberingSystem)
     }
 
-    var firstDay = new Date(this.getFullYear(), 0, 1).getDay();
-    if(weekNumberingSystem === 'US') {
-      return Math.ceil((this.getDayInYear() + firstDay) / 7);
+    var firstDay = new Date(this.getFullYear(), 0, 1).getDay()
+    if (weekNumberingSystem === 'US') {
+        return Math.ceil((this.getDayInYear() + firstDay) / 7)
     }
-    var THU = 4;
-    var weekday = this.getDay();
-    if(weekday === 0) weekday = 7;
-    if(firstDay === 0) firstDay = 7;
+    var THU = 4
+    var weekday = this.getDay()
+    if (weekday === 0) weekday = 7
+    if (firstDay === 0) firstDay = 7
     // If Dec 29 falls on Mon, Dec 30 on Mon or Tue, Dec 31 on Mon - Wed, it's on the first week of next year
-    if(this.getMonth() === 12 && this.getDate() >= 29 && (this.getDate() - weekday) > 27) {
-      return 1;
+    if (this.getMonth() === 12 && this.getDate() >= 29 && (this.getDate() - weekday) > 27) {
+        return 1
     }
     // If Jan 1-3 falls on Fri, Sat or Sun, it's on the last week of the previous year
-    if(this.getMonth() === 1 && this.getDate() < 4 && weekday > THU) {
-      return new DateTime(new Date(this.getFullYear() - 1, 11, 31)).getWeekInYear('ISO');
+    if (this.getMonth() === 1 && this.getDate() < 4 && weekday > THU) {
+        return new DateTime(new Date(this.getFullYear() - 1, 11, 31)).getWeekInYear('ISO')
     }
-    var week = Math.ceil((this.getDayInYear() + firstDay - 1) / 7);
+    var week = Math.ceil((this.getDayInYear() + firstDay - 1) / 7)
     // If first days of this year are on last year's last week, the above gives one week too much
-    if(firstDay > THU) week--;
-    return week;
+    if (firstDay > THU) week--
+    return week
   }
 
   /**
@@ -322,7 +318,7 @@ class DateTime {
    * @returns {DateTime}
    */
   clone() {
-    return new DateTime(this.date);
+    return new DateTime(this.date)
   }
 
   /**
@@ -330,7 +326,7 @@ class DateTime {
    * @returns {boolean}
    */
   isOddMonth() {
-    return this.getMonth() % 2 === 0;
+    return this.getMonth() % 2 === 0
   }
 
   /**
@@ -338,9 +334,9 @@ class DateTime {
    * @param date
    * @returns {boolean}
    */
-  equalsOnlyDate(date) {
-    if(!date) return false;
-    return this.getMonth() === date.getMonth() && this.getDate() === date.getDate() && this.getFullYear() === date.getFullYear();
+  equalsOnlyDate (date) {
+    if (!date) return false
+    return this.getMonth() === date.getMonth() && this.getDate() === date.getDate() && this.getFullYear() === date.getFullYear()
   }
 
   /**
@@ -348,7 +344,7 @@ class DateTime {
    * @returns {DateTime}
    */
   firstDateOfMonth() {
-    return DateTime.fromDate(this.getFullYear(), this.getMonth(), 1);
+    return DateTime.fromDate(this.getFullYear(), this.getMonth(), 1)
   }
 
   /**
@@ -356,7 +352,7 @@ class DateTime {
    * @returns {DateTime}
    */
   lastDateOfMonth() {
-    return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDaysInMonth());
+    return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDaysInMonth())
   }
 
   /**
@@ -364,10 +360,10 @@ class DateTime {
    * @param date
    * @returns {number}
    */
-  distanceInDays(date) {
-    var first = parseInt(this.getTime() / DateTime.DAY, 10);
-    var last = parseInt(date.getTime() / DateTime.DAY, 10);
-    return (last - first);
+  distanceInDays (date) {
+    var first = parseInt(this.getTime() / DateTime.DAY, 10)
+    var last = parseInt(date.getTime() / DateTime.DAY, 10)
+    return (last - first)
   }
 
   /**
@@ -375,8 +371,8 @@ class DateTime {
    * @param weekday 0=sunday, 1=monday, ...
    * @returns {DateTime}
    */
-  withWeekday(weekday) {
-    return this.plusDays(weekday - this.getDay());
+  withWeekday (weekday) {
+    return this.plusDays(weekday - this.getDay())
   }
 
   /**
@@ -384,7 +380,7 @@ class DateTime {
    * @returns {DateTime}
    */
   getOnlyDate() {
-    return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDate());
+    return DateTime.fromDate(this.getFullYear(), this.getMonth(), this.getDate())
   }
 
   /**
@@ -392,14 +388,14 @@ class DateTime {
    * @returns {boolean}
    */
   isWeekend() {
-    return this.getDay() === 6 || this.getDay() === 0;
+    return this.getDay() === 6 || this.getDay() === 0
   }
 
   /**
    * Returns default string representation
    */
   toString() {
-    return this.toISOString();
+    return this.toISOString()
   }
 
   /**
@@ -407,10 +403,10 @@ class DateTime {
    * @param locale Based on locale it can be a monday or a sunday
    * @returns {DateTime}
    */
-  getFirstDateOfWeek(locale) {
-    var firstWeekday = locale ? locale.firstWeekday : DateTime.MONDAY;
-    if (firstWeekday == this.getDay) return this.clone();
-    else return this.plusDays(firstWeekday - this.getDay() - (firstWeekday > this.getDay() ? 7 : 0));
+  getFirstDateOfWeek (locale) {
+    var firstWeekday = locale ? locale.firstWeekday : DateTime.MONDAY
+    if (firstWeekday == this.getDay) return this.clone()
+    else return this.plusDays(firstWeekday - this.getDay() - (firstWeekday > this.getDay() ? 7 : 0))
   }
 
   /**
@@ -418,14 +414,14 @@ class DateTime {
    * @returns {string}
    */
   toISOString() {
-    return isoDate.call(this) + 'T' + isoTime.call(this);
+    return isoDate.call(this) + 'T' + isoTime.call(this)
   }
 
   /**
    * Returns ISO Date string: YYYY-MM-DD
    */
   toISODateString() {
-    return isoDate.call(this);
+    return isoDate.call(this)
   }
 
   /**
@@ -434,23 +430,39 @@ class DateTime {
    * @param {DateTime} end
    * @returns {boolean}
    */
-  isBetweenDates(start, end) {
-    if(start.getTime() > end.getTime()) throw Error("start date can't be after end date");
-    var onlyDate = this.getOnlyDate();
-    return onlyDate.compareTo(start.getOnlyDate()) >= 0 && onlyDate.compareTo(end.getOnlyDate()) <= 0;
+  isBetweenDates (start, end) {
+    if (start.getTime() > end.getTime()) throw Error("start date can't be after end date")
+    var onlyDate = this.getOnlyDate()
+    return onlyDate.compareTo(start.getOnlyDate()) >= 0 && onlyDate.compareTo(end.getOnlyDate()) <= 0
   }
 
   /**
+   * Return holiday description
+   * @param {DateLocale} locale
+   * @returns {string}
+   */
+   holiday (locale) {
+    var holidays = {}
+    if (locale) {
+        holidays = locale.holidays
+    } else {
+        return ''
+    }
+    var monthDay = twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate())
+    return holidays[monthDay] || ''
+  }
+
+/**
    * Returns number of days for given month
    * @param {Number} year Year of month
    * @param {Number} month Number of month (1-12)
    * @returns {Number} [28-31]
    */
-  static getDaysInMonth(year, month) {
-    if(month > 12 || month < 1)
-      throw new Error('Month must be between 1-12');
-    var yearAndMonth = year * 12 + month;
-    return DateTime.fromDate(Math.floor(yearAndMonth / 12), yearAndMonth % 12 + 1, 1).minusDays(1).getDate();
+  static getDaysInMonth (year, month) {
+    if (month > 12 || month < 1)
+        throw new Error('Month must be between 1-12')
+    var yearAndMonth = year * 12 + month
+    return DateTime.fromDate(Math.floor(yearAndMonth / 12), yearAndMonth % 12 + 1, 1).minusDays(1).getDate()
   }
 
   /**
@@ -460,22 +472,21 @@ class DateTime {
    * @param day day
    * @returns {Number} index number starting grom beginning of year
    */
-  static getDayInYear(year, month, day) {
-    return DateTime.fromDate(year, 1, 1).distanceInDays(DateTime.fromDate(year, month, day)) + 1;
+  static getDayInYear (year, month, day) {
+    return DateTime.fromDate(year, 1, 1).distanceInDays(DateTime.fromDate(year, month, day)) + 1
   }
-
 }
 
-DateTime.SUNDAY = 0;
-DateTime.MONDAY = 1;
-DateTime.TUESDAY = 2;
-DateTime.WEDNESDAY = 3;
-DateTime.THURSDAY = 4;
-DateTime.FRIDAY = 5;
-DateTime.SATURDAY = 6;
+DateTime.SUNDAY = 0
+DateTime.MONDAY = 1
+DateTime.TUESDAY = 2
+DateTime.WEDNESDAY = 3
+DateTime.THURSDAY = 4
+DateTime.FRIDAY = 5
+DateTime.SATURDAY = 6
 
-DateTime.daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-DateTime.y2kYear = 50;
+DateTime.daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+DateTime.y2kYear = 50
 DateTime.monthNumbers = {
   Jan: 0,
   Feb: 1,
@@ -489,63 +500,59 @@ DateTime.monthNumbers = {
   Oct: 9,
   Nov: 10,
   Dec: 11
-};
+}
 
-DateTime.SECOND = 1000;
-DateTime.MINUTE = 60 * DateTime.SECOND;
-DateTime.HOUR = 60 * DateTime.MINUTE;
-DateTime.DAY = 24 * DateTime.HOUR;
-DateTime.WEEK = 7 * DateTime.DAY;
-
-
-function isoDate() {
-  return this.getFullYear() + '-' + twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate());
+DateTime.SECOND = 1000
+DateTime.MINUTE = 60 * DateTime.SECOND
+DateTime.HOUR = 60 * DateTime.MINUTE
+DateTime.DAY = 24 * DateTime.HOUR
+DateTime.WEEK = 7 * DateTime.DAY;function isoDate() {
+    return this.getFullYear() + '-' + twoDigits(this.getMonth()) + '-' + twoDigits(this.getDate())
 }
 
 function isoTime() {
-  return twoDigits(this.getHours()) + ':' + twoDigits(this.getMinutes()) + ':' + twoDigits(this.getSeconds());
+    return twoDigits(this.getHours()) + ':' + twoDigits(this.getMinutes()) + ':' + twoDigits(this.getSeconds())
 }
 
 function twoDigits(value) {
-  return value < 10 ? '0' + value : '' + value;
+    return value < 10 ? '0' + value : '' + value
 }
 
 function createSafeDate(year, month, date, hours, minutes, seconds) {
-  hours = hours || 0;
-  minutes = minutes || 0;
-  seconds = seconds || 0;
-  var newDate = new Date(year, month - 1, date, hours, minutes, seconds, 0);
-  if(newDate.toString() === 'Invalid Date' ||
-    month !== newDate.getMonth() + 1 ||
-    year !== newDate.getFullYear() ||
-    date !== newDate.getDate() ||
-    hours !== newDate.getHours() ||
-    minutes !== newDate.getMinutes() ||
-    seconds !== newDate.getSeconds()) throw Error('Invalid Date: ' + year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds);
-  return newDate;
+    hours = hours || 0
+    minutes = minutes || 0
+    seconds = seconds || 0
+    var newDate = new Date(year, month - 1, date, hours, minutes, seconds, 0)
+    if (newDate.toString() === 'Invalid Date' ||
+        month !== newDate.getMonth() + 1 ||
+        year !== newDate.getFullYear() ||
+        date !== newDate.getDate() ||
+        hours !== newDate.getHours() ||
+        minutes !== newDate.getMinutes() ||
+        seconds !== newDate.getSeconds()) throw Error('Invalid Date: ' + year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds)
+    return newDate
 }
 
 function parseDate(str) {
-  var dateComponents = str.split('-');
-  return {
-    year:  +dateComponents[0],
-    month: +dateComponents[1],
-    day:   +dateComponents[2]
-  }
+    var dateComponents = str.split('-')
+    return {
+        year: +dateComponents[0],
+        month: +dateComponents[1],
+        day: +dateComponents[2]
+    }
 }
 
 function parseTime(str) {
-  if(str) {
-    var timeComponents = str.split(':');
-    return {
-      hours:   +timeComponents[0],
-      minutes: +timeComponents[1],
-      seconds: +timeComponents[2] || 0
+    if (str) {
+        var timeComponents = str.split(':')
+        return {
+            hours: +timeComponents[0],
+            minutes: +timeComponents[1],
+            seconds: +timeComponents[2] || 0
+        }
+    } else {
+        return {hours: 0, minutes: 0}
     }
-  } else {
-    return {hours: 0, minutes: 0}
-  }
 }
-
-export { DateTime };
+export { DateTime }
 
