@@ -1,9 +1,8 @@
-
-import { DateTime } from '../../src/DateTime.js';
-import { DateFormat } from '../../src/DateFormat.js';
+import { DateTime } from '../../src/DateTime.js'
+import { DateFormat } from '../../src/DateFormat.js'
 
 module.exports = (chai, utils) => {
-  const flag = utils.flag;
+  const flag = utils.flag
   const matchers = {
     toHaveLength: function (length) {
       this.assert(
@@ -11,7 +10,7 @@ module.exports = (chai, utils) => {
         , 'expected #{this} to have length #{exp}'
         , 'expected #{this} not to have length #{exp}'
         , length
-      );
+      )
     },
     toHaveDate: function (isoDate) {
       this.assert(
@@ -19,7 +18,7 @@ module.exports = (chai, utils) => {
         , 'expected #{this} to have date #{exp}'
         , 'expected #{this} not to have date #{exp}'
         , isoDate
-      );
+      )
     },
     toBeInside: function (range) {
       this.assert(
@@ -27,14 +26,14 @@ module.exports = (chai, utils) => {
         , 'expected #{this} to be inside range #{exp}'
         , 'expected #{this} not to inside range #{exp}'
         , range
-      );
+      )
     },
     toBeValidRange: function () {
       this.assert(
         flag(this, 'object').isValid()
         , 'expected #{this} to be valid range'
         , 'expected #{this} not to be valid range'
-      );
+      )
     },
     toPrintDefiningDurationOf: function (duration_str, locale) {
       this.assert(
@@ -42,7 +41,7 @@ module.exports = (chai, utils) => {
         , 'expected #{this} to print default duration of #{exp}'
         , 'expected #{this} not to print default duration of #{exp}'
         , duration_str
-      );
+      )
     },
     toCompareWith: function (expected) {
       this.assert(
@@ -50,7 +49,7 @@ module.exports = (chai, utils) => {
         , 'expected #{this} to compare with #{exp}'
         , 'expected #{this} not to compare with #{exp}'
         , expected
-      );
+      )
     },
     toEqualRoughly: function (expected, tolerance) {
       this.assert(
@@ -58,9 +57,9 @@ module.exports = (chai, utils) => {
         , 'expected #{this} to equal roughly #{exp}'
         , 'expected #{this} not to equal roughly #{exp}'
         , expected
-      );
+      )
     }
-  };
+  }
 
-  for(let name in matchers) chai.Assertion.addMethod(name, matchers[name]);
-};
+  for(let name in matchers) chai.Assertion.addMethod(name, matchers[name])
+}

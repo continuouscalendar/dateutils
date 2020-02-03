@@ -1,5 +1,5 @@
-import { DateTime } from '../DateTime.js';
-import { DateFormat } from '../DateFormat.js';
+import { DateTime } from '../DateTime.js'
+import { DateFormat } from '../DateFormat.js'
 export var LV = {
   id: 'LV',
   monthNames: ['Janvāris', 'Februāris', 'Marts', 'Aprīlis', 'Maijs', 'Jūnijs', ' Jūlijs', 'Augusts', 'Septembris', 'Oktobris', 'Novembris', 'Decembris'],
@@ -9,7 +9,7 @@ export var LV = {
   monthsLabel: months => months + ' ' + (months === 1 ? 'Mēnesī' : 'Mēnešiem'),
   daysLabel: days => days + ' ' + (days === 1 ? 'Diena' : 'Dienas'),
   hoursLabel: (hours, minutes) => {
-    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Stundas' : 'Minūtes')
   },
   clearRangeLabel: 'TODO',

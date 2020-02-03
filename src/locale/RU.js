@@ -1,5 +1,5 @@
-import { DateTime } from '../DateTime.js';
-import { DateFormat } from '../DateFormat.js';
+import { DateTime } from '../DateTime.js'
+import { DateFormat } from '../DateFormat.js'
 
 /**
  * For example:
@@ -13,23 +13,23 @@ import { DateFormat } from '../DateFormat.js';
  * @return {string}
  */
 function pluralize(number, words) {
-  const magnitude = number % 100;
-  let pluralWord = '';
+  const magnitude = number % 100
+  let pluralWord = ''
 
   if ((magnitude > 10 && magnitude < 20) || (number === 0)) {
-    pluralWord = words[2];
+    pluralWord = words[2]
   } else {
     switch (Math.abs(number % 10)) {
       case 1:
-        pluralWord = words[0];
-        break;
+        pluralWord = words[0]
+        break
       case 2:
       case 3:
       case 4:
-        pluralWord = words[1];
-        break;
+        pluralWord = words[1]
+        break
       default:
-        pluralWord = words[2];
+        pluralWord = words[2]
         break
     }
   }
@@ -45,7 +45,7 @@ export var RU = {
   monthsLabel: months => pluralize(months, ['Месяц', 'Месяца', 'Месяцев']),
   daysLabel: days => pluralize(days, ['День', 'Дня', 'Дней']),
   hoursLabel: (hours, minutes) => {
-    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
     /*
      * It's weird to say like this but correct pronounce is:
      * 1,2  = '1 целая две десятых часа'
@@ -64,4 +64,4 @@ export var RU = {
   dateTimeFormat: 'D j.n.Y G:i',
   firstWeekday: DateTime.MONDAY,
   holidays: {}
-};
+}

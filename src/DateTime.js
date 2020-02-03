@@ -1,8 +1,8 @@
 class DateTime {
   constructor(date) {
-    if(arguments.length === 0) this.date = new Date();
-    else if(date instanceof Date) this.date = new Date(date);
-    else throw Error('Argument must be a date object. ' + date + ' was given');
+    if(arguments.length === 0) this.date = new Date()
+    else if(date instanceof Date) this.date = new Date(date)
+    else throw Error('Argument must be a date object. ' + date + ' was given')
   }
 
   /**

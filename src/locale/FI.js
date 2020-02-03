@@ -1,6 +1,6 @@
-import { DateTime } from '../DateTime.js';
-import { DateFormat } from '../DateFormat.js';
-import holidays from './FI-holidays.js';
+import { DateTime } from '../DateTime.js'
+import { DateFormat } from '../DateFormat.js'
+import holidays from './FI-holidays.js'
 export var FI = {
   id: 'FI',
   monthNames: ['tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu'],
@@ -10,7 +10,7 @@ export var FI = {
   monthsLabel: months => months + ' ' + (months === 1 ? 'kuukausi' : 'kuukautta'),
   daysLabel: days => days + ' ' + (days === 1 ? 'päivä' : 'päivää'),
   hoursLabel: (hours, minutes) => {
-    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'tunti' : 'tuntia')
   },
   clearRangeLabel: 'Poista valinta',

@@ -1,5 +1,5 @@
-import { DateTime } from '../DateTime.js';
-import { DateFormat } from '../DateFormat.js';
+import { DateTime } from '../DateTime.js'
+import { DateFormat } from '../DateFormat.js'
 export var SV = {
   id: 'SV',
   monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
@@ -9,7 +9,7 @@ export var SV = {
   monthsLabel: months => months + ' ' + (months === 1 ? 'Månad' : 'Månader'),
   daysLabel: days => days + ' ' + (days === 1 ? 'Dag' : 'Dagar'),
   hoursLabel: (hours, minutes) => {
-    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Minut' : 'Minuter')
   },
   clearRangeLabel: 'TODO',

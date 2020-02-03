@@ -1,5 +1,5 @@
-import { DateTime } from '../DateTime.js';
-import { DateFormat } from '../DateFormat.js';
+import { DateTime } from '../DateTime.js'
+import { DateFormat } from '../DateFormat.js'
 export var DE = {
   id: 'DE',
   monthNames: ['Januar','Februar','März','April','Mai','Juni', 'Juli','August','September','Oktober','November','Dezember'],
@@ -9,7 +9,7 @@ export var DE = {
   monthsLabel: months => months + ' ' + (months === 1 ? 'Monat' : 'Months'),
   daysLabel: days => days + ' ' + (days === 1 ? 'Tag' : 'Tage'),
   hoursLabel: (hours, minutes) => {
-    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Stunde' : 'Stunden')
   },
   clearRangeLabel: 'Auswahl löschen',

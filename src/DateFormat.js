@@ -1,4 +1,4 @@
-import { DateTime } from './DateTime.js';
+import { DateTime } from './DateTime.js'
 
 const codes = {
   d: d => leftPad(d.getDate(), 2, '0'),
@@ -23,7 +23,7 @@ const codes = {
   i: d => leftPad(d.getMinutes(), 2, '0'),
   s: d => leftPad(d.getSeconds(), 2, '0'),
   Z: d => (d.date.getTimezoneOffset() / -60)
-};
+}
 
 /**
  * Formatting patterns listed above
@@ -51,11 +51,9 @@ const codes = {
  * @param {Timezone} Z 2 for GMT+2
  */
 class DateFormat {
-
-
   /** Returns hours and minutes as hours in decimal. For example <code>DateFormat.hoursAndMinutes(22,30)</code> returns <code>22.5</code> */
   static hoursAndMinutes(hours, minutes) {
-    return (Math.round((hours + minutes / 60) * 100) / 100).toString();
+    return (Math.round((hours + minutes / 60) * 100) / 100).toString()
   }
 
   /** Formats dateTime. For example <code>DateFormat.format(DateTime.fromDateTime(2014, 2, 25, 14, 30), 'Y-m-d H:i:s', DateLocale.EN)</code> returns <code>2014-02-25 14:30:00</code>
@@ -66,23 +64,23 @@ class DateFormat {
    * @returns {String} Formatted date
    * */
   static format(dateTime, format, locale) {
-    let result = '';
-    let special = false;
-    let ch = '';
+    let result = ''
+    let special = false
+    let ch = ''
     for (let i = 0; i < format.length; ++i) {
-      ch = format.charAt(i);
+      ch = format.charAt(i)
       if (!special && ch === '\\') {
-        special = true;
+        special = true
       } else {
         if (special) {
-          special = false;
-          result += ch;
+          special = false
+          result += ch
         } else {
-          result += codeToValue(dateTime, ch, locale);
+          result += codeToValue(dateTime, ch, locale)
         }
       }
     }
-    return result;
+    return result
   }
 
   /**
@@ -92,7 +90,7 @@ class DateFormat {
    * @returns {String} Returns Date in short date format depending on locale
    */
   static shortDateFormat(dateTime, locale) {
-    return DateFormat.format(dateTime, locale ? locale.shortDateFormat : 'n/j/Y', locale);
+    return DateFormat.format(dateTime, locale ? locale.shortDateFormat : 'n/j/Y', locale)
   }
   /**
    * Formats DateRange. TODO
@@ -102,9 +100,9 @@ class DateFormat {
    */
   static formatRange(dateRange, locale) {
     if (dateRange._hasTimes) {
-      return locale.daysLabel(dateRange.days()) + ' ' + locale.hoursLabel(dateRange.hours(), dateRange.minutes());
+      return locale.daysLabel(dateRange.days()) + ' ' + locale.hoursLabel(dateRange.hours(), dateRange.minutes())
     } else {
-      return DateFormat.shortDateFormat(dateRange.start, locale) + ' - ' + DateFormat.shortDateFormat(dateRange.end, locale);
+      return DateFormat.shortDateFormat(dateRange.start, locale) + ' - ' + DateFormat.shortDateFormat(dateRange.end, locale)
     }
   }
 
@@ -115,15 +113,13 @@ class DateFormat {
    * @returns {*}
    */
   static formatDefiningRangeDuration(dateRange, locale) {
-    const years = parseInt(dateRange.days() / 360, 10);
-    if (years > 0) return locale.yearsLabel(years);
-    const months = parseInt(dateRange.days() / 30, 10);
-    if (months > 0) return locale.monthsLabel(months);
+    const years = parseInt(dateRange.days() / 360, 10)
+    if (years > 0) return locale.yearsLabel(years)
+    const months = parseInt(dateRange.days() / 30, 10)
+    if (months > 0) return locale.monthsLabel(months)
     return locale.daysLabel(dateRange.days())
   }
-
 }
-
 
 /**
  * List of commonly used date format patterns
@@ -160,7 +156,7 @@ DateFormat.patterns = {
   SortableDateTimePattern: 'Y-m-d\\TH:i:s',
   UniversalSortableDateTimePattern: 'Y-m-d H:i:sO',
   YearMonthPattern: 'F, Y'
-};
+}
 
 /** @private */
 function codeToValue(dateTime, ch, locale) { return ch in codes ? codes[ch](dateTime, locale) : ch }
@@ -174,7 +170,7 @@ function getGMTOffset(dateTime) {
 
 /** @private */
 function leftPad(val, size, ch) {
-  let result = String(val);
+  let result = String(val)
   if (ch === null) {
     ch = ' '
   }
@@ -183,4 +179,4 @@ function leftPad(val, size, ch) {
   }
   return result
 }
-export { DateFormat };
+export { DateFormat }

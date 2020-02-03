@@ -1,10 +1,6 @@
-
-
-
-
 const Duration = function (durationMs) {
   this.durationMs = durationMs
-};
+}
 
 Duration.MS = 1
 Duration.SECOND = 1000
@@ -32,4 +28,4 @@ Duration.prototype.toMS = function () {
 Duration.prototype.asUnit = function (unit) {
   return Number(this.durationMs / unit)
 }
-export { Duration };
+export { Duration }

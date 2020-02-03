@@ -1,5 +1,5 @@
-import { DateTime } from '../DateTime.js';
-import { DateFormat } from '../DateFormat.js';
+import { DateTime } from '../DateTime.js'
+import { DateFormat } from '../DateFormat.js'
 export var ET = {
   id             : 'ET',
   monthNames     : [ 'Jaanuar', 'Veebruar', 'Märts', 'Aprill', 'Mai', 'Juuni', 'Juuli', 'August', 'September', 'Oktoober', 'November', 'Detsember'],
@@ -9,7 +9,7 @@ export var ET = {
   monthsLabel    : months => months + ' ' + (months === 1 ? 'Kuu' : 'Kuud'),
   daysLabel      : days => days + ' ' + (days === 1 ? 'Päev' : 'Päeva'),
   hoursLabel     : (hours, minutes) => {
-    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',');
+    const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes).replace('.', ',')
     return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? 'Tund' : 'Tundi')
   },
   clearRangeLabel: 'TODO',

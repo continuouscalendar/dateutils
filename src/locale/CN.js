@@ -1,6 +1,6 @@
 //简体中文
-import { DateTime } from '../DateTime.js';
-import { DateFormat } from '../DateFormat.js';
+import { DateTime } from '../DateTime.js'
+import { DateFormat } from '../DateFormat.js'
 export const CN = {
     id: 'CN',
     monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
@@ -10,7 +10,7 @@ export const CN = {
     monthsLabel: months => months + ' ' + (months === 1 ? '月' : '月'),
     daysLabel: days => days + ' ' + (days === 1 ? '日' : '日'),
     hoursLabel: (hours, minutes) => {
-      const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes);
+      const hoursAndMinutes = DateFormat.hoursAndMinutes(hours, minutes)
       return hoursAndMinutes + ' ' + (+hoursAndMinutes === 1 ? '小时' : '小时')
     },
     clearRangeLabel: '范围',
@@ -32,4 +32,4 @@ export const CN = {
         "10-01": "国庆节",
         "11-08": "中国记者节"
     }
-};
+}
