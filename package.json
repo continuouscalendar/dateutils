@@ -26,7 +26,7 @@
     "url": "https://github.com/continuouscalendar/dateutils/issues"
   },
   "main": "./build/dateutils-latest.js",
-  "homepage": "http://continuouscalendar.github.com/dateutils/",
+  "homepage": "http://continuouscalendar.github.io/dateutils/",
   "files": [
     "src",
     "package.json",
